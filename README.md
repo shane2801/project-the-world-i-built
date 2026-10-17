@@ -104,3 +104,9 @@ Open the Observatory from the overview or controls. Click room markers or HTML r
 `npm run test:browser` now exercises all five scenes, chronological navigation, hub routes/room anchors and hub graphics recovery. It uses software rendering, so record real desktop/GPU/network results separately against the [provisional targets](project-context/areas/exploration.md#provisional-performance-targets).
 
 Phase 4 is committed as 606cdb3. Phase 5 is left uncommitted for your manual review; Phase 6, commissioning and deployment require separate instruction.
+
+## Phase 6 artwork review
+
+Run npm run dev and review the home illustration and Observatory banner on desktop and phone widths. Confirm the symbolic imagery fits the theme. In DevTools, block /assets/artwork/* and reload: the home CSS planet remains; all information links and Observatory rooms remain readable. Artwork has no essential text, is hidden from assistive technologies, and is hidden in forced-colors/print modes. Exact prompts, preserved originals, variants and maintenance instructions are in [asset provenance](assets/artwork/README.md).
+
+Phase 5 is committed as 2fb2705. This is the first Phase 6 review step; interactive art/likeness, further quality work, real-device performance and release review remain pending. No deployment is included.

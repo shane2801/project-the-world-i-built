@@ -118,3 +118,8 @@
     display: none;
   }
 }
+
+/* Keep art over the existing CSS fallback without changing layout or hit targets. */
+.planet-artwork { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+.planet-artwork[hidden] { display: none; }
+@media print { .planet-study { display: none; } }

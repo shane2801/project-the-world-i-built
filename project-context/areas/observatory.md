@@ -26,3 +26,5 @@ Known source-content gaps stay in [data](data.md#src-11-resume-provenance-and-re
 Build tests cover static room IDs, complete shared content, empty states, authored skill associations and all chapter links. Browser tests cover the hub scene, direct URL/reload, room navigation, return to chapters and graphics failure/retry without leaving the hub.
 
 When approved content changes, validate it once and rebuild both presentations. New/reordered/removed chapters flow into the timeline, navigation and scene beacons automatically; no room-specific career copy or engine location checks are needed. Keep the hub as a view, not a synthetic phase. Production art, hardware/network benchmarks and publication remain later work.
+
+The standalone page now includes a decorative responsive generated banner under DEC-018; [asset provenance](../../assets/artwork/README.md) owns its prompts and source files. The in-world hub continues to use procedural geometry. Readable room content does not depend on either illustration or graphics.

@@ -12,6 +12,7 @@ Load only the task-relevant destinations below. All ten design texts and the sup
 | Review Phase 2 contracts and tests | [Data contracts](areas/data.md) |
 | Entities, relationships, validation | [Data](areas/data.md) |
 | Full journey, travel and performance | [Exploration](areas/exploration.md) |
+| Generated artwork, prompts and derivatives | [Asset provenance](../assets/artwork/README.md) |
 | Observatory rooms, shared content and hub view | [Observatory](areas/observatory.md) |
 | Visitor journeys and maintenance | [Workflows](areas/workflows.md) |
 | Authority and accepted choices | [Decisions](DECISIONS.md) |
@@ -59,14 +60,12 @@ Baseline reconciliation: during creation, SRC-01 gained a leading CRLF outside t
 
 SRC-11 is an unchanged copy of the user-selected C:/Users/kavish.muthoora/Downloads/stuff/KAVISH MUTHOORA.docx, preserved under docs/ with SHA-256 E1346E0DCD050409B91B7A551B7E7593ED941C533E006E0B7DBCAA5B2B81735D. It adds one DOCX to the original ten design texts; it does not replace or modify them. Check its fingerprint alongside the ten text fingerprints above. DEC-015 records use permission; paragraph locators and field provenance belong in [data](areas/data.md#src-11-resume-provenance-and-remaining-detail). Original external source and repository copy have identical bytes.
 
-## Current handoff — Phase 5
+## Current handoff ? Phase 6 artwork review
 
-Phase 4 is committed as 606cdb3 (including the previously uncommitted Phase 3 work). Phase 5 is accepted under DEC-018. All five chapter proxies, ordered portals/direct choice and the Observatory are implemented. The user authorized the Phase 5 local milestone commit and Phase 6 quality/assets, including generated theme artwork. No deployment is authorized.
+Phase 5 is committed as 2fb2705. DEC-018 authorizes Phase 6 quality/assets and generated theme artwork. The first review step adds decorative home/Observatory illustrations with responsive variants; [asset provenance](../assets/artwork/README.md) owns the full prompts and preserved originals. Interactive scenes remain procedural. Artwork is accepted for a local milestone commit under DEC-019; the next step is remaining Phase 6 recovery/quality. No deployment is authorized.
 
-Final verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 66 tests (33 domain, four routes, 16 world/movement/travel/URL, three HTTP, four portfolio, six explorer/Observatory build). Ten static pages were generated. The final browser-test edits also passed npm run lint. No packages or dependency versions changed; package-lock.json and authored portfolio data match Phase 4.
+Verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 67 tests; ten static pages generated. npm run test:browser passed installed-Chrome software-WebGL checks for all five chapters, history, focus/Escape, reduced motion, phone layout, renderer failure and hub/chapter context-loss recovery. Added browser checks passed generated-image loading, decorative semantics, responsive layout and blocked-image fallback, including a repaired failure-before-hydration case. Desktop home and phone Observatory screenshots were visually reviewed. Runtime images are 32?210 kB; originals stay outside public/. No packages were added; dependency lockfile and all eleven source fingerprints remain unchanged.
 
-Installed Chrome 155.0.8059.84 passed isolated software-WebGL checks for all five scenes, chronological/direct travel, history, project focus/Escape, reduced motion, phone layout, network failure, standalone/direct Observatory URLs, room anchors and hub/chapter context-loss recovery. Test browsers, servers and temporary profiles were closed/removed. The Observatory screenshot was inspected.
+Context audit validates local links/anchors, 56 stable requirement/decision/question/concept IDs, acyclic imports and no test fixtures in production. Mermaid passes static subset checks (nine groups, 139 edges); official rendering remains unverified. AGENTS.md stays under 200 words. Real GPU/network benchmarks, exhaustive assistive-technology QA, likeness/GLB art and public-release art approval remain open (Q-003/Q-007); known content gaps remain Q-001/Q-017.
 
-The lazy renderer remains about 244 kB gzip, inside its provisional 350 KiB budget. Vite warns about the approximately 922 kB uncompressed renderer chunk; home and Observatory information routes do not preload it. Real GPU/network benchmarks, exhaustive visual/assistive-technology QA and official Mermaid rendering remain unverified. Use the [manual review](../README.md#phase-5-manual-review-chrome) and [provisional targets](areas/exploration.md#provisional-performance-targets).
-
-Context audit: all eleven source fingerprints match; local links/anchors and 55 stable IDs resolve; module imports are acyclic and production entries/bundles contain no synthetic fixtures. Mermaid passes static subset checks with eight balanced groups and 133 edges. AGENTS.md is 196 words. Known content gaps remain Q-001/Q-017; licensed assets and hardware budgets remain Q-003/Q-007.
+Run npm run dev and review home and /observatory/ before further Phase 6 quality work. This is an asset review checkpoint, not final Phase 6 acceptance.

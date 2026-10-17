@@ -190,3 +190,9 @@ Do not add tests that merely mirror trivial implementation. Select device/networ
 ## Open approvals and defaults
 
 Production inputs and remaining interpretations are owned by [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md). The static baseline and DEC-008 interactions are accepted; timeline overlap/order and project tags/presentation semantics are accepted under DEC-012. Detailed project evidence, disputed figures, performance targets and hosting remain open. SRC-11 supplies owner-authorized facts and direct contact links under DEC-015.
+
+## Phase 6 generated decorative artwork ? review step
+
+DEC-018 authorizes Phase 6 and theme-matched generated art. The home PlanetIllustration and standalone Observatory page consume responsive JPEG illustrations under public/assets/artwork. Their source PNGs and exact prompts live outside the public build in [assets/artwork](../assets/artwork/README.md). This adds no dependency, API or 3D texture. Images have empty alternative text, explicit dimensions, responsive source selection and failure handling; the home CSS planet remains as a fallback. Generated imagery is symbolic, not career evidence or character likeness.
+
+This is the first Phase 6 review step, not final quality sign-off. Interactive scenes remain procedural. Q-003 covers remaining likeness/GLB/release-art review and Q-007 covers real hardware/network measurement. No deployment or Phase 7 is authorized.

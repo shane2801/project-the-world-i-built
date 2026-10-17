@@ -163,3 +163,12 @@ flowchart TD
     ARCH -->|records current implementation| APP
     SRC -->|preserved in| GIT["Local Git milestones / DEC-011, DEC-013 and DEC-017"]
     APP -->|versioned in| GIT
+
+    subgraph GENERATED_ART["Phase 6 decorative artwork / DEC-018"]
+        ART_MANIFEST["assets/artwork/README.md / prompts, provenance, ASSET-001 and ASSET-002"] --> ART_ORIGINALS["assets/artwork/originals / preserved PNGs, not shipped"]
+        ART_MANIFEST --> ART_RUNTIME["public/assets/artwork / responsive JPEGs"]
+        ART_RUNTIME --> ART_IMAGE["components/ui/DecorativeImage / hydration-safe failure handling"]
+        ART_IMAGE --> ART_HOME["Home PlanetIllustration / CSS failure fallback"]
+        ART_RUNTIME --> OBS_PAGE
+        ARCH --> ART_MANIFEST
+    end

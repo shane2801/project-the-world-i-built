@@ -80,6 +80,29 @@ try {
   await command('Network.enable');
   await command('Network.setCacheDisabled', { cacheDisabled: true });
   await command('Emulation.setDeviceMetricsOverride', { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
+  await command('Page.navigate', { url: origin + '/' });
+  await waitFor("document.querySelector('.planet-artwork')?.naturalWidth > 0", 'generated home artwork');
+  assert.ok(await evaluate("document.querySelector('.planet-artwork').alt === '' && document.querySelector('.planet-artwork').closest('[aria-hidden=true]') && document.documentElement.scrollWidth <= innerWidth"));
+  if (process.env.ASSET_SCREENSHOT_BASE) {
+    const shot = await command('Page.captureScreenshot', { format: 'png' });
+    await writeFile(process.env.ASSET_SCREENSHOT_BASE + '-home.png', Buffer.from(shot.data, 'base64'));
+  }
+  await command('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
+  await command('Page.navigate', { url: origin + '/observatory/' });
+  await waitFor("document.querySelector('.observatory-artwork')?.naturalWidth > 0", 'generated Observatory artwork');
+  assert.ok(await evaluate("document.querySelector('.observatory-artwork').alt === '' && document.querySelectorAll('.observatory-hub > section').length === 4 && document.documentElement.scrollWidth <= innerWidth"));
+  if (process.env.ASSET_SCREENSHOT_BASE) {
+    const shot = await command('Page.captureScreenshot', { format: 'png' });
+    await writeFile(process.env.ASSET_SCREENSHOT_BASE + '-observatory.png', Buffer.from(shot.data, 'base64'));
+  }
+  await command('Network.setBlockedURLs', { urls: ['*assets/artwork/*'] });
+  await command('Page.navigate', { url: origin + '/' });
+  await waitFor("document.querySelector('.planet-artwork')?.hidden === true", 'image failure reveals CSS planet');
+  assert.ok(await evaluate("getComputedStyle(document.querySelector('.planet')).display !== 'none' && !!document.querySelector('[href=\"/resume/\"]')"));
+  await command('Network.setBlockedURLs', { urls: [] });
+  await command('Emulation.setDeviceMetricsOverride', { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
+  console.log('PASS Chrome: generated artwork loads, decorative semantics, phone layout and blocked-image fallback');
+
   await command('Page.navigate', { url: origin + '/explore/' });
   await waitFor("document.querySelector('h1')?.textContent === 'Explore the world' && ![...document.querySelectorAll('button')].find(b => b.textContent === 'Enable 3D prototype')?.disabled", 'hydrated desktop explorer');
   assert.equal(await evaluate("document.querySelectorAll('canvas').length"), 0);

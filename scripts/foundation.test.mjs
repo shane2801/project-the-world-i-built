@@ -85,3 +85,14 @@ test('production preview serves the static page and its JS/CSS assets', async ()
     await closeServer(server.httpServer);
   }
 });
+
+
+test('generated runtime artwork is delivered within bounded transfer sizes', async () => {
+  for (const [name, budget] of [['planet-620', 250], ['planet-1160', 250], ['observatory-720', 200], ['observatory-1440', 200]]) {
+    const bytes = await readFile(new URL('dist/assets/artwork/' + name + '.jpg', root));
+    assert.ok(bytes.length > 1000 && bytes.length < budget * 1024, name + ' image transfer budget');
+    assert.equal(bytes.readUInt16BE(0), 0xffd8, 'JPEG signature');
+  }
+  const entries = await readdir(new URL('dist/', root));
+  assert.ok(!entries.includes('originals'), 'Source artwork must not ship in the runtime build');
+});
