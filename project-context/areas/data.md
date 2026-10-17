@@ -1,57 +1,69 @@
 # Data and content contracts
 
-Status: **recommended model**, derived from REQ-003–REQ-011. The repository contains no production dataset or schema implementation.
+Status: **Phase 2 implemented under DEC-012**, with approved overlap/order and tag/presentation semantics. No verified production dataset is supplied or imported into the application.
 
-Sources: [SRC-01, Timeline/Project Systems, 20–65 and 152–199](../../docs/theworldibuild-01.txt); [SRC-09, World Data Model/Project Scalability, 41–100 and 172–202](../../docs/theworldibuild-09.txt); [SRC-10, Project System/Scalability](../../docs/theworldibuild-10.txt).
+Evidence: [SRC-01, Timeline/Project Systems, 20–65 and 152–199](../../docs/theworldibuild-01.txt); [SRC-09, World Data Model/Phase Ordering/Project Scalability](../../docs/theworldibuild-09.txt); [SRC-10, Project System/Scalability](../../docs/theworldibuild-10.txt). Source-backed requirements are REQ-003–REQ-011. Exact interface and validation details below are implementation contracts, not facts about the owner.
 
-## Entities
+## Ownership and modules
 
-| Entity | Minimum responsibilities |
+| Module under src/domain/career | Responsibility |
 |---|---|
-| Portfolio | Identity, introduction, contact references, explicit currentPhaseId |
-| Phase | Stable id, explicit order, title, dates, location, narrative, themeId, characterStateId |
-| Experience | Stable id, phaseId, organization/role, responsibilities, skill/achievement associations |
-| Project | Stable id, phaseId, optional experience association, title, type, importance, story/problem/solution, architecture, contribution, technologies, impact, media, links |
-| Skill | Stable id, name and associations with phases/experiences/projects |
-| Achievement | Stable id, description, supporting evidence and associations |
-| CharacterState | Stable id and authored appearance, clothing, prop and animation references |
-| WorldTemplate | Stable id, palette, walkable area, placement rules, station/camera anchors |
-| AssetManifest | Stable asset identifiers mapped to model, animation, image and audio resources |
+| types.ts | Readonly Portfolio, Phase, Experience, Project, Skill, Achievement, Link, Media and validation results |
+| validate.ts | Unknown-input boundary; parsed result or structured path/code/message issues |
+| validation/fields.ts | Primitive/collection checks and permitted URL forms |
+| validation/entities.ts | Explicit entity parsing |
+| validation/references.ts | ID/order uniqueness and relationship checks |
+| queries.ts | Pure ordering, lookups, joins and neighboring phases |
+| *.test.ts and __fixtures__/portfolio.ts | Colocated unit tests and explicitly synthetic draft fixtures |
 
-Do not infer dates, metrics or age from sample values. Exact date granularity and overlapping role behavior remain Q-009. Importance uses small/medium/major, as documented; project classification semantics remain Q-010.
+The domain imports no React, browser UI, Three.js, network client or persistence service. URL parsing uses the standard URL API available in Node and browsers.
 
-## Relationships and interfaces
+## Entity contract
 
-Portfolio references its current Phase. Each Phase has experiences, projects, achievements and skills. Projects link to evidence and optional experience context. Theme and character-state references resolve through the template/asset registries.
+| Entity | Fields and relationships |
+|---|---|
+| Portfolio | reviewStatus, name, headline, introduction, currentPhaseId, contacts, phases, experiences, projects, skills, achievements |
+| Phase | id, title, location, period, order, description, themeId, characterStateId, skillIds |
+| Experience | id, phaseId, role, organization, period, responsibilities, skillIds |
+| Project | id, phaseId, optional experienceId, title, description, tags, presentationKind, importance, problem, solution, architecture, contribution, technologies, impact, media, links, skillIds |
+| Skill | id, name |
+| Achievement | id, phaseId, optional experienceId, title, description, links |
+| Link / Media | label + href; kind + src + alt respectively |
 
-Recommended internal interfaces:
+All listed fields are required except experienceId. Collections may be empty, but currentPhaseId must reference a phase. Text fields require nonempty strings; unknown fields are rejected to catch typos. IDs/references reject surrounding whitespace. Parsers construct new values and do not mutate authored input.
 
-- Content validator: authored content -> validated model or actionable errors.
-- World builder: validated model + template registry -> deterministic world descriptors.
-- Experience controller: navigation intent -> loading/selection/transition state.
-- Renderer: world descriptors + state + assets -> visible world; emits interaction events.
-- Information UI: validated content + selection -> semantic HTML.
+CharacterState, WorldTemplate and AssetManifest implementations remain with the later world/asset phase. Phase visual identifiers are checked as strings now; no nonexistent production artwork is fabricated.
 
-Landmark descriptors reference entity IDs; they never contain a second authoritative copy of resume/project prose. These are in-process contracts, not HTTP APIs.
+## Approved semantics and validation
 
-## Build and data flow
+- Overlapping periods are allowed. period is an authored label, not parsed or used to infer age, chronological sorting, grouping or date precision.
+- Unique nonnegative safe-integer phase order determines sequencing. Gaps are allowed. IDs are independent of order/array position; current phase is explicit.
+- IDs are unique within each entity collection. References must resolve; repeated skill references are rejected.
+- Experience, project and achievement phase references must exist. Optional experience associations must exist in the same owning phase.
+- Tags are multiple descriptive labels. Exact tag queries do not normalize case or infer presentation. presentationKind independently selects software, ai, client or open-source; importance is small, medium or major.
+- Media kinds are image, video or diagram, with nonempty alternative text.
+- Links permit HTTP(S), safe root-relative paths and mailto contacts. Media excludes mailto. Active-content schemes, protocol-relative paths, backslashes, controls, whitespace and unresolved relative URLs are rejected.
 
-Authored career content -> validation -> shared model -> static information pages and world descriptors -> browser scene loading.
+Landmarks will reference these entity IDs instead of copying content. Structural validation does not establish whether an employer, outcome, image or date is true or permitted to publish.
 
-Recommend source-controlled structured content initially. No runtime database, CMS or authentication is required by the approved release scope. A future editor would produce the same validated content contract rather than a second model.
+## Validation and publication interface
 
-Recommended validation checks:
+`validatePortfolio(input: unknown, { forPublication?: boolean })` returns either `{ ok: true, value: Portfolio }` or `{ ok: false, issues }`. Each issue has a stable path, code and human-readable message. Shape errors block relationship checks; invalid partial values are never returned as valid content.
 
-- Unique stable IDs; valid references and explicit current phase.
-- Unambiguous display order independent of ID and date strings.
-- Required published content, known importance values and valid asset references.
-- Media paths and generated internal URLs resolve.
-- Draft examples cannot silently become published claims.
+Default validation accepts structurally valid drafts for local authoring/testing. With `forPublication: true`, reviewStatus must be approved. That marker records a human decision; it cannot verify biography or disclosure rights. A future publishing build must invoke this guard when real content is introduced.
 
-## Expansion and compatibility
+No src/content/portfolio.ts exists yet. Synthetic fixtures are draft and imported only by tests, never application or prerender entries. Q-001/Q-002 still block publishing actual content.
 
-Add/reorder/remove content without location-specific engine edits. Reordering preserves IDs and URLs. Deleting a phase must explicitly resolve its dependent content; do not silently reassign projects.
+## Queries and expansion
 
-Keep runtime-selected IDs separate from array positions. New themes may reuse existing templates; new bespoke art requires production work. Visible content is bounded even when the catalogue grows.
+getOrderedPhases returns a sorted copy; getCurrentPhase resolves the explicit ID. getProjectById, getProjectsForPhase and getProjectsByTag preserve authored associations/order. Unknown lookups return undefined or an empty result, without inventing entities.
 
-A schema version should be introduced when persisted content contracts are implemented; exact wire shapes and migration policies are deferred until there is an actual dataset to migrate.
+getPhaseContent joins experiences, projects and achievements and deduplicates skills referenced by the phase or its experiences/projects. getAdjacentPhases follows explicit order and handles first/last/unknown phases.
+
+Adding/reordering content requires no location-specific engine edits. Deleting a referenced phase is invalid until dependent content and current selection are resolved explicitly. Tests cover these invariants using fictional data, including a sixth chapter.
+
+## Verification boundaries
+
+npm run test:domain uses Node 24's existing test runner for erasable TypeScript. npm run check includes unit tests, lint, strict type checking, production builds and foundation smoke checks.
+
+Physical asset existence, character/template registries, generated routes, public content, schema migrations and UI/world integration are not implemented in this phase. Later components must consume validated content through this boundary.

@@ -52,7 +52,7 @@ Accepted under DEC-009/DEC-010.
 6. Run relevant lint/type/build/tests; distinguish executed results from manual/browser checks still needed.
 7. Update context/graph for material approved changes, leave a usable state, and stop for manual review before the next phase.
 
-Current step: organization only. Do not begin career data/domain work or install future test/rendering libraries without the next authorized phase.
+Current step: commit the approved Phase 2 milestone and prepare Phase 3 under DEC-013. Resolve verified content/publication permissions (Q-001/Q-002), or obtain explicit approval for labeled draft pages, before UI edits. Implement only Phase 3, verify, and stop for manual review.
 
 ## Content maintenance
 

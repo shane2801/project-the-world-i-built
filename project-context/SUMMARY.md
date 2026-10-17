@@ -29,6 +29,6 @@ These confirm documented design intent, not the accuracy of biographical example
 
 Accepted scope is recorded in [DEC-002 through DEC-005](DECISIONS.md): all five chapters at launch; adaptive device support; prototype before commissioned art; no journal or admin dashboard initially.
 
-DEC-007 and DEC-008 are now accepted by explicit user approval. Phase 1 implements only the application foundation; the career dataset, resume/project workflows and 3D experience remain future phases. Technology choices come from user approval, not the original source documents. See [architecture status](ARCHITECTURE.md#status-and-boundaries).
+DEC-007 and DEC-008 are now accepted by explicit user approval. Phase 1 implements only the application foundation; the verified career dataset, resume/project workflows and 3D experience remain future work. DEC-012 adds pure domain contracts/validation/queries and synthetic tests in Phase 2 without changing the UI. Technology choices come from user approval, not the original source documents. See [architecture status](ARCHITECTURE.md#status-and-boundaries).
 
 Verified resume/project content, assets, budget and deployment details remain missing. Source examples must not be published as facts; see [Q-001](OPEN_QUESTIONS.md#q-001--verified-content).

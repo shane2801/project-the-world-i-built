@@ -2,7 +2,7 @@
 
 ## Status and boundaries
 
-**Approved design; Phase 1 foundation is complete. The DEC-010 organization step and Phase 1 milestone are approved by the user; Phase 2 has not started.** Source-backed requirements are owned by [SUMMARY.md](SUMMARY.md). Accepted user choices are in [DECISIONS.md](DECISIONS.md). DEC-007/DEC-008 are accepted. Data-contract details and production inputs not covered by those decisions remain open; see OPEN_QUESTIONS.md.
+**Approved design; Phase 1 foundation is complete. The DEC-010 organization step and Phase 1 milestone are approved by the user; Phase 2 core data/domain is complete under DEC-012 and approved by the user. DEC-013 authorizes its local commit and Phase 3, whose verified-content prerequisite remains unresolved.** Source-backed requirements are owned by [SUMMARY.md](SUMMARY.md). Accepted user choices are in [DECISIONS.md](DECISIONS.md). DEC-007/DEC-008 are accepted. Data-contract details and production inputs not covered by those decisions remain open; see OPEN_QUESTIONS.md.
 
 At discovery the repository had only ten original design documents. Phase 1 adds the React/Vite shell, build-time HTML rendering, configuration, smoke checks and setup instructions. See [README.md](../README.md) for commands and [DEC-009](DECISIONS.md#dec-009--incremental-implementation-and-review-gate) for authorization. A local Git repository is initialized under DEC-011; no remote, push or deployment is authorized.
 
@@ -67,7 +67,7 @@ Public interfaces include stable URLs for resume, project details and selected c
 
 Internal interfaces: validate content, build world descriptors, select phase/project, travel, return to overview, change presentation, skip intro. They operate in process; no HTTP API is required.
 
-Entity relationships and validation belong in [data.md](areas/data.md). Keep stable IDs independent of ordering and explicitly name the current phase. No production schema or content API is implemented.
+Entity relationships and validation belong in [data.md](areas/data.md). Keep stable IDs independent of ordering and explicitly name the current phase. Phase 2 implements the career schema and pure queries; no runtime content API is introduced. Verified authored portfolio content is still missing.
 
 ## Rendering, accessibility and failure behavior
 
@@ -83,7 +83,7 @@ Risks: asset production effort, long initial loads, cinematic friction, renderin
 
 ## Staged implementation and acceptance criteria
 
-The context-system and Phase 1 foundation stages are complete. DEC-010's behavior-preserving organization step is complete and approved. DEC-011 authorizes the local Phase 1 Git milestone; Phase 2 is not authorized yet. The current implementation roadmap below refines the original delivery stages without changing the five-chapter public-launch requirement.
+The context-system and Phase 1 foundation stages are complete. DEC-010's behavior-preserving organization step is complete and approved. DEC-011 completed the local Phase 1 Git milestone. Phase 2 is approved; DEC-013 authorizes its commit and Phase 3 subject to the documented content prerequisite. The current implementation roadmap below refines the original delivery stages without changing the five-chapter public-launch requirement.
 
 | Phase | Dependency | Deliverable and acceptance |
 |---|---|---|
@@ -109,11 +109,11 @@ The two-chapter prototype is internal; public launch still includes all five cha
 - `scripts/prerender.mjs` injects rendered content into `dist/index.html`; deployable output is only `dist/`.
 - The Vite configuration binds to loopback and denies serving original documents/context files. No runtime backend is introduced.
 - Tool versions are pinned in package.json/package-lock.json. TypeScript 6.0.3 stays within typescript-eslint's supported range; npm reported TypeScript 7 as latest but unsupported by the selected linter.
-- Three.js/React Three Fiber, career content, navigation workflows and art remain unimplemented. Phase 1 passed npm run check (lint, strict types, static build and three HTTP/static-content smoke tests); browser hydration and visual QA remain unverified. Do not start Phase 2 without a separate instruction.
+- Three.js/React Three Fiber, verified career content, navigation workflows and art remain unimplemented. Phase 1 passed npm run check (lint, strict types, static build and three HTTP/static-content smoke tests); browser hydration and visual QA remain unverified. Phase 2 domain work is now approved; Phase 3 authorization and prerequisites are recorded in DEC-013.
 
 ## Feature organization and growth
 
-Accepted under DEC-010. Only app, shared layout, home and shared styles exist now; future directories are created when their owning phase starts. Verification passed npm run check, including all three smoke tests. Rendered React markup is byte-identical to the pre-extraction baseline; static comparison preserved 29 CSS rules and 106 declarations after resolving tokens. The user approved the resulting milestone; browser visuals and hydration were not automatically verified.
+Accepted under DEC-010. App, shared layout, home, shared styles and the Phase 2 career domain now exist; future feature directories are created when their owning phase starts. Verification passed npm run check, including all three smoke tests. Rendered React markup is byte-identical to the pre-extraction baseline; static comparison preserved 29 CSS rules and 106 declarations after resolving tokens. The user approved the resulting milestone; browser visuals and hydration were not automatically verified.
 
 | Location | Responsibility |
 |---|---|
@@ -121,7 +121,7 @@ Accepted under DEC-010. Only app, shared layout, home and shared styles exist no
 | src/components/layout and ui | Shared layout; genuinely reused controls added when needed |
 | src/features/home | Present landing content and decorative illustration |
 | src/content | Future approved authored data, separate from test fixtures |
-| src/domain/career | Future pure types, validation and queries; no React/Three.js dependencies |
+| src/domain/career | Implemented pure types, validation, queries and colocated tests; no React/Three.js dependencies |
 | src/features/resume and projects | Future pages and feature-owned components |
 | src/features/explore | Future page, scene, controls, hooks, world generation and travel state |
 | public/assets | Future static model/media files |
@@ -135,7 +135,17 @@ State strategy: URLs own shareable chapter/project selection; local React state 
 
 Styling strategy: plain CSS with shared color/spacing/type/layout tokens, base accessibility styles, and owner-scoped feature/layout styles. Preserve the current visual direction and breakpoints. No new CSS framework.
 
-Testing strategy: preserve Node HTTP/static-build smoke tests. Colocate pure domain/feature tests with their owners. Vitest and React Testing Library with a DOM environment are the proposed tooling for later TypeScript/component behavior tests; no test dependencies are added in this step. Browser tests remain necessary for hydration, focus and 3D behavior.
+Testing strategy: preserve Node HTTP/static-build smoke tests. Phase 2 uses the same Node runner for colocated erasable-TypeScript domain tests without installing packages. Vitest and React Testing Library with a DOM environment are the proposed tooling for later React component behavior tests; no test dependencies are added in this step. Browser tests remain necessary for hydration, focus and 3D behavior.
+
+## Phase 2 domain implementation
+
+Implementation contract details are owned by [areas/data.md](areas/data.md). Pure types, field/entity/reference validation and queries are separate cohesive modules. validatePortfolio accepts unknown input and returns parsed content or path/code/message issues; an explicit forPublication option rejects drafts.
+
+Dates remain authored labels; phase order is unique and independent of time or array position. Queries preserve IDs, association ownership and input immutability. Tags are independent from presentation kind. No database, network service, asset resolution, world generation or UI integration is added.
+
+All synthetic data lives under domain __fixtures__ and is imported by tests only; no src/content/portfolio.ts exists until verified content is supplied. The home page and its rendered output remain unchanged.
+
+Node 24 executes erasable TypeScript tests directly. tsconfig allows explicit .ts imports and disallows non-erasable constructs. npm run test:domain runs the unit suite; npm run check also runs lint, strict types, the static build and existing HTTP smoke tests. No dependency versions or lockfile change. Final npm run check passed 32 domain tests, three smoke tests, lint, strict types and both builds. Rendered home markup is unchanged; Phase 3 has not started.
 
 ## Validation strategy
 
@@ -147,4 +157,4 @@ Do not add tests that merely mirror trivial implementation. Select device/networ
 
 ## Open approvals and defaults
 
-Production inputs and remaining interpretations are owned by [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md). The static baseline and DEC-008 interactions are accepted; detailed timeline/project classification, verified content, contact mechanism, performance targets and hosting remain open.
+Production inputs and remaining interpretations are owned by [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md). The static baseline and DEC-008 interactions are accepted; timeline overlap/order and project tags/presentation semantics are accepted under DEC-012. Verified content, contact mechanism, performance targets and hosting remain open.

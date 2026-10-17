@@ -16,7 +16,7 @@ Status: source-backed vocabulary with explicitly labeled modeling recommendation
 | CON-008 | Observatory | Global headquarters for history, work, skills and future; REQ-010 |
 | CON-009 | Skill / achievement | Career capabilities and evidence; [SRC-09, Achievement/Skill Systems, 204–249](../../docs/theworldibuild-09.txt) |
 
-**Modeling recommendation:** keep a phase distinct from an experience so a chapter can contain multiple roles. A landmark references content rather than duplicating it. Projects may be software, AI, client work or open source, but these descriptions can overlap; exclusive category semantics are not source-confirmed.
+**Modeling recommendation:** keep a phase distinct from an experience so a chapter can contain multiple roles. A landmark references content rather than duplicating it. Projects may be software, AI, client work or open source, but these descriptions can overlap; DEC-012 resolves classification as multiple tags plus a separate presentation kind, not exclusive subject categories.
 
 ## Initial region identities
 

@@ -38,11 +38,11 @@ Direct email/social links or a form? Recommend direct links initially. A form re
 
 ## Q-009 — Timeline semantics
 
-How should overlapping education, employment and freelance work be represented? Recommend explicit display order independent of dates; preserve actual date overlap. Exact date granularity and phase/role grouping require verified content.
+**Resolved for Phase 2, 2026-10-17 (DEC-012):** the user approved overlap and explicit display order. Periods remain authored display labels; no inferred ages, date-based sorting or merged chapters. Verified dates/content remain Q-001; structured date arithmetic is not part of this phase.
 
 ## Q-010 — Project classification
 
-Software, AI, client and open-source categories overlap. Decide after examining actual projects whether tags plus a presentation kind are needed. Do not enforce an exclusive category taxonomy prematurely.
+**Resolved, 2026-10-17 (DEC-012):** the user approved multiple descriptive tags plus a separate presentation kind. Initial presentation kinds are software, ai, client and open-source; importance remains small, medium or major. Tags do not determine the selected visual kind.
 
 ## Design tensions and conflicts
 

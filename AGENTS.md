@@ -12,4 +12,4 @@ Start at [project-context/INDEX.md](project-context/INDEX.md). Load only context
 - Run relevant checks, including `npm run check`; report only executed results and verification limits.
 - Update affected context, decisions and graph when approved architecture/interfaces/dependencies change.
 - Implement one approved step at a time; leave a coherent testable state and wait for manual review.
-- Current authorization: approved Phase 1 local Git milestone (DEC-011) only. Phase 2, deployment and commissioned assets require separate instruction.
+- Authorization: commit Phase 2; begin Phase 3 (DEC-013). Resolve content prerequisites before UI edits; stop for manual review. No deployment or commissioned assets.

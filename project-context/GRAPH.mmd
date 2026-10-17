@@ -15,7 +15,7 @@ flowchart TD
         INDEX --> GRAPH["GRAPH.mmd"]
         SUMMARY -->|derived from| SRC
         DOMAIN -->|derived from| SRC
-        DATA -->|proposes model for| DOMAIN
+        DATA -->|documents implemented contracts for| DOMAIN
         ARCH -->|addresses requirements| SUMMARY
         ARCH -->|follows accepted decisions| DEC
         Q -->|questions or blocks| ARCH
@@ -75,10 +75,22 @@ flowchart TD
         LINT["ESLint and strict TypeScript checks"] -->|validate| APP
     end
 
+    subgraph Career["Phase 2 domain / DEC-012 / no UI integration"]
+        TYPES["domain/career/types.ts"] --> PARSE["validate.ts / unknown input boundary"]
+        FIELDS["validation/fields.ts and entities.ts"] --> PARSE
+        REFS["validation/references.ts"] --> PARSE
+        PARSE -->|valid only| PARSED["Validated Portfolio"]
+        PARSED --> QUERIES["queries.ts / order and content joins"]
+        FIXTURES["__fixtures__/portfolio.ts / synthetic draft only"] --> UNIT["Node domain tests"]
+        PARSE --> UNIT
+        QUERIES --> UNIT
+        DATA -->|owns contract documentation| TYPES
+    end
+
     DOMAIN -->|defines| CON_001
     ARCH -->|specifies target| BUILDER
-    DATA -->|defines proposed contract| MODEL
+    DATA -->|defines career contract for target| MODEL
     FLOW -->|defines planned behavior| CONTROL
     ARCH -->|records current implementation| APP
-    SRC -->|preserved in| GIT["Local Git repository / Phase 1 / DEC-011"]
+    SRC -->|preserved in| GIT["Local Git milestones / DEC-011 and DEC-013"]
     APP -->|versioned in| GIT

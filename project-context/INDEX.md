@@ -1,6 +1,6 @@
 # Context index
 
-Read only relevant destinations. Source review: 2026-10-17. All ten source files were inspected. DEC-007/DEC-008 are accepted; Phase 1 is complete. The user approved the DEC-010 organization step and Phase 1 milestone; DEC-011 authorizes local Git initialization and the Phase 1 commit only. Phase 2 has not started. See the architecture for current implementation status.
+Read only relevant destinations. Source review: 2026-10-17. All ten source files were inspected. DEC-007/DEC-008 are accepted; Phase 1 is complete. The user approved the DEC-010 organization step and Phase 1 milestone; DEC-011 authorizes local Git initialization and the Phase 1 commit only. Phase 2 core data/domain (DEC-012) is complete and approved. DEC-013 authorizes its local commit and Phase 3; UI work awaits resolution of the verified-content prerequisite. See the architecture for current implementation status.
 
 | Task | Load |
 |---|---|
@@ -9,6 +9,7 @@ Read only relevant destinations. Source review: 2026-10-17. All ten source files
 | Module ownership and growth | [Feature organization](ARCHITECTURE.md#feature-organization-and-growth) |
 | Components, stack, delivery stages | [Architecture](ARCHITECTURE.md) |
 | Concepts and region identities | [Domain](areas/domain.md) |
+| Review Phase 2 contracts and tests | [Data contracts](areas/data.md) |
 | Entities, relationships, validation | [Data](areas/data.md) |
 | Visitor journeys and maintenance | [Workflows](areas/workflows.md) |
 | Authority and accepted choices | [Decisions](DECISIONS.md) |
@@ -66,3 +67,7 @@ The Sites install helper could not resolve npm correctly on this Windows host; n
 ## Organization verification
 
 DEC-010, 2026-10-17: npm run check passed lint, strict types, client/static-render builds and all three existing smoke tests. The rendered React markup exactly matches the pre-extraction fingerprint. A static CSS comparison preserved all 29 original rules and 106 declaration values after resolving shared tokens, including responsive and forced-colors rules. package.json/package-lock.json are unchanged; no packages were installed. Browser visuals/hydration and official Mermaid rendering remain unverified. The user subsequently approved this milestone; wait for a separate instruction before Phase 2.
+
+## Phase 2 verification
+
+DEC-012, 2026-10-17: the final npm run check passed lint, strict TypeScript, 32 domain tests, client/static-render builds and all three foundation smoke tests. Tests cover unknown-input diagnostics, IDs/references, explicit order and overlapping labels, independent tags/presentation, publication review, safe links, add/remove/reorder behavior and immutable queries. The home markup, dependency versions and package-lock.json are unchanged. No packages, production data, UI workflow, database or remote service were added. Browser hydration/visual QA and official Mermaid rendering remain unverified. The user subsequently approved Phase 2 and requested its commit and Phase 3 (DEC-013). All ten source fingerprints were rechecked unchanged before commit; Phase 3 UI work awaits its content prerequisite.

@@ -78,6 +78,24 @@ Use the existing configured Git identity and default branch. Track source, conte
 
 This authorizes initialization and a local commit only: no remote, push, deployment or Phase 2 work. Prior phase verification is recorded in INDEX.md; this repository operation does not imply new browser testing.
 
+## DEC-012 — Phase 2 domain contracts and timeline/project semantics
+
+**Accepted, 2026-10-17.** The user requested “begin phase 2” and explicitly approved both recommendations: overlapping periods with explicit display order, and multiple descriptive project tags plus one independent presentation kind.
+
+Period values are authored display labels, not chronology or age calculations. Unique explicit phase order drives sequencing without changing stable IDs or associations. Current phase is an explicit reference. Projects retain one owning phase and optional experience association; the association must agree with that phase.
+
+Implementation: pure career types, unknown-input validation and queries under src/domain/career; synthetic fixtures live only under __fixtures__. A root draft/approved review marker supports an explicit publication validation option. This marker represents human review, never automated factual verification. Asset file resolution and character/template registries belong to later phases.
+
+Use the existing Node test runner for erasable TypeScript domain tests; no packages or persistence infrastructure are added. This phase changes no user interface and does not authorize Phase 3, a Git commit, remote operations or deployment. Verify and stop for manual review.
+
+## DEC-013 — Phase 2 acceptance and Phase 3 authorization
+
+**Accepted, 2026-10-17.** The user reviewed Phase 2 and instructed “ok commit and begin next phase.” Commit the domain/data milestone locally; begin Phase 3 accessible portfolio under the existing architecture. No remote, deployment or later phase is authorized.
+
+The Phase 3 prerequisite remains verified publishable content (Q-001/Q-002). No production dataset exists; synthetic test fixtures remain test-only. Ask for verified content or explicit approval of clearly labeled draft pages/empty states before UI implementation. This records a prerequisite, not approval of a draft-content alternative. Contact behavior remains Q-006.
+
+Scope after that prerequisite is resolved: shared static/browser routes, accessible resume and project catalogue/details, renderer-independent HTML and direct-URL checks. Preserve the approved feature boundaries and styling; stop for manual review after verification. Existing Phase 2 check results are recorded in INDEX.md; this acceptance does not imply browser verification.
+
 ## Change rule
 
 Never silently replace a decision. Add rationale/provenance and a replacement ID when superseding one; update affected requirements, architecture, questions and graph together. Conversation provenance above is summarized because no chat transcript file exists in this repository.
