@@ -1,0 +1,599 @@
+MASTER CONTEXT — “THE WORLD I BUILT”
+Project Vision
+
+Create a scalable interactive 3D portfolio planet that transforms my resume, projects, and career journey into an explorable animated world.
+
+This experience should feel like:
+
+an animated movie
+a personal adventure game
+a premium professional portfolio
+
+The visitor does not read my career.
+
+The visitor travels through it.
+
+The core emotional idea:
+
+“Explore the world I built throughout my life and career.”
+
+The World Concept
+
+My career exists as a living planet.
+
+This planet represents:
+
+growth
+learning
+exploration
+transformation
+things I have created
+
+The planet is not a geographic representation.
+
+It is a symbolic universe where:
+
+continents = life phases
+cities = experiences
+landmarks = projects
+artifacts = achievements
+portals = transitions through time
+
+The world should feel alive.
+
+The First Experience
+Arrival From Space
+
+The visitor starts outside the planet.
+
+Camera:
+
+floating in space
+planet rotating slowly
+continents glowing
+timeline energy connecting regions
+
+The user sees:
+
+the current chapter
+previous chapters
+the journey path
+
+The feeling:
+
+“I am about to explore someone's story.”
+
+Hero Landing — Current Self
+
+The camera zooms into the current chapter first.
+
+The visitor lands in:
+
+France — Enterprise Capital
+
+This is the present-day world.
+
+Environment:
+
+A futuristic European technology city.
+
+Visual elements:
+
+modern architecture
+engineering infrastructure
+systems flowing through the city
+technology everywhere
+
+My character stands there.
+
+Character:
+
+Current version of myself.
+
+Visual:
+
+mature face
+professional clothing
+confident posture
+engineer identity
+
+Nearby landmarks:
+
+Engineering Tower
+
+Contains:
+
+experience
+responsibilities
+technologies
+achievements
+Project Museum
+
+Contains:
+
+professional projects
+technical accomplishments
+impact
+AI Archive
+
+Contains:
+
+previous AI experience
+experiments
+knowledge
+
+The first screen communicates:
+
+Who I am.
+What I do.
+Where I am.
+
+Planet Navigation System
+
+The visitor controls my character.
+
+The experience is not a scrolling website.
+
+It is exploration.
+
+The visitor can:
+
+walk
+explore
+interact
+discover
+travel through time
+Transport System: The Timeline Wormhole Network
+
+The main transportation system is a network of wormholes connecting life chapters.
+
+The wormholes represent:
+
+time
+growth
+transformation
+moving between versions of myself
+
+Each continent has a portal.
+
+Example:
+
+France:
+
+Current era
+
+↓
+
+Wormhole
+
+↓
+
+Abu Dhabi AI City
+
+↓
+
+character becomes younger
+
+↓
+
+new world loads
+
+The transition sequence:
+
+Character enters wormhole
+Environment dissolves
+Time particles appear
+Character transforms
+New world emerges
+
+The journey itself becomes part of the storytelling.
+
+Planet Layout
+
+The planet contains continents.
+
+Each continent is modular.
+
+Adding a new phase creates a new region.
+
+Career Continents
+Continent 1
+Mauritius — Foundation Island
+
+Theme:
+
+“The beginning”
+
+Represents:
+
+curiosity
+discipline
+ambition
+
+Environment:
+
+tropical island
+Royal College Curepipe
+school environment
+
+Character:
+
+Teenage version.
+
+Visual:
+
+younger face
+school uniform
+backpack
+books
+
+Props:
+
+achievements
+notebooks
+school items
+
+Landmarks:
+
+The Knowledge Library
+
+Contains:
+
+early achievements
+foundation skills
+
+Meaning:
+
+Where the journey started.
+
+Continent 2
+Birmingham — Developer Valley
+
+Theme:
+
+“Discovery”
+
+Represents:
+
+Learning programming and becoming an engineer.
+
+Environment:
+
+university campus
+technology labs
+coding spaces
+
+Character:
+
+University version.
+
+Visual:
+
+young adult
+laptop
+student style
+
+Landmarks:
+
+Developer Workshop
+
+Projects appear as inventions.
+
+Examples:
+
+A project becomes:
+
+machine
+building
+artifact
+
+Inside:
+
+description
+technologies
+architecture
+results
+Continent 3
+Freelance Era — Connected World
+
+Theme:
+
+“Global builder”
+
+Represents:
+
+Working internationally.
+
+Environment:
+
+A collection of connected islands.
+
+Each island represents:
+
+client
+project
+country
+
+Examples:
+
+Canada
+United Kingdom
+Kuwait
+UAE
+
+Visual:
+
+A network civilization.
+
+Props:
+
+client connections
+communication systems
+project artifacts
+
+Meaning:
+
+Building across borders.
+
+Continent 4
+Abu Dhabi — Intelligence City
+
+Theme:
+
+“Innovation”
+
+Represents:
+
+Emerging AI engineering.
+
+Environment:
+
+Future technology city.
+
+Visual:
+
+AI towers
+intelligent systems
+futuristic infrastructure
+
+Character:
+
+AI engineer version.
+
+Projects become:
+
+AI cores
+machines
+intelligent systems
+Continent 5
+France — Enterprise Capital
+
+Theme:
+
+“Scale and maturity”
+
+Represents:
+
+Professional engineering at large scale.
+
+Environment:
+
+European technology city.
+
+Visual:
+
+banking systems
+architecture
+infrastructure
+
+Character:
+
+Current version.
+
+Character Evolution System
+
+The character is the thread connecting the entire planet.
+
+The same person evolves.
+
+Changes:
+
+age
+face
+clothing
+posture
+equipment
+personality
+
+Timeline:
+
+Teenager
+
+↓
+
+Student
+
+↓
+
+Freelancer
+
+↓
+
+AI Engineer
+
+↓
+
+Professional Engineer
+
+Project System
+
+Projects are not normal portfolio cards.
+
+Projects exist inside the planet.
+
+Projects become:
+
+Landmarks
+
+Examples:
+
+Software project:
+
+A factory/workshop.
+
+Inside:
+
+problem
+solution
+architecture
+technology
+impact
+
+AI project:
+
+A futuristic machine.
+
+Inside:
+
+model
+approach
+results
+
+Client project:
+
+A connected building.
+
+Inside:
+
+client challenge
+implementation
+outcome
+Project Scalability
+
+Every project follows a reusable structure.
+
+Project:
+
+Name
+
+Story
+
+Problem
+
+Solution
+
+Technologies
+
+My contribution
+
+Impact
+
+Media
+
+Links
+
+Projects can be added or removed from any continent.
+
+Data-Driven Scalability
+
+The world must not be manually rebuilt.
+
+The planet is generated from data.
+
+Adding:
+
+New job
+
+New country
+
+New project
+
+New achievement
+
+should expand the world.
+
+Example:
+
+Future:
+
+Japan AI Research
+
+↓
+
+New continent appears
+
+↓
+
+Character updates
+
+↓
+
+New landmarks appear
+
+Information Design
+
+The balance:
+
+70% information
+
+30% magic
+
+The experience must remain a professional portfolio.
+
+The visitor must easily find:
+
+resume
+skills
+experience
+projects
+achievements
+technologies
+
+The world enhances the information.
+
+It does not hide it.
+
+Visual Direction
+
+Target:
+
+Pixar-inspired character storytelling + premium 3D game world + professional portfolio
+
+Not childish.
+
+Not a game.
+
+A professional interactive story.
+
+References:
+
+Up
+Life journey and emotional storytelling.
+
+Ratatouille
+Character interacting with environments.
+
+Super Mario Galaxy
+Planet-based worlds.
+
+Super Mario Odyssey
+Exploration and discovery.
+
+The Legend of Zelda: Breath of the Wild
+Open-world discovery.
+
+Final Experience Goal
+
+A recruiter should finish and think:
+
+“I did not just read this person's resume. I experienced their journey.”
+
+The portfolio becomes:
+
+A planet.
+
+A timeline.
+
+A story.
+
+A world that can continue growing with my career.

@@ -1,0 +1,84 @@
+%% Context edges describe documentation relationships.
+%% Domain edges are source-backed. Approved target and implemented foundation are separate.
+%% Canonical evidence: INDEX.md, SUMMARY.md, areas/domain.md, ARCHITECTURE.md.
+flowchart TD
+    subgraph Context["Documentation context"]
+        AGENTS["AGENTS.md"] -->|routes through| INDEX["INDEX.md"]
+        INDEX --> SUMMARY["SUMMARY.md / REQ IDs"]
+        INDEX --> ARCH["ARCHITECTURE.md"]
+        INDEX --> DEC["DECISIONS.md / DEC IDs"]
+        INDEX --> Q["OPEN_QUESTIONS.md / Q IDs"]
+        INDEX --> DOMAIN["areas/domain.md / CON IDs"]
+        INDEX --> DATA["areas/data.md"]
+        INDEX --> FLOW["areas/workflows.md"]
+        INDEX -->|inventories and fingerprints| SRC["docs/ / SRC-01 through SRC-10"]
+        INDEX --> GRAPH["GRAPH.mmd"]
+        SUMMARY -->|derived from| SRC
+        DOMAIN -->|derived from| SRC
+        DATA -->|proposes model for| DOMAIN
+        ARCH -->|addresses requirements| SUMMARY
+        ARCH -->|follows accepted decisions| DEC
+        Q -->|questions or blocks| ARCH
+        Q -->|questions interpretation of| SUMMARY
+        DEC -->|accepted decisions can resolve| Q
+        DEC -->|may supersede earlier records| DEC
+        GRAPH -->|maps| ARCH
+        FLOW -->|applies| DEC
+    end
+
+    subgraph Domain["Source-backed domain / areas/domain.md"]
+        CON_001["CON-001 Planet"] -->|contains| CON_002["CON-002 Career phase"]
+        CON_002 -->|contains| CON_003["CON-003 Experience"]
+        CON_002 -->|contains| CON_004["CON-004 Project"]
+        CON_002 -->|has| CON_006["CON-006 Character state"]
+        CON_002 -->|has station| CON_007["CON-007 Wormhole"]
+        CON_007 -->|connects chapters| CON_002
+        CON_005["CON-005 Landmark or artifact"] -->|represents| CON_004
+        CON_009["CON-009 Skill or achievement"] -->|associated with| CON_002
+        CON_008["CON-008 Observatory"] -->|aggregates history| CON_002
+        CON_008 -->|offers project gallery| CON_004
+        CON_008 -->|offers skill constellation| CON_009
+    end
+
+    subgraph Application["Approved target / DEC-007 and DEC-008 / later phases remain unimplemented"]
+        CONTENT["Authored career content"] --> VALIDATOR["Build validator"]
+        VALIDATOR --> MODEL["Validated shared model"]
+        MODEL --> HTML["Static resume and project pages"]
+        MODEL --> BUILDER["Pure world descriptor builder"]
+        BUILDER --> RENDERER["3D renderer"]
+        ASSETS["Asset manifest and GLB assets"] --> RENDERER
+        VISITOR["Visitor actions"] --> CONTROL["Navigation / experience controller"]
+        CONTROL --> HTML
+        CONTROL --> RENDERER
+        RENDERER -->|selection and travel intent| CONTROL
+        HTML -->|included in release| HOST["Static hosting / release package"]
+        RENDERER -->|bundle included in release| HOST
+    end
+
+
+    subgraph Foundation["Implemented foundation and organization / DEC-009 and DEC-010"]
+        APP["src/app/App.tsx / composition"] --> CLIENT["src/main.tsx / browser hydration"]
+        APP --> LAYOUT["components/layout/SiteLayout.tsx"]
+        APP --> HOME["features/home/pages/HomePage.tsx"]
+        HOME --> ILLUSTRATION["features/home/components/PlanetIllustration.tsx"]
+        TOKENS["styles/tokens.css"] --> GLOBAL["styles/global.css"]
+        GLOBAL --> CLIENT
+        LAYOUT --> LAYOUTCSS["components/layout/SiteLayout.css"]
+        HOME --> HOMECSS["features/home/home.css"]
+        APP --> BUILDENTRY["src/entry-server.tsx / build-time rendering"]
+        VITE["Vite / TypeScript / React plugin"] --> CLIENT
+        VITE --> BUILDENTRY
+        BUILDENTRY --> PRERENDER["scripts/prerender.mjs"]
+        PRERENDER --> DIST["dist/index.html and browser assets"]
+        CLIENT -->|compiled into| DIST
+        DIST --> SMOKE["Node HTTP and static-HTML smoke tests"]
+        LINT["ESLint and strict TypeScript checks"] -->|validate| APP
+    end
+
+    DOMAIN -->|defines| CON_001
+    ARCH -->|specifies target| BUILDER
+    DATA -->|defines proposed contract| MODEL
+    FLOW -->|defines planned behavior| CONTROL
+    ARCH -->|records current implementation| APP
+    SRC -->|preserved in| GIT["Local Git repository / Phase 1 / DEC-011"]
+    APP -->|versioned in| GIT

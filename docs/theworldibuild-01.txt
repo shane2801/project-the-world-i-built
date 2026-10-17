@@ -1,0 +1,340 @@
+
+PROJECT:
+The World I Built
+
+TYPE:
+A scalable interactive 3D portfolio world that transforms a professional journey into an explorable animated experience.
+
+CORE PRINCIPLE:
+
+The portfolio should not be a static animation.
+
+The world should be dynamically generated from structured career data.
+
+The timeline, character evolution, environments, and projects should be modular.
+
+New chapters, experiences, and projects can be added without redesigning the entire experience.
+
+================================================
+
+TIMELINE SYSTEM
+
+The career journey is represented as a sequence of worlds/channels.
+
+Each phase is an independent timeline node.
+
+A phase contains:
+
+- title
+- location
+- date range
+- age
+- role
+- description
+- skills
+- achievements
+- environment theme
+- character appearance
+- props
+- projects
+
+Example:
+
+Phase:
+{
+ name:
+ "University of Birmingham",
+
+ location:
+ "United Kingdom",
+
+ period:
+ "2018-2022",
+
+ character_age:
+ "18-22",
+
+ theme:
+ "Discovery and learning",
+
+ projects:
+ [
+   Project 1,
+   Project 2
+ ]
+}
+
+================================================
+
+WORLD STRUCTURE
+
+The complete timeline exists as one connected world.
+
+Zoom level 1:
+Full career universe
+
+Shows:
+- all locations
+- all phases
+- journey path
+- portals connecting chapters
+
+
+Zoom level 2:
+Individual phase world
+
+Shows:
+- environment
+- character
+- achievements
+- projects
+
+
+Zoom level 3:
+Project discovery
+
+Shows:
+- project details
+- technical information
+- screenshots
+- demos
+- impact
+
+
+================================================
+
+PHASE SYSTEM
+
+Each phase is a reusable world template.
+
+A phase contains:
+
+ENVIRONMENT
+
+Example:
+
+Mauritius:
+- tropical island
+- school environment
+- youthful atmosphere
+
+University:
+- campus world
+- coding environment
+
+AI company:
+- futuristic technology city
+
+Bank:
+- enterprise architecture world
+
+
+Each phase has:
+
+Visual identity:
+- colors
+- lighting
+- architecture
+- objects
+
+Character state:
+- age
+- clothing
+- accessories
+- personality
+
+Information layer:
+- resume details
+
+
+================================================
+
+PROJECT SYSTEM
+
+Projects are not separate pages.
+
+Projects exist inside the world.
+
+Each project is represented as an interactive artifact.
+
+Examples:
+
+Software project:
+- glowing terminal
+- code artifact
+- machine
+
+AI project:
+- AI core
+- model visualization
+
+Client project:
+- contract/document artifact
+
+Banking project:
+- architecture structure
+
+
+Each project contains:
+
+{
+ title:
+
+ description:
+
+ problem:
+
+ solution:
+
+ technologies:
+
+ impact:
+
+ links:
+
+ media:
+
+}
+
+Projects can be added or removed from any phase.
+
+
+================================================
+
+CHARACTER EVOLUTION SYSTEM
+
+The character is the constant thread.
+
+Character changes based on timeline phase.
+
+Variables:
+
+age
+
+face
+
+height
+
+clothing
+
+equipment
+
+confidence/personality
+
+
+Examples:
+
+Teen:
+- backpack
+- school uniform
+- curious expression
+
+
+Student:
+- laptop
+- casual clothing
+
+
+Freelancer:
+- professional casual
+- multiple devices
+
+
+Engineer:
+- mature appearance
+- professional style
+
+
+================================================
+
+NAVIGATION
+
+The user controls the character.
+
+Movement:
+
+walk
+explore
+interact
+enter portals
+
+
+Portals represent transitions between life chapters.
+
+Each transition shows:
+
+- time passing
+- environment changing
+- character evolving
+
+
+================================================
+
+DESIGN PRIORITY
+
+70% INFORMATION
+
+30% MAGIC
+
+The experience must remain useful as a portfolio.
+
+Important information must always be accessible:
+
+- resume
+- skills
+- projects
+- achievements
+- experience
+
+
+Animation supports the story.
+
+Animation does not replace information.
+
+
+================================================
+
+VISUAL DIRECTION
+
+Inspired by:
+
+Animated storytelling:
+- Up
+- Ratatouille
+- Inside Out
+
+World exploration:
+- Super Mario Odyssey
+- Zelda Breath of the Wild
+
+Premium interaction:
+- Apple product storytelling
+- modern 3D portfolio websites
+
+
+Visual feeling:
+
+warm
+cinematic
+emotional
+professional
+playful
+
+NOT:
+
+childish
+game-only
+confusing
+
+
+================================================
+
+FINAL EXPERIENCE:
+
+A recruiter should feel:
+
+"I explored someone's career universe."
+
+Not:
+
+"I read a webpage."

@@ -1,0 +1,344 @@
+POINT 5 — CONTINENTS / PHASE WORLDS
+Global Rule
+
+Each continent has:
+
+Identity
+What this chapter means
+Environment
+What the visitor sees
+Character state
+Who you were
+Landmarks
+Experiences/projects
+Artifacts
+Things the visitor discovers
+Information layer
+Resume details
+CONTINENT 1 — Mauritius
+Name:
+“The Foundation Island”
+
+Theme:
+
+Where curiosity and ambition were planted.
+
+This is the origin point.
+
+Environment
+
+A beautiful tropical island.
+
+Not a realistic copy of Mauritius.
+
+A symbolic version.
+
+Elements:
+
+ocean
+mountains
+tropical forests
+school castle/library
+paths of discovery
+
+Visual feeling:
+
+Warm.
+Young.
+Full of possibility.
+
+Character
+
+Teenage version.
+
+Visual:
+
+younger face
+school uniform
+backpack
+books
+
+Animation:
+
+exploring
+reading
+discovering
+Landmarks
+The Knowledge Academy
+
+Represents:
+
+Royal College Curepipe.
+
+Inside:
+
+academic achievements
+early skills
+foundations
+The First Steps Trail
+
+A path showing:
+
+curiosity
+discipline
+ambition
+Artifacts
+
+Objects scattered:
+
+notebooks
+awards
+school items
+memories
+CONTINENT 2 — Birmingham
+Name:
+“Developer Valley”
+
+Theme:
+
+Where ideas became technology.
+
+This is the transformation from student to builder.
+
+Environment
+
+A technology university city.
+
+Elements:
+
+university campus
+labs
+coding areas
+workshops
+Character
+
+Young developer.
+
+Visual:
+
+laptop
+headphones
+student clothes
+
+Animation:
+
+coding
+experimenting
+building
+Landmarks
+The Developer Workshop
+
+This is the project hub.
+
+Projects are displayed as inventions.
+
+Example:
+
+A software project becomes:
+
+machine
+device
+building
+The Learning Tower
+
+Contains:
+
+programming journey
+skills gained
+technologies learned
+CONTINENT 3 — Freelance
+Name:
+“The Connected World”
+
+Theme:
+
+Building beyond borders.
+
+This one should look very different.
+
+Environment
+
+A continent made of connected floating islands.
+
+Each island:
+
+A client/project.
+
+Connections:
+
+Light bridges between countries.
+
+Character
+
+Freelancer.
+
+Visual:
+
+professional casual
+multiple devices
+travelling energy
+Landmarks
+Client Islands
+
+Examples:
+
+Canada island
+
+UK island
+
+Kuwait island
+
+UAE island
+
+Each island contains:
+
+client challenge
+solution
+project outcome
+Special mechanic
+
+The user sees the world expand.
+
+The more clients/projects:
+
+The more connected the continent becomes.
+
+CONTINENT 4 — Abu Dhabi
+Name:
+“The Intelligence City”
+
+Theme:
+
+Entering the future.
+
+Environment
+
+A futuristic AI city.
+
+Elements:
+
+smart buildings
+AI systems
+data rivers
+intelligent machines
+Character
+
+AI engineer.
+
+Visual:
+
+more mature
+technical style
+Landmarks
+AI Laboratory
+
+Projects become:
+
+AI systems
+models
+experiments
+Innovation Tower
+
+Contains:
+
+engineering growth
+technical challenges
+achievements
+CONTINENT 5 — France
+Name:
+“The Enterprise Capital”
+
+Theme:
+
+Building systems that matter.
+
+This is current reality.
+
+Environment
+
+Modern European technology city.
+
+Elements:
+
+architecture
+infrastructure
+engineering systems
+Character
+
+Current version.
+
+Visual:
+
+mature
+confident
+professional
+Landmarks
+Engineering Tower
+
+Contains:
+
+current role
+responsibilities
+technologies
+Systems Museum
+
+Contains:
+
+projects
+architecture
+impact
+Important Scalability Decision
+
+I would NOT make every continent unique from scratch.
+
+Instead:
+
+Create a continent template:
+
+Continent
+
+├── Environment
+├── Character
+├── Landmarks
+├── Projects
+├── Artifacts
+└── Information
+
+Then:
+
+Future:
+
+“Startup Era”
+
+becomes:
+
+New continent.
+
+Same system.
+
+My proposed addition:
+
+Each continent should have a signature color palette.
+
+Example:
+
+Mauritius:
+🌿 green + ocean blue
+
+Birmingham:
+💙 blue + technology glow
+
+Freelance:
+🌐 purple + connection lights
+
+AI:
+🤖 neon + futuristic colors
+
+France:
+🏙 gold + deep blue
+
+This helps the visitor instantly recognize where they are.
+
+I would lock this direction.
+
+Next is probably the most important practical piece:

@@ -1,0 +1,275 @@
+POINT 7 — INFORMATION / UI SYSTEM
+Core Principle
+
+The information layer should feel like it belongs to the world.
+
+Not a random website menu floating on top.
+
+The UI should feel like:
+
+a futuristic interface
+a museum guide
+an explorer system
+Three Information Layers
+
+The user can access information at three depths.
+
+Layer 1 — Discovery View
+
+This is what you see while exploring.
+
+Minimal.
+
+The world communicates first.
+
+Example:
+
+You approach a building.
+
+A small label appears:
+
+Engineering Tower
+
+Software Engineer
+
+France 🇫🇷
+
+2025 - Present
+
+Enough to understand.
+
+No overload.
+
+Layer 2 — Experience Panel
+
+When interacting:
+
+A clean panel opens.
+
+Example:
+
+Software Engineer
+
+Location:
+France
+
+Responsibilities:
+
+• Built scalable systems
+• Designed software architecture
+• Improved reliability
+
+Technologies:
+
+Java
+Cloud
+AI Systems
+Databases
+
+This is the resume content.
+
+Layer 3 — Deep Dive
+
+For someone interested.
+
+The world zooms into:
+
+A project.
+
+A memory.
+
+A technical achievement.
+
+Example:
+
+Architecture room:
+
+System Design
+
+Challenge:
+...
+
+Approach:
+...
+
+Impact:
+...
+Navigation UI
+
+I would avoid a traditional navbar.
+
+Instead:
+
+A small permanent interface.
+
+Something like:
+
+       🌎 Planet View
+
+       📍 Current Location
+
+       📂 Projects
+
+       📄 Resume
+
+       ✉ Contact
+
+Minimal.
+
+The Personal Timeline Interface
+
+A key element:
+
+A timeline orbit around the planet.
+
+The user can always access:
+
+past
+present
+future
+
+Example:
+
+MAURITIUS
+    |
+BIRMINGHAM
+    |
+FREELANCE
+    |
+ABU DHABI
+    |
+FRANCE ●
+
+The current position is always visible.
+
+Resume Mode
+
+Important.
+
+Some recruiters have 30 seconds.
+
+Add:
+
+“Traditional Mode”
+
+Button:
+
+View Resume
+
+It transforms the planet into:
+
+A clean professional resume.
+
+Sections:
+
+experience
+projects
+skills
+education
+contact
+
+The magic remains optional.
+
+Visual Language
+
+The UI should match the planet.
+
+Example:
+
+Planet Map
+
+Glass hologram style.
+
+Project Panels
+
+Museum plaques.
+
+Experience Panels
+
+Architectural screens.
+
+Skills
+
+Artifacts collected.
+
+Information Density Rule
+
+Never show paragraphs in the world.
+
+Instead:
+
+Use:
+
+short statements
+bullet points
+visual indicators
+
+Example:
+
+Bad:
+
+During my time working at...
+
+Good:
+
+Role:
+Software Engineer
+
+Built:
+AI Platform
+
+Impact:
+Reduced processing time by 40%
+Accessibility Rule
+
+The experience must work even if someone:
+
+does not like animations
+has limited time
+wants only the resume
+
+Therefore:
+
+Every magical element has a clear information equivalent.
+
+The “Explorer Journal” Idea
+
+I would add one more mechanic:
+
+The visitor has a journal.
+
+As they explore:
+
+It fills automatically.
+
+Example:
+
+After visiting Birmingham:
+
+Journal entry:
+
+Chapter Unlocked:
+
+Developer Valley
+
+Skills discovered:
+
+Python
+Software Engineering
+Problem Solving
+
+Projects discovered:
+
+3
+
+This makes exploration feel rewarding.
+
+Locked Direction
+
+Information system:
+
+minimal during exploration
+detailed when requested
+always recruiter-friendly
+integrated into the world
+traditional resume available

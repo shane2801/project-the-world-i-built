@@ -1,0 +1,27 @@
+/* Shared visual decisions; feature-specific illustration values stay local. */
+:root {
+  --color-text: #f1eee4;
+  --color-text-muted: #c2d1ce;
+  --color-background: #10252a;
+  --color-atmosphere: #24464a;
+  --color-accent: #dfbb75;
+
+  --font-body: "Segoe UI", system-ui, sans-serif;
+  --font-display: Georgia, serif;
+  --text-eyebrow: .75rem;
+  --text-meta: .8rem;
+  --text-body: 1.05rem;
+  --text-wordmark: 1.1rem;
+
+  --space-xs: 12px;
+  --space-sm: 20px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 40px;
+  --space-2xl: 48px;
+  --space-3xl: 80px;
+  --space-4xl: 96px;
+
+  --content-max-width: 1440px;
+  --page-gutter: clamp(var(--space-md), 5vw, var(--space-3xl));
+}

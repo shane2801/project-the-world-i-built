@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.prerender/
+.vite/
+coverage/
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example

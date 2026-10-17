@@ -1,0 +1,329 @@
+POINT 6 — PROJECT SYSTEM
+
+Because this is where the portfolio becomes useful, not just beautiful.
+
+We need to decide:
+
+how projects appear
+how many projects each phase can hold
+how someone explores technical details without breaking immersion.
+yes
+
+Great. Moving to Point 6 — Project System.
+
+This is where we protect the most important balance:
+
+The world should feel magical, but a recruiter still needs to understand what you actually built.
+
+The mistake would be making projects only “hidden Easter eggs”. They need to be beautiful and easy to access.
+
+POINT 6 — PROJECT SYSTEM
+Core Idea
+
+Projects are not cards.
+
+Projects are physical objects inside the planet.
+
+The visitor discovers your work as part of the world.
+
+A project is a landmark.
+
+Project Hierarchy
+
+The structure:
+
+Planet
+
+ └── Continent
+
+       └── Landmark
+
+              └── Project
+
+                     ├── Story
+                     ├── Technology
+                     ├── Impact
+                     ├── Demo
+                     └── Evidence
+
+Example:
+
+France continent
+
+↓
+
+Engineering Tower
+
+↓
+
+Banking System Project
+
+↓
+
+Details
+
+Project Representation
+
+Every project has a physical metaphor.
+
+Different types of projects have different forms.
+
+Software Project
+
+Representation:
+
+A workshop / factory / machine.
+
+Visual:
+
+moving parts
+code energy
+systems connecting
+
+Inside:
+
+Project Name
+
+Problem:
+What needed solving?
+
+Solution:
+What was built?
+
+Engineering:
+Architecture
+Technologies
+Decisions
+
+Impact:
+Results
+Scale
+Outcome
+AI Project
+
+Representation:
+
+An AI core / intelligence chamber.
+
+Visual:
+
+neural patterns
+data streams
+models
+
+Inside:
+
+Model
+
+Purpose
+
+Approach
+
+Technologies
+
+Results
+Client Project
+
+Representation:
+
+A connected building.
+
+Visual:
+
+client location
+communication network
+collaboration
+
+Inside:
+
+Client Challenge
+
+My Role
+
+Solution
+
+Outcome
+Open Source Project
+
+Representation:
+
+A library / archive.
+
+Visual:
+
+books
+code artifacts
+contributors
+Project Discovery
+
+The visitor has two ways to access projects.
+
+Method 1 — Explore
+
+Walking around.
+
+They see:
+
+A landmark.
+
+Example:
+
+A glowing machine.
+
+Interaction:
+
+“Explore Project”
+
+Method 2 — Resume Mode
+
+A recruiter can click:
+
+Projects
+
+and instantly see:
+
+All Projects
+
+[AI System]
+[Banking Platform]
+[Web Application]
+
+Important:
+
+No one should be forced to explore if they only want information.
+
+Project Detail View
+
+When opening a project:
+
+The world does not disappear.
+
+The camera moves closer.
+
+Example:
+
+A small pocket world appears.
+
+Like a museum exhibit.
+
+Structure:
+
+Layer 1 — Story
+
+Why did this exist?
+
+Layer 2 — Engineering
+
+How did I build it?
+
+architecture
+technologies
+decisions
+Layer 3 — Evidence
+
+Proof:
+
+screenshots
+diagrams
+links
+demos
+Project Scaling
+
+This is important.
+
+A phase might have:
+
+University:
+5 projects
+
+Freelance:
+10 projects
+
+Bank:
+3 major systems
+
+The system should support:
+
+Phase
+
+Projects[]
+
+Project 1
+Project 2
+Project 3
+...
+
+No redesign needed.
+
+Project Importance System
+
+Not every project should have equal size.
+
+We need levels.
+
+Major Project
+
+A landmark.
+
+Example:
+
+A large building.
+
+Full experience.
+
+Medium Project
+
+A smaller structure.
+
+Short explanation.
+
+Small Project
+
+An artifact.
+
+Quick view.
+
+Example:
+
+Birmingham:
+
+Developer Valley
+
+🏢 Main Project Tower
+   - AI Application
+
+🏠 Smaller Houses
+   - Web apps
+
+📦 Artifacts
+   - Experiments
+My proposed signature idea:
+The Planet Museum
+
+A special place on the planet.
+
+It contains everything you built.
+
+A recruiter can go there directly.
+
+Inside:
+
+projects
+achievements
+skills
+timeline
+
+It is your portfolio archive.
+
+Final Design Rule
+
+A project should answer:
+
+What was the challenge?
+What did I build?
+How did I build it?
+Why does it matter?
+
+The world is the presentation layer.
+
+The engineering story is the substance.

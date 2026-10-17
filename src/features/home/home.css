@@ -1,0 +1,120 @@
+.introduction {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  gap: var(--space-lg);
+  max-width: var(--content-max-width);
+  min-height: min(760px, calc(100svh - 108px));
+  margin: auto;
+  padding: var(--space-2xl) var(--page-gutter) var(--space-4xl);
+}
+
+.introduction:focus {
+  outline: none;
+}
+
+.introduction .eyebrow {
+  color: var(--color-accent);
+  font-size: var(--text-eyebrow);
+  letter-spacing: .18em;
+  text-transform: uppercase;
+}
+
+.introduction h1 {
+  max-width: 12ch;
+  margin: var(--space-md) 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 5.6vw, 5.8rem);
+  line-height: 1.05;
+  font-weight: 400;
+  letter-spacing: -.045em;
+}
+
+.introduction-description {
+  max-width: 34ch;
+  color: var(--color-text-muted);
+  font-size: var(--text-body);
+  line-height: 1.8;
+}
+
+.chapter-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 156px;
+  margin-top: 42px;
+  border-bottom: 1px solid #6e8987;
+}
+
+.chapter-line span {
+  width: 5px;
+  height: 5px;
+  margin-bottom: -3px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Illustration-specific colors stay with the home feature, outside shared tokens. */
+.planet-study {
+  position: relative;
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 580px;
+}
+
+.planet {
+  position: absolute;
+  inset: 22%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 25%, #b9c6a1, #668b7e 32%, #23494a 62%, var(--color-background) 85%);
+  box-shadow: inset -20px -20px 40px #071c24, 0 0 80px #a4c1a51a;
+}
+
+.orbit {
+  position: absolute;
+  border: 1px solid #8baba34a;
+  border-radius: 50%;
+  transform: rotate(-28deg);
+}
+
+.orbit-outer {
+  inset: 10% 0;
+}
+
+.orbit-inner {
+  inset: 0 13%;
+  transform: rotate(40deg);
+  border-color: #8baba329;
+}
+
+.satellite {
+  position: absolute;
+  top: 24%;
+  right: 9%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  box-shadow: 0 0 24px #dfbb7555;
+}
+
+@media (max-width: 700px) {
+  .introduction {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-top: var(--space-lg);
+    padding-bottom: var(--space-xl);
+  }
+
+  .planet-study {
+    width: min(100%, 360px);
+    justify-self: center;
+  }
+}
+
+@media (forced-colors: active) {
+  .planet-study,
+  .chapter-line {
+    display: none;
+  }
+}

@@ -1,0 +1,328 @@
+POINT 8 — SCALABILITY SYSTEM
+
+This is where we define how the planet survives 5–10 years:
+
+adding new jobs
+adding projects
+changing order
+adding achievements
+expanding the world
+
+This is the part that turns it from a portfolio into a platform.
+
+yes
+
+Perfect. Moving to Point 8 — Scalability System.
+
+This is the point that makes the idea different from a one-time portfolio animation.
+
+The goal:
+
+The planet is a living system that can grow with my career.
+
+We are designing the rules of the universe.
+
+POINT 8 — SCALABILITY SYSTEM
+Core Principle
+
+The planet should be generated from my career data.
+
+The world is not manually built.
+
+The content controls the world.
+
+Meaning:
+
+Add experience → add continent/city/landmark
+Add project → add object
+Change order → timeline changes
+Remove experience → world updates
+
+The World Data Model
+
+Think of the planet like this:
+
+PLANET
+
+|
+|
+├── CONTINENT (Career Phase)
+│
+│     ├── Location
+│     ├── Time period
+│     ├── Character version
+│     ├── Environment
+│     ├── Landmarks
+│     ├── Projects
+│     └── Achievements
+│
+|
+└── CONTINENT
+Phase System
+
+Every career phase follows the same structure.
+
+Example:
+
+Phase:
+
+Name:
+University of Birmingham
+
+Order:
+2
+
+Location:
+United Kingdom
+
+Theme:
+Discovery
+
+Age:
+18-22
+
+Environment:
+Developer Valley
+
+Character:
+Student Engineer
+
+Projects:
+[
+ Project A,
+ Project B
+]
+
+Skills:
+[
+Programming,
+Software Engineering
+]
+Adding a New Career Chapter
+
+Example future:
+
+“Startup Founder Era”
+
+You do not redesign the website.
+
+You add:
+
+New Phase:
+
+Name:
+Startup Era
+
+Order:
+6
+
+Theme:
+Creation
+
+Environment:
+Founder City
+
+Projects:
+Company products
+
+The planet:
+
+creates a new continent
+connects a wormhole
+updates timeline
+updates character
+Phase Ordering
+
+The timeline should not be fixed.
+
+You can reorder.
+
+Example:
+
+Before:
+
+Mauritius
+ ↓
+Birmingham
+ ↓
+Freelance
+ ↓
+AI
+ ↓
+France
+
+After adding:
+
+Research Era
+
+Mauritius
+ ↓
+Birmingham
+ ↓
+Freelance
+ ↓
+AI
+ ↓
+France
+ ↓
+Research
+
+The planet expands.
+
+Project System Scalability
+
+Each continent has:
+
+Projects:
+
+[
+ {
+ title:
+ type:
+ importance:
+ story:
+ technology:
+ impact:
+ media:
+ }
+]
+
+The system decides:
+
+Small project:
+
+Artifact
+
+Medium:
+
+Building
+
+Major:
+
+Landmark
+
+Achievement System
+
+Achievements also become objects.
+
+Examples:
+
+Certification:
+
+Book/artifact
+
+Award:
+
+Trophy
+
+Publication:
+
+Archive
+
+Speaking:
+
+Stage
+
+Skill System
+
+Skills should not just be text.
+
+They should be visible.
+
+Example:
+
+A technology tree.
+
+Like:
+
+Engineering
+
+ |
+ ├── Backend
+ |
+ ├── AI
+ |
+ ├── Cloud
+ |
+ └── Systems Design
+
+The skills grow as the journey progresses.
+
+Character Scalability
+
+The character also uses rules.
+
+Variables:
+
+Age
+
+Appearance
+
+Clothing
+
+Accessories
+
+Experience level
+
+Confidence
+
+Future phases automatically evolve the character.
+
+World Memory System
+
+The planet remembers.
+
+Example:
+
+A recruiter returns.
+
+The world knows:
+
+explored continents
+discovered projects
+completed chapters
+
+The journal updates.
+
+Admin / Creator View (future)
+
+Eventually you could have a private dashboard:
+
+You add:
+
+experience
+projects
+images
+descriptions
+
+The planet updates.
+
+Like managing your own world.
+
+The Most Important Scalability Rule
+
+No hardcoded stories.
+
+The system should understand:
+
+“Career phase”
+
+not:
+
+“France banking phase.”
+
+The current journey is one example.
+
+The engine supports future journeys.
+
+Locked Direction
+
+The portfolio is:
+
+A career world engine.
+
+The content is the source.
+
+The planet is the visualization.
+
+Next and final conceptual point before implementation:

@@ -1,0 +1,529 @@
+MASTER CONTEXT — “THE WORLD I BUILT”
+Interactive 3D Animated Portfolio Planet
+1. Vision
+
+Create a premium web-based interactive 3D portfolio experience that transforms a traditional resume into an explorable animated world.
+
+The visitor does not simply read my career.
+
+They experience my journey.
+
+The core idea:
+
+A living planet where my education, career, projects, and growth become places the visitor can explore.
+
+The portfolio becomes:
+
+a resume
+a story
+a world
+a timeline
+a personal archive
+2. Platform
+Web Experience
+
+This is a website.
+
+No downloads.
+
+No installation.
+
+The experience opens from a link.
+
+The goal:
+
+A recruiter receives the URL and immediately enters my world.
+
+3. Overall Creative Direction
+Style:
+
+Cinematic animated movie + premium product design
+
+A combination of:
+
+Animated movie qualities:
+emotional storytelling
+expressive character
+beautiful environments
+magical transitions
+memorable moments
+Premium product qualities:
+clean UI
+professional presentation
+clarity
+elegant interactions
+recruiter-friendly information
+
+The result:
+
+An animated world that feels magical, but belongs to a serious software engineer.
+
+4. The Planet Concept
+
+The entire career exists on a small visible planet.
+
+The planet is:
+
+symbolic
+alive
+growing
+explorable
+
+It is not Earth.
+
+It represents:
+
+growth
+learning
+exploration
+creation
+5. Planet View
+
+When zoomed out:
+
+The visitor sees the entire journey.
+
+The planet contains:
+
+continents
+cities
+landmarks
+wormhole paths
+glowing timeline connections
+
+The visitor immediately understands:
+
+“This is someone's life journey.”
+
+6. Planet Evolution
+
+The planet grows as my career grows.
+
+Current version:
+
+5 continents.
+
+Future:
+
+New chapters create new regions.
+
+Examples:
+
+startup era
+research era
+leadership era
+
+The planet is never finished.
+
+7. Timeline System
+
+The timeline is not a traditional line.
+
+It is a world map.
+
+Each career phase becomes a continent.
+
+Each transition happens through:
+
+The Timeline Wormhole Network
+8. Wormhole Travel System
+
+Wormholes represent:
+
+time
+transformation
+growth
+moving between versions of myself
+
+Travel experience:
+
+Character enters wormhole
+Environment transforms
+Memories appear
+Character changes age/version
+New world appears
+
+Example:
+
+France engineer:
+
+↓
+
+wormhole
+
+↓
+
+Birmingham student
+
+↓
+
+Mauritius teenager
+
+9. Character System
+
+The visitor controls a 3D animated version of me.
+
+The character is:
+
+not a game hero
+not a narrator
+
+The character is:
+
+A living timeline of my evolution.
+
+10. Character Evolution
+
+The same person evolves through every phase.
+
+Changes:
+
+age
+face
+clothing
+posture
+confidence
+equipment
+
+Timeline:
+
+Teenager
+
+↓
+
+Student
+
+↓
+
+Freelancer
+
+↓
+
+AI Engineer
+
+↓
+
+Professional Engineer
+
+11. Character Storytelling
+
+The character does not constantly talk.
+
+The story is told through:
+
+environments
+objects
+projects
+reactions
+exploration
+
+The character communicates through:
+
+gestures
+expressions
+actions
+12. Opening Experience
+First 60 seconds
+
+The visitor starts in space.
+
+Camera:
+
+cinematic
+slow
+emotional
+
+A planet appears.
+
+The visitor sees:
+
+glowing continents
+timeline connections
+wormholes
+
+The camera lands on the current chapter first.
+
+France — Current Era
+
+The visitor meets the current version of me.
+
+The hero page is the present.
+
+The visitor understands:
+
+Who I am.
+
+What I do.
+
+Where I am.
+
+13. Career Continents
+Continent 1
+Mauritius — Foundation Island
+
+Meaning:
+
+The beginning.
+
+Theme:
+
+Curiosity and ambition.
+
+Environment:
+
+tropical island
+symbolic Royal College Curepipe
+knowledge spaces
+
+Character:
+
+Teenager.
+
+Props:
+
+books
+achievements
+school memories
+Continent 2
+Birmingham — Developer Valley
+
+Meaning:
+
+Discovery.
+
+Theme:
+
+Learning and building.
+
+Environment:
+
+university world
+technology labs
+coding spaces
+
+Character:
+
+Student developer.
+
+Projects appear as inventions.
+
+Continent 3
+Freelance Era — Connected World
+
+Meaning:
+
+Global builder.
+
+Theme:
+
+Creating across borders.
+
+Environment:
+
+Connected floating islands.
+
+Represents:
+
+Canada
+UK
+Kuwait
+UAE
+
+Projects become client landmarks.
+
+Continent 4
+Abu Dhabi — Intelligence City
+
+Meaning:
+
+Innovation.
+
+Theme:
+
+Entering AI.
+
+Environment:
+
+Futuristic technology city.
+
+Projects become:
+
+AI systems
+intelligent machines
+experiments
+Continent 5
+France — Enterprise Capital
+
+Meaning:
+
+Scale and maturity.
+
+Theme:
+
+Building large systems.
+
+Environment:
+
+Modern European technology city.
+
+Current version of myself.
+
+14. Project System
+
+Projects are not cards.
+
+Projects are physical objects inside the world.
+
+Examples:
+
+Software project:
+
+→ workshop/factory
+
+AI project:
+
+→ intelligence chamber
+
+Client project:
+
+→ connected building
+
+Open source:
+
+→ archive/library
+
+Each project contains:
+
+problem
+solution
+architecture
+technologies
+contribution
+impact
+media
+links
+15. Project Scaling
+
+Projects have levels.
+
+Major project:
+
+Large landmark.
+
+Medium project:
+
+Building.
+
+Small project:
+
+Artifact.
+
+A continent can contain unlimited projects.
+
+16. Information System
+
+The experience balances:
+
+70% information
+
+30% magic
+
+Three layers:
+
+Discovery Layer
+
+Small information.
+
+Example:
+
+“Software Engineer — France”
+
+Experience Layer
+
+Resume details.
+
+Deep Dive Layer
+
+Technical project details.
+
+17. Resume Mode
+
+The website must also support traditional viewing.
+
+A recruiter can choose:
+
+Explore Planet
+
+or
+
+View Resume
+
+The resume remains accessible.
+
+18. Home Base
+
+The planet has a central location:
+
+The Observatory
+
+A personal headquarters.
+
+It represents:
+
+past + present + future.
+
+Inside:
+
+Timeline Room
+
+Career history.
+
+Project Gallery
+
+Everything built.
+
+Skill Constellation
+
+Technology map.
+
+Future Room
+
+Future chapters.
+
+19. Scalability
+
+The world must be data-driven.
+
+Adding:
+
+job
+project
+achievement
+skill
+
+should expand the planet.
+
+The system understands:
+
+“career phase”
+
+not:
+
+specific hardcoded locations.
+
+20. Final Emotional Goal
+
+A recruiter should leave thinking:
+
+“I did not just read this person's resume. I experienced their journey.”
+
+The experience should communicate:
+
+curiosity
+growth
+engineering ability
+creativity
+professionalism
+Final One-Sentence Prompt
+
+Design a premium web-based interactive 3D animated portfolio planet where a software engineer’s career journey becomes an explorable living world. The visitor controls an evolving character representing the engineer through time, travels between career chapters using cinematic wormholes, explores symbolic continents representing education and professional growth, discovers projects as physical landmarks, and experiences a Pixar-inspired emotional story combined with the clarity and elegance of a premium product experience.
