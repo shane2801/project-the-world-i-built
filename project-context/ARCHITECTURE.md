@@ -2,7 +2,7 @@
 
 ## Status and boundaries
 
-**Approved design; Phase 1 foundation is complete. The DEC-010 organization step and Phase 1 milestone are approved by the user; Phase 2 core data/domain is complete under DEC-012 and approved by the user. DEC-013 authorizes its local commit (cec5ae0) and Phase 3. DEC-014 approves draft pages/empty states. DEC-015 authorizes the supplied résumé content, with gaps/provisional mappings labeled. DEC-016 authorizes the internal Phase 4 prototype after Phase 3.** Source-backed requirements are owned by [SUMMARY.md](SUMMARY.md). Accepted user choices are in [DECISIONS.md](DECISIONS.md). DEC-007/DEC-008 are accepted. Data-contract details and production inputs not covered by those decisions remain open; see OPEN_QUESTIONS.md.
+**Approved design; Phase 1 foundation is complete. The DEC-010 organization step and Phase 1 milestone are approved by the user; Phase 2 core data/domain is complete under DEC-012 and approved by the user. DEC-013 authorizes its local commit (cec5ae0) and Phase 3. DEC-014 approves draft pages/empty states. DEC-015 authorizes the supplied résumé content, with gaps/provisional mappings labeled. DEC-016 delivered Phase 4; DEC-017 approves its commit (606cdb3) and the Phase 5 complete journey.** Source-backed requirements are owned by [SUMMARY.md](SUMMARY.md). Accepted user choices are in [DECISIONS.md](DECISIONS.md). DEC-007/DEC-008 are accepted. Data-contract details and production inputs not covered by those decisions remain open; see OPEN_QUESTIONS.md.
 
 At discovery the repository had only ten original design documents. Phase 1 adds the React/Vite shell, build-time HTML rendering, configuration, smoke checks and setup instructions. See [README.md](../README.md) for commands and [DEC-009](DECISIONS.md#dec-009--incremental-implementation-and-review-gate) for authorization. A local Git repository is initialized under DEC-011; no remote, push or deployment is authorized.
 
@@ -123,13 +123,14 @@ Accepted under DEC-010. App, shared layout, home, shared styles and the Phase 2 
 | src/content | Owner-authorized résumé content and publication validation, separate from test fixtures |
 | src/domain/career | Implemented pure types, validation, queries and colocated tests; no React/Three.js dependencies |
 | src/features/resume and projects | Accessible pages and feature-owned timeline/card/detail/media components |
-| src/features/explore | Implemented internal prototype: page, lazy scene, controls, hooks, pure descriptors and travel state |
+| src/features/explore | All-chapter procedural world, overview/hub scenes, controls, pure descriptors and travel state |
+| src/features/observatory | Shared timeline/project/skills/future hub and independent static page |
 | public/assets | Future static model/media files |
 | scripts | Existing build-time rendering and HTTP smoke tests |
 
 Use direct imports, not speculative barrel exports. App coordinates features; domain/shared modules do not depend on features. Extract meaningful responsibilities, not trivial one-line wrappers.
 
-Routing strategy: implemented shared route definitions between the browser and static build for /, /resume/, /projects/, /projects/<id>/ and /explore/. Ordinary links remain functional without JavaScript. Unknown projects/paths render a useful fallback; hosting must serve generated directories and configure 404.html for unknown URLs. No routing package is required initially.
+Routing strategy: implemented shared route definitions between the browser and static build for /, /resume/, /projects/, /projects/<id>/, /explore/ and /observatory/. Ordinary links remain functional without JavaScript. Unknown projects/paths render a useful fallback; hosting must serve generated directories and configure 404.html for unknown URLs. No routing package is required initially.
 
 State strategy: URLs own shareable chapter/project selection; local React state owns local UI; an exploration reducer owns transient loading/travel. Add narrow context only for actual shared exploration consumers. Keep per-frame scene values outside React rendering state.
 
@@ -167,7 +168,16 @@ DEC-016 authorizes two chapters selected by authored order, a procedural overvie
 
 Three.js 0.186.1 and React Three Fiber 9.8.2 are dynamically imported on explicit desktop activation; @types/three 0.186.0 is development-only. The existing HTML routes and content contracts remain independent. No asset service, physics engine or application state package is introduced.
 
-This prototype does not complete the five-chapter public release, Observatory, licensed GLB art, likeness, rich cinematics or final performance sign-off. Preserve the manual review gate before Phase 5.
+Phase 4's two-chapter milestone is committed as 606cdb3. Phase 5 expands the journey below; licensed GLB art, likeness, rich cinematics and final performance sign-off remain later work.
+
+
+## Phase 5 complete journey
+
+DEC-017 accepts Phase 4 (commit 606cdb3) and authorizes this phase. All authored phases now produce descriptors, chapter choices and themed procedural environments. Pure navigation connects previous/next phases in explicit order; direct nonadjacent travel remains available. The renderer still mounts only one chapter or one lightweight hub/overview at a time.
+
+The Observatory is a separate world view and an independently generated /observatory/ page. Its shared timeline, complete project gallery, skill associations and aspirational future empty state consume the existing portfolio. /explore/?view=observatory supports reload/history without inventing a career phase. Current hub view and HTML remain usable through graphics failure/retry.
+
+Implementation contracts belong in [exploration](areas/exploration.md) and [observatory](areas/observatory.md). No new dependencies, career facts, infrastructure or commissioned assets are added. Six-chapter addition, reordering, removal, navigation and project association behavior are verified from validated synthetic test input. Licensed art, GLB likeness, rich cinematics, hardware/network budgets and final quality work remain Phase 6; stop for manual review before proceeding.
 
 ## Validation strategy
 

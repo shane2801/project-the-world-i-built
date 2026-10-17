@@ -10,7 +10,7 @@ export function ExplorePage({ portfolio }: { portfolio: Portfolio | null }) {
     <header className="page-heading">
       <p className="eyebrow">An internal world in progress</p>
       <h1>Explore the world</h1>
-      <p>A two-chapter prototype. The geometry is a stand-in for future artwork, not a finished likeness or environment.</p>
+      <p>Five connected chapters and an Observatory. The geometry is a stand-in for future artwork, not a finished likeness or environment.</p>
       <p><a href="/resume/">Read résumé</a> · <a href="/projects/">All projects</a></p>
     </header>
     {portfolio && world ? <PrototypeExplorer portfolio={portfolio} world={world} /> :

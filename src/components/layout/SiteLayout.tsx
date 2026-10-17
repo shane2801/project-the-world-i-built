@@ -5,7 +5,7 @@ import './SiteLayout.css';
 interface SiteLayoutProps {
   children: ReactNode;
   mainClassName?: string;
-  activePage?: 'home' | 'resume' | 'projects' | 'explore' | 'project' | 'not-found';
+  activePage?: 'home' | 'resume' | 'projects' | 'explore' | 'observatory' | 'project' | 'not-found';
   draft?: boolean;
   hasContent?: boolean;
 }
@@ -13,6 +13,7 @@ interface SiteLayoutProps {
 const navigation = [
   { href: '/resume/', label: 'Résumé', page: 'resume' },
   { href: '/projects/', label: 'Projects', page: 'projects' },
+  { href: '/observatory/', label: 'Observatory', page: 'observatory' },
   { href: '/explore/', label: 'Explore', page: 'explore' },
 ] as const;
 

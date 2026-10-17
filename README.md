@@ -1,6 +1,6 @@
 # The World I Built
 
-A data-driven, browser-based career portfolio. **Current milestone: Phase 4 internal 3D prototype.** Résumé and project pages use owner-supplied content; missing details remain explicit and two connected 3D chapters are available as an internal prototype.
+A data-driven, browser-based career portfolio. **Current milestone: Phase 5 complete journey with procedural artwork.** Résumé and project pages use owner-supplied content; missing details remain explicit and all five chapters and the Observatory are available with procedural artwork.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ Open http://127.0.0.1:4173 for the production preview. `npm run check` runs lint
 
 Individual commands: `npm run typecheck`, `npm run lint`, `npm run build`, `npm run test:domain`, `npm run test:routes`, `npm run test:portfolio`, and `npm run test:smoke` (requires an existing build). `npm test` runs domain/route tests, then rebuilds before HTTP and rendered-page checks.
 
-The build creates browser assets in `dist/`, a temporary build-time React renderer in `.prerender/`, and writes static HTML for `/`, `/resume/`, `/projects/`, `/explore/`, approved project details and `404.html`. Only `dist/` is a deployment artifact. No runtime server or client-side JavaScript is needed to read the production shell. Browser hydration and visual/accessibility behavior require browser QA beyond these HTTP smoke tests.
+The build creates browser assets in `dist/`, a temporary build-time React renderer in `.prerender/`, and writes static HTML for `/`, `/resume/`, `/projects/`, `/explore/`, `/observatory/`, approved project details and `404.html`. Only `dist/` is a deployment artifact. No runtime server or client-side JavaScript is needed to read the production shell. Browser hydration and visual/accessibility behavior require browser QA beyond these HTTP smoke tests.
 
 ## Layout and scope
 
@@ -61,7 +61,7 @@ After `npm run check`, run `npm run preview` and visit:
 - http://127.0.0.1:4173/ — existing visual direction, owner identity, draft notice and working navigation.
 - http://127.0.0.1:4173/resume/ — career chapters, skills, education and approved contact links.
 - http://127.0.0.1:4173/projects/ — four résumé projects with missing details clearly marked.
-- http://127.0.0.1:4173/explore/ — internal two-chapter prototype.
+- http://127.0.0.1:4173/explore/ — all-chapter procedural exploration.
 - http://127.0.0.1:4173/404.html — useful missing-page fallback.
 
 Check direct reloads, back/forward navigation, narrow screens, Tab/Shift+Tab, visible focus and the skip link. Disable JavaScript and confirm the generated information pages remain readable. Test /projects/ev-charger-management/, /projects/accommodation-management/, /projects/ai-healthcare-analytics/ and /projects/java-multiplayer-game/ directly and after reload. Provisional chapter placements and missing details remain labeled. Empty states and fictional fixtures are exercised only by tests.
@@ -70,7 +70,7 @@ Maintain src/content/portfolio.ts using owner-reviewed data matching the [data c
 
 The eventual static host must serve generated directory index files and map missing paths to 404.html with a 404 status. Vite preview is a local test server, not the hosting configuration; it may fall back to the root for arbitrary missing paths. Verify this behavior when Q-005 is settled. Draft noindex metadata is not access control.
 
-The user authorized Phase 4 after Phase 3. Phase 4 now awaits manual review; no commit or Phase 5 without the next instruction.
+Phase 4 is committed as 606cdb3. The user authorized Phase 5 under DEC-017; it awaits manual review without an automatic commit.
 
 ## Phase 4 manual review (Chrome)
 
@@ -87,4 +87,20 @@ After `npm run check`, run `npm run preview` and open http://127.0.0.1:4173/expl
 
 Optional automated browser check: `npm run test:browser` (requires an existing production build and installed Chrome; set CHROME_PATH if its location differs). It uses an isolated temporary profile and software WebGL, then closes its browser/server and removes the profile. No browser download or testing package is required. This verifies behavior, not average-hardware FPS or final artwork.
 
-Phase 4 uses primitive stand-ins and two chapters only. The other three scenes, Observatory, production GLB character/art, rich cinematics and final benchmarks remain later phases. The user subsequently approved this milestone and requested its local commit and Phase 5 under DEC-017.
+Phase 4 introduced two connected chapter proxies and was committed as 606cdb3. Phase 5 expands all five plus the Observatory; production GLB character/art, rich cinematics and final benchmarks remain later phases.
+
+## Phase 5 manual review (Chrome)
+
+Run `npm run preview` after a successful `npm run check`, then review:
+
+- http://127.0.0.1:4173/explore/ — five chapter choices, distinct procedural themes, one active scene.
+- http://127.0.0.1:4173/observatory/ — all four rooms without requiring 3D or JavaScript.
+- http://127.0.0.1:4173/explore/?view=observatory — direct hub selection and reload; graphics still require explicit activation.
+
+Visit Mauritius, Birmingham, Freelance, Abu Dhabi and France in both chronological and direct nonadjacent order. Check each chapter's first/last neighbor behavior: the left ring goes to the previous chapter, the right ring to the next, and neither end wraps. WASD/arrows, E, Tab, project focus/Escape, reduced motion and renderer retry should continue to work.
+
+Open the Observatory from the overview or controls. Click room markers or HTML room links, then verify the complete timeline/gallery, authored skill-to-chapter links and explicitly empty Future Room. Confirm missing Mauritius/project details remain pending. Test history/back, shared URLs, phone width, no-JavaScript information access and graphics loss/retry while inside the hub.
+
+`npm run test:browser` now exercises all five scenes, chronological navigation, hub routes/room anchors and hub graphics recovery. It uses software rendering, so record real desktop/GPU/network results separately against the [provisional targets](project-context/areas/exploration.md#provisional-performance-targets).
+
+Phase 4 is committed as 606cdb3. Phase 5 is left uncommitted for your manual review; Phase 6, commissioning and deployment require separate instruction.

@@ -109,7 +109,7 @@ flowchart TD
     end
 
 
-    subgraph Prototype["Phase 4 internal prototype / DEC-016"]
+    subgraph Prototype["Phase 4 and 5 procedural journey / DEC-016 and DEC-017"]
         APP --> EXP_PAGE["features/explore/pages/ExplorePage.tsx"]
         PARSED --> EXP_WORLD["world/buildWorld.ts / pure descriptors"]
         EXP_WORLD --> EXP_UI["PrototypeExplorer / HTML controls and chapter content"]
@@ -124,13 +124,36 @@ flowchart TD
         EXP_MOVE["world/movement.ts / bounds and collisions"] --> EXP_PROXY
         EXP_UI --> EXP_PANEL["ProjectPanel / focus, Escape and full detail link"]
         EXP_PROXY -->|selection| EXP_PANEL
-        EXP_STATE --> EXP_TEST["Node descriptor, movement, travel and URL tests"]
+        EXP_STATE --> EXP_TEST["Node descriptor, content-evolution, movement, travel and URL tests"]
         EXP_WORLD --> EXP_TEST
         EXP_MOVE --> EXP_TEST
         EXP_SCENE --> EXP_BROWSER["Installed Chrome / isolated software-WebGL behavior QA"]
         DIST --> EXP_BROWSER
         INDEX --> EXP_DOC["areas/exploration.md / prototype contract"]
         EXP_DOC -->|documents| EXP_STATE
+    end
+
+
+    subgraph Observatory["Phase 5 Observatory / DEC-017 / CON-008"]
+        APP --> OBS_PAGE["features/observatory/pages/ObservatoryPage.tsx"]
+        OBS_PAGE --> OBS_HUB["ObservatoryHub / shared HTML rooms"]
+        EXP_UI --> OBS_HUB
+        PARSED --> OBS_HUB
+        OBS_HUB -->|reuses| RESUME
+        OBS_HUB -->|reuses project cards| PROJECTS
+        OBS_HUB --> OBS_SKILLS["SkillConstellation / authored skill references"]
+        OBS_HUB --> OBS_FUTURE["Future Room / aspirational empty state"]
+        EXP_SCENE --> OBS_SCENE["scene/ObservatoryScene.tsx / procedural hub"]
+        OBS_SCENE -->|room intent focuses| OBS_HUB
+        OBS_SCENE -->|chapter intent| EXP_STATE
+        EXP_URL -->|separate hub view| OBS_SCENE
+        EXP_WORLD --> EXP_NAV["world/navigation.ts / ordered neighbors and portal proximity"]
+        EXP_NAV --> EXP_PROXY
+        EXP_PRESETS["world/presets.ts / five authored styles and generic fallback"] --> EXP_WORLD
+        ROUTES -->|generates static route| OBS_PAGE
+        CON_008 -->|implemented through| OBS_HUB
+        INDEX --> OBS_DOC["areas/observatory.md"]
+        OBS_DOC -->|owns hub contract| OBS_HUB
     end
 
     DOMAIN -->|defines| CON_001

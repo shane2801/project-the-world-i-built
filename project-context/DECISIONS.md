@@ -138,6 +138,12 @@ Continue using clearly identified procedural stand-ins and owner-authorized cont
 
 Verify Phase 5 and stop for manual review. This authorizes the current Phase 4 milestone commit, not an automatic Phase 5 commit.
 
+## DEC-018 ? Phase 5 acceptance and Phase 6 quality/assets
+
+**Accepted, 2026-10-17.** The user instructed ?good commit and begin phase 6,? accepting the Phase 5 milestone and authorizing its local commit. Phase 6 covers quality, recovery, accessibility and asset work under the existing architecture. No remote or deployment is authorized.
+
+The user subsequently requested the imagegen skill for theme-matched assets. This authorizes generated decorative artwork with recorded prompts/provenance; it does not establish a character likeness, commission external artists, settle hardware benchmarks or verify missing career facts. Preserve interactive geometry and HTML information access. Review generated art before integration; report its generated status and remaining limitations. Verify and stop for manual review after this phase.
+
 ## Change rule
 
 Never silently replace a decision. Add rationale/provenance and a replacement ID when superseding one; update affected requirements, architecture, questions and graph together. Conversation provenance above is summarized because no chat transcript file exists in this repository.

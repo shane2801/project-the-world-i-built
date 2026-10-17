@@ -1,9 +1,12 @@
-import type { Chapter, World } from '../world/types';
+import type { Chapter, World, ExplorationView } from '../world/types';
+import type { ObservatoryRoomId } from '../../observatory/rooms';
 export interface FrameStats { fps: number; calls: number; triangles: number; geometries: number; textures: number }
 export interface SceneProps {
   world: World;
   chapter: Chapter;
-  overview: boolean;
+  view: ExplorationView;
+  onObservatory: () => void;
+  onRoom: (id: ObservatoryRoomId) => void;
   paused: boolean;
   reducedMotion: boolean;
   selectedProjectId: string | null;

@@ -3,7 +3,7 @@ import test from 'node:test';
 import { buildWorld } from '../world/buildWorld.ts';
 import { createPortfolioFixture } from '../../../domain/career/__fixtures__/portfolio.ts';
 import { experienceReducer as reduce, initialExperience, isTravelling } from './experience.ts';
-import { readSelection, selectionUrl } from './selection.ts';
+import { readSelection, selectionUrl, observatoryUrl } from './selection.ts';
 
 const world = buildWorld(createPortfolioFixture());
 
@@ -69,7 +69,7 @@ test('URL selection validates chapter ownership and supports shareable project l
   assert.equal(selected.projectId, 'example-project');
   assert.equal(selected.invalid, false);
   assert.equal(readSelection('?phase=abu-dhabi&project=example-project', world).projectId, null);
-  assert.ok(readSelection('?phase=mauritius', world).invalid);
+  assert.ok(readSelection('?phase=unknown', world).invalid);
   assert.ok(readSelection('?project=example-project', world).invalid);
   assert.equal(selectionUrl(null), '/explore/');
 });
@@ -81,4 +81,29 @@ test('URL restore cannot select unknown chapters and state updates do not mutate
   const selected = reduce(state, { type: 'select', projectId: 'example-project' });
   assert.equal(selected.projectId, 'example-project');
   assert.deepEqual(state, before);
+});
+
+test('Observatory is a distinct hub view, cancels travel and preserves the active career phase', () => {
+  const loading = reduce(initialExperience(world), { type: 'request', phaseId: 'abu-dhabi', request: 1 });
+  const hub = reduce(loading, { type: 'observatory' });
+  assert.equal(hub.view, 'observatory');
+  assert.equal(hub.activeId, 'france');
+  assert.equal(hub.pendingId, null);
+  assert.equal(hub.projectId, null);
+  assert.equal(reduce(hub, { type: 'prepared', request: 1 }), hub);
+  const restored = reduce(hub, { type: 'restore', phaseId: 'france', projectId: null, view: 'observatory' });
+  assert.equal(restored.view, 'observatory');
+});
+
+test('hub URLs exclude career claims and reject conflicting or unknown view parameters', () => {
+  assert.equal(observatoryUrl(), '/explore/?view=observatory');
+  const hub = readSelection('?view=observatory', world);
+  assert.equal(hub.view, 'observatory');
+  assert.equal(hub.projectId, null);
+  assert.equal(hub.invalid, false);
+  for (const search of ['?view=unknown', '?view=observatory&phase=france', '?view=observatory&project=example-project']) {
+    assert.equal(readSelection(search, world).invalid, true);
+    assert.equal(readSelection(search, world).view, 'overview');
+  }
+  assert.equal(readSelection('?phase=mauritius', world).invalid, false);
 });

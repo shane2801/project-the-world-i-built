@@ -12,4 +12,4 @@ Start at [project-context/INDEX.md](project-context/INDEX.md). Load only context
 - Run relevant checks, including `npm run check`; report only executed results and verification limits.
 - Update affected context, decisions and graph when approved architecture/interfaces/dependencies change.
 - Implement one approved step at a time; leave a coherent testable state and wait for manual review.
-- Authorization: commit Phase 4 and implement Phase 5 (DEC-017). Preserve work/content gaps. Stop for manual review; no Phase 5 commit, commissioning or deployment.
+- Authorization: commit reviewed Phase 5; begin Phase 6 quality/assets. Generated theme artwork is authorized; preserve content gaps. Stop for manual review; no deployment.

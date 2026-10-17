@@ -1,3 +1,6 @@
+import type { EnvironmentKind } from './presets.ts';
+export type ExplorationView = 'overview' | 'chapter' | 'observatory';
+
 export interface Point { readonly x: number; readonly z: number }
 export interface Landmark {
   readonly projectId: string;
@@ -13,6 +16,7 @@ export interface Chapter {
   readonly accent: string;
   readonly characterColor: string;
   readonly bounds: number;
+  readonly environment: EnvironmentKind;
   readonly landmarks: readonly Landmark[];
   readonly projectIds: readonly string[];
 }

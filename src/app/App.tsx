@@ -8,6 +8,7 @@ import { ProjectsPage } from '../features/projects/pages/ProjectsPage';
 import { ProjectPage } from '../features/projects/pages/ProjectPage';
 import { resolveRoute } from './routes';
 import { ExplorePage } from '../features/explore/pages/ExplorePage';
+import { ObservatoryPage } from '../features/observatory/pages/ObservatoryPage';
 import { StatusPage } from './StatusPage';
 
 interface AppProps {
@@ -22,6 +23,7 @@ export default function App({ pathname, portfolio = authoredPortfolio, draft = c
   switch (route.kind) {
     case 'home': page = <HomePage portfolio={portfolio} />; break;
     case 'resume': page = <ResumePage portfolio={portfolio} />; break;
+    case 'observatory': page = <ObservatoryPage portfolio={portfolio} />; break;
     case 'explore': page = <ExplorePage portfolio={portfolio} />; break;
     case 'projects': page = <ProjectsPage portfolio={portfolio} />; break;
     case 'project': {

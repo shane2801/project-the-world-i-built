@@ -1,9 +1,9 @@
-import type { World } from '../world/types.ts';
+import type { World, ExplorationView } from '../world/types.ts';
 
 export interface ExperienceState {
   readonly activeId: string;
   readonly phaseIds: readonly string[];
-  readonly view: 'overview' | 'chapter';
+  readonly view: ExplorationView;
   readonly status: 'idle' | 'loading' | 'transitioning' | 'failed';
   readonly pendingId: string | null;
   readonly projectId: string | null;
@@ -18,8 +18,9 @@ export type Action =
   | { type: 'arrived'; request: number }
   | { type: 'failed'; message: string; request: number }
   | { type: 'select'; projectId: string | null }
+  | { type: 'observatory' }
   | { type: 'overview' }
-  | { type: 'restore'; phaseId: string; projectId: string | null; view: 'overview' | 'chapter' };
+  | { type: 'restore'; phaseId: string; projectId: string | null; view: ExplorationView };
 
 export function initialExperience(world: World): ExperienceState {
   return {
@@ -47,8 +48,9 @@ export function experienceReducer(state: ExperienceState, action: Action): Exper
       return action.request === state.request ? { ...state, status: 'failed', ready: false, error: action.message } : state;
     case 'select':
       return isTravelling(state) ? state : { ...state, projectId: action.projectId, view: action.projectId ? 'chapter' : state.view };
+    case 'observatory':
     case 'overview':
-      return { ...state, status: 'idle', request: state.request + 1, view: 'overview', projectId: null, pendingId: null, ready: false, error: null };
+      return { ...state, status: 'idle', request: state.request + 1, view: action.type === 'observatory' ? 'observatory' : 'overview', projectId: null, pendingId: null, ready: false, error: null };
     case 'restore':
       return state.phaseIds.includes(action.phaseId) ? {
         ...state, request: state.request + 1, activeId: action.phaseId, projectId: action.projectId, view: action.view,

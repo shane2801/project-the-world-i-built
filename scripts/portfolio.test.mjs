@@ -8,7 +8,7 @@ import { validatePortfolio } from '../src/domain/career/validate.ts';
 const output = new URL('../dist/', import.meta.url);
 
 test('draft routes are readable static HTML with owner content and no synthetic facts', async () => {
-  for (const path of ['index.html', 'resume/index.html', 'projects/index.html', 'explore/index.html', '404.html']) {
+  for (const path of ['index.html', 'resume/index.html', 'projects/index.html', 'explore/index.html', 'observatory/index.html', '404.html']) {
     const html = await readFile(new URL(path, output), 'utf8');
     assert.match(html, /Draft portfolio/);
     assert.match(html, /name="robots" content="noindex,nofollow"/);
@@ -36,7 +36,9 @@ test('all generated internal links and script/style assets resolve within dist',
     const html = await readFile(new URL(relative, output), 'utf8');
     for (const [, href] of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
       if (href.startsWith('#') || !href.startsWith('/')) continue;
-      const [path, anchor] = href.split('#');
+      const url = new URL(href, 'http://localhost');
+      const path = url.pathname;
+      const anchor = decodeURIComponent(url.hash.slice(1));
       const target = path.endsWith('/') ? path.slice(1) + 'index.html' : path.slice(1);
       const content = await readFile(new URL(target, output), 'utf8');
       if (anchor) assert.ok(content.includes(`id="${anchor}"`), href);

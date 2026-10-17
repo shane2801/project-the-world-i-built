@@ -23,7 +23,3 @@ export function stepPosition(position: Point, keys: ReadonlySet<string>, delta: 
   if (allowed(vertical)) next = vertical;
   return next;
 }
-
-export function nearPortal(position: Point): boolean {
-  return Math.hypot(position.x, position.z + 7) < 2.3;
-}

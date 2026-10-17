@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import type { World } from '../world/types';
 import { experienceReducer, initialExperience, isTravelling } from '../state/experience';
-import { readSelection, selectionUrl } from '../state/selection';
+import { readSelection, selectionUrl, observatoryUrl } from '../state/selection';
 import { loadRenderer } from '../scene/loadRenderer';
 
-function writeSelection(phaseId: string | null, projectId: string | null = null) {
-  const url = selectionUrl(phaseId, projectId);
+function writeUrl(url: string) {
   if (window.location.pathname + window.location.search !== url) window.history.pushState(null, '', url);
 }
+function writeSelection(phaseId: string | null, projectId: string | null = null) { writeUrl(selectionUrl(phaseId, projectId)); }
 
 export function useExplorer(world: World, reducedMotion: boolean) {
   const [state, dispatch] = useReducer(experienceReducer, world, initialExperience);
@@ -64,5 +64,7 @@ export function useExplorer(world: World, reducedMotion: boolean) {
     writeSelection(phaseId);
   };
   const overview = () => { dispatch({ type: 'overview' }); writeSelection(null); };
-  return { state, travel, rendered, fail, select, overview, showChapter, invalidLink };
+  const observatory = () => { dispatch({ type: 'observatory' }); writeUrl(observatoryUrl()); };
+  const recover = () => dispatch({ type: 'restore', phaseId: state.activeId, projectId: state.projectId, view: state.view });
+  return { state, travel, rendered, fail, select, overview, observatory, recover, showChapter, invalidLink };
 }

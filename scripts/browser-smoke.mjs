@@ -106,12 +106,51 @@ try {
   await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape' });
   await waitFor("!document.querySelector('.explore-project-panel')", 'Escape closes project');
   assert.equal(await evaluate("document.activeElement?.textContent"), 'Inspect project');
-  await evaluate("document.querySelector('.explore-chapters li button').click()");
+  await evaluate("document.querySelector('[data-phase-id=\"abu-dhabi\"]').click()");
   await waitFor("location.search === '?phase=abu-dhabi' && document.querySelector('[role=status]')?.textContent.includes('Current chapter')", 'Abu Dhabi arrival');
   await evaluate("history.back()");
   await waitFor("location.search === '?phase=france' && document.querySelector('#active-chapter-title')?.textContent.includes('France')", 'URL back navigation');
   assert.deepEqual(errors, []);
   console.log('PASS Chrome: movement key events, project focus/Escape, travel and history');
+
+
+  for (const phaseId of ['mauritius', 'birmingham', 'freelance', 'abu-dhabi', 'france']) {
+    await evaluate("document.querySelector('[data-phase-id=\"" + phaseId + "\"]').click()");
+    await waitFor("location.search === '?phase=" + phaseId + "' && document.querySelector('[role=status]').textContent.includes('Current chapter') && !!document.querySelector('canvas')", phaseId + ' scene');
+  }
+  await evaluate("document.querySelector('[data-phase-id=\"mauritius\"]').click()");
+  await waitFor("location.search === '?phase=mauritius' && document.querySelector('[role=status]').textContent.includes('Current chapter')", 'first chapter');
+  assert.equal(await evaluate("[...document.querySelectorAll('button')].some(button => button.textContent === 'Previous chapter')"), false);
+  await click('Next chapter');
+  await waitFor("location.search === '?phase=birmingham' && document.querySelector('[role=status]').textContent.includes('Current chapter')", 'next chronological chapter');
+  await click('Previous chapter');
+  await waitFor("location.search === '?phase=mauritius' && document.querySelector('[role=status]').textContent.includes('Current chapter')", 'previous chronological chapter');
+  await click('Open Observatory');
+  await waitFor("location.search === '?view=observatory' && !!document.querySelector('.observatory-hub') && !!document.querySelector('canvas')", 'Observatory hub');
+  await delay(200);
+  assert.deepEqual(errors, []);
+  if (process.env.BROWSER_SCREENSHOT) {
+    await evaluate("document.querySelector('.explore-canvas').focus()");
+    const capture = await command('Page.captureScreenshot', { format: 'png' });
+    await writeFile(process.env.BROWSER_SCREENSHOT, Buffer.from(capture.data, 'base64'));
+  }
+  await evaluate("document.querySelector('[href=\"#observatory-skills\"]').click()");
+  await waitFor("location.hash === '#observatory-skills'", 'skill room anchor');
+  await evaluate("document.querySelector('canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext()");
+  await waitFor("!!document.querySelector('.explore-error') && !!document.querySelector('.observatory-hub')", 'hub context loss fallback');
+  await click('Retry 3D');
+  await waitFor("location.search === '?view=observatory' && !!document.querySelector('canvas') && !document.querySelector('.explore-error')", 'hub graphics recovery');
+  await command('Page.navigate', { url: origin + '/observatory/' });
+  await waitFor("document.querySelector('h1')?.textContent === 'The Observatory' && document.querySelectorAll('.observatory-hub > section').length === 4", 'standalone Observatory');
+  assert.ok(!await evaluate("performance.getEntriesByType('resource').some(item => item.name.includes('PrototypeScene-'))"));
+  await command('Page.navigate', { url: origin + '/explore/?view=observatory' });
+  await waitFor("!!document.querySelector('.observatory-hub') && ![...document.querySelectorAll('button')].find(b => b.textContent === 'Enable 3D prototype')?.disabled", 'direct hub reload');
+  assert.equal(await evaluate("document.querySelectorAll('canvas').length"), 0);
+  await click('Enable 3D prototype');
+  await waitFor("!!document.querySelector('canvas')", 'reloaded hub graphics');
+  await evaluate("document.querySelector('[data-phase-id=\"france\"]').click()");
+  await waitFor("location.search === '?phase=france' && document.querySelector('[role=status]').textContent.includes('Current chapter')", 'return from hub');
+  console.log('PASS Chrome: five chapters, chronological travel, Observatory rooms, direct hub URL and hub recovery');
 
   await command('Emulation.setEmulatedMedia', { features: [{ name: 'prefers-reduced-motion', value: 'reduce' }] });
   await waitFor("document.querySelector('input[type=checkbox]')?.checked && document.querySelector('input[type=checkbox]')?.disabled", 'system reduced motion');

@@ -1,6 +1,6 @@
 # Context index
 
-Read only relevant destinations. Source review: 2026-10-17. All ten design texts and the supplied résumé were inspected. DEC-007/DEC-008 are accepted; Phase 1 is complete. The user approved the DEC-010 organization step and Phase 1 milestone; DEC-011 authorizes local Git initialization and the Phase 1 commit only. Phase 2 core data/domain (DEC-012) is complete and approved. DEC-013 authorized its local commit (cec5ae0). DEC-014 approved draft pages; DEC-015 authorizes the owner-supplied résumé content. The user approved the Phase 4 milestone and authorized its local commit and Phase 5 under DEC-017. See the architecture for current implementation status.
+Load only the task-relevant destinations below. All ten design texts and the supplied résumé were reviewed on 2026-10-17; verify fingerprints before trusting freshness. Phase 4 is committed as 606cdb3. DEC-018 records Phase 5 acceptance and authorizes Phase 6 quality/assets. Authority and content permissions remain DEC-001/DEC-015.
 
 | Task | Load |
 |---|---|
@@ -11,7 +11,8 @@ Read only relevant destinations. Source review: 2026-10-17. All ten design texts
 | Concepts and region identities | [Domain](areas/domain.md) |
 | Review Phase 2 contracts and tests | [Data contracts](areas/data.md) |
 | Entities, relationships, validation | [Data](areas/data.md) |
-| Two-chapter prototype, travel and performance | [Exploration](areas/exploration.md) |
+| Full journey, travel and performance | [Exploration](areas/exploration.md) |
+| Observatory rooms, shared content and hub view | [Observatory](areas/observatory.md) |
 | Visitor journeys and maintenance | [Workflows](areas/workflows.md) |
 | Authority and accepted choices | [Decisions](DECISIONS.md) |
 | Missing facts and conflicts | [Open questions](OPEN_QUESTIONS.md) |
@@ -58,14 +59,14 @@ Baseline reconciliation: during creation, SRC-01 gained a leading CRLF outside t
 
 SRC-11 is an unchanged copy of the user-selected C:/Users/kavish.muthoora/Downloads/stuff/KAVISH MUTHOORA.docx, preserved under docs/ with SHA-256 E1346E0DCD050409B91B7A551B7E7593ED941C533E006E0B7DBCAA5B2B81735D. It adds one DOCX to the original ten design texts; it does not replace or modify them. Check its fingerprint alongside the ten text fingerprints above. DEC-015 records use permission; paragraph locators and field provenance belong in [data](areas/data.md#src-11-resume-provenance-and-remaining-detail). Original external source and repository copy have identical bytes.
 
-## Phase 4 handoff
+## Current handoff — Phase 5
 
-DEC-016 delivered the internal two-chapter prototype; Phase 3 work is preserved. DEC-017 accepts this milestone, authorizes its local commit and advances to Phase 5. Commissioning and deployment remain unauthorized. The user selected Chrome on average-spec hardware; exact GPU/network and final budgets remain Q-007.
+Phase 4 is committed as 606cdb3 (including the previously uncommitted Phase 3 work). Phase 5 is accepted under DEC-018. All five chapter proxies, ordered portals/direct choice and the Observatory are implemented. The user authorized the Phase 5 local milestone commit and Phase 6 quality/assets, including generated theme artwork. No deployment is authorized.
 
-Final verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 58 tests (33 domain, four routes, 12 world/movement/travel/URL, three HTTP, four portfolio, two explorer-build). Nine static pages remain readable without WebGL. npm ls --depth=0 passed; installation reported zero audit findings. Three.js/Fiber/type declarations and lockfile were updated under DEC-016.
+Final verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 66 tests (33 domain, four routes, 16 world/movement/travel/URL, three HTTP, four portfolio, six explorer/Observatory build). Ten static pages were generated. The final browser-test edits also passed npm run lint. No packages or dependency versions changed; package-lock.json and authored portfolio data match Phase 4.
 
-Installed Chrome 155.0.8059.84 passed isolated headless software-WebGL checks for hydration, lazy activation, introduction skip, movement key events, project focus/Escape, travel/history, reduced motion, context loss/retry, phone layout and blocked-renderer fallback. Test-owned browsers, servers and temporary profiles were closed/removed. One chapter screenshot was inspected.
+Installed Chrome 155.0.8059.84 passed isolated software-WebGL checks for all five scenes, chronological/direct travel, history, project focus/Escape, reduced motion, phone layout, network failure, standalone/direct Observatory URLs, room anchors and hub/chapter context-loss recovery. Test browsers, servers and temporary profiles were closed/removed. The Observatory screenshot was inspected.
 
-The renderer is about 244 kB gzip, within the provisional 350 KiB budget. Vite warns about its approximately 918 kB uncompressed chunk; it is deliberately loaded on demand and not preloaded by the home page. Real GPU/network benchmarks, exhaustive visual/assistive-technology QA and official Mermaid rendering remain unverified. See the prototype's [review procedure](areas/exploration.md#validation-and-review) and [provisional targets](areas/exploration.md#provisional-performance-targets).
+The lazy renderer remains about 244 kB gzip, inside its provisional 350 KiB budget. Vite warns about the approximately 922 kB uncompressed renderer chunk; home and Observatory information routes do not preload it. Real GPU/network benchmarks, exhaustive visual/assistive-technology QA and official Mermaid rendering remain unverified. Use the [manual review](../README.md#phase-5-manual-review-chrome) and [provisional targets](areas/exploration.md#provisional-performance-targets).
 
-Context audit: all eleven source fingerprints match; local links/anchors and stable IDs resolve; production imports contain no synthetic fixtures; module imports are acyclic; Mermaid passed static structure/edge checks. AGENTS.md remains below 200 words. Historical milestone implementation details remain in ARCHITECTURE.md/DECISIONS.md and Git history; this index records the current handoff to stay compact.
+Context audit: all eleven source fingerprints match; local links/anchors and 55 stable IDs resolve; module imports are acyclic and production entries/bundles contain no synthetic fixtures. Mermaid passes static subset checks with eight balanced groups and 133 edges. AGENTS.md is 196 words. Known content gaps remain Q-001/Q-017; licensed assets and hardware budgets remain Q-003/Q-007.

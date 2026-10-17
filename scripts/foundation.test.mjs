@@ -68,7 +68,7 @@ test('production preview serves the static page and its JS/CSS assets', async ()
 
     for (const [path, heading] of [
       ['/resume/', 'Résumé'], ['/projects/', 'Projects'],
-      ['/explore/', 'Explore the world'], ['/404.html', 'Page not found'],
+      ['/explore/', 'Explore the world'], ['/observatory/', 'The Observatory'], ['/404.html', 'Page not found'],
     ]) {
       const page = await fetch(new URL(path, origin));
       assert.equal(page.status, 200);
