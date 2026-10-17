@@ -1,16 +1,17 @@
 # Context index
 
-Read only relevant destinations. Source review: 2026-10-17. All ten source files were inspected. DEC-007/DEC-008 are accepted; Phase 1 is complete. The user approved the DEC-010 organization step and Phase 1 milestone; DEC-011 authorizes local Git initialization and the Phase 1 commit only. Phase 2 core data/domain (DEC-012) is complete and approved. DEC-013 authorizes its local commit and Phase 3; UI work awaits resolution of the verified-content prerequisite. See the architecture for current implementation status.
+Read only relevant destinations. Source review: 2026-10-17. All ten design texts and the supplied résumé were inspected. DEC-007/DEC-008 are accepted; Phase 1 is complete. The user approved the DEC-010 organization step and Phase 1 milestone; DEC-011 authorizes local Git initialization and the Phase 1 commit only. Phase 2 core data/domain (DEC-012) is complete and approved. DEC-013 authorized its local commit (cec5ae0). DEC-014 approved draft pages; DEC-015 authorizes the owner-supplied résumé content. The user approved the Phase 4 milestone and authorized its local commit and Phase 5 under DEC-017. See the architecture for current implementation status.
 
 | Task | Load |
 |---|---|
-| Run and verify the foundation | [Setup instructions](../README.md) |
+| Run, test and manually review the application | [Setup instructions](../README.md) |
 | Understand goals and requirements | [Summary](SUMMARY.md) |
 | Module ownership and growth | [Feature organization](ARCHITECTURE.md#feature-organization-and-growth) |
 | Components, stack, delivery stages | [Architecture](ARCHITECTURE.md) |
 | Concepts and region identities | [Domain](areas/domain.md) |
 | Review Phase 2 contracts and tests | [Data contracts](areas/data.md) |
 | Entities, relationships, validation | [Data](areas/data.md) |
+| Two-chapter prototype, travel and performance | [Exploration](areas/exploration.md) |
 | Visitor journeys and maintenance | [Workflows](areas/workflows.md) |
 | Authority and accepted choices | [Decisions](DECISIONS.md) |
 | Missing facts and conflicts | [Open questions](OPEN_QUESTIONS.md) |
@@ -18,7 +19,7 @@ Read only relevant destinations. Source review: 2026-10-17. All ten source files
 
 ## Source manifest
 
-`SRC-NN` identifies the corresponding unchanged source. Links resolve from this index. Section titles are primary locators; line references describe this baseline.
+`SRC-NN` identifies each preserved source. Links resolve from this index. Section titles are primary locators; line references describe this baseline.
 
 | ID | Source | Lines | Subject |
 |---|---|---:|---|
@@ -32,6 +33,7 @@ Read only relevant destinations. Source review: 2026-10-17. All ten source files
 | SRC-08 | [08](../docs/theworldibuild-08.txt) | 275 | Information and accessibility |
 | SRC-09 | [09](../docs/theworldibuild-09.txt) | 328 | Scalability |
 | SRC-10 | [10](../docs/theworldibuild-10.txt) | 529 | Master specification |
+| SRC-11 | [Owner résumé](../docs/KAVISH%20MUTHOORA.docx) | 123 XML paragraphs | Career facts supplied and authorized by owner |
 
 SHA-256, keyed by source number:
 
@@ -52,22 +54,18 @@ Use identifiers `REQ-NNN`, `DEC-NNN`, `Q-NNN`, and `CON-NNN` without renumbering
 
 Baseline reconciliation: during creation, SRC-01 gained a leading CRLF outside the documentation-writing operations (4,553 -> 4,555 bytes). Hashing bytes after that leading CRLF reproduces its original discovery fingerprint, proving no other byte changed. The current file is preserved; its fingerprint and line locators above reflect the reviewed 340-line version. Other sources retain their discovery fingerprints.
 
-## Verification snapshot
+## Supplied résumé source
 
-Context-only audit, 2026-10-17: 20 expected files; all ten source SHA-256 fingerprints unchanged; inventory and topic citations cover 10/10 sources; 86 local links, six anchors and 45 stable IDs resolve; all 12 requirements map to architecture constraints. AGENTS.md is 197 words.
+SRC-11 is an unchanged copy of the user-selected C:/Users/kavish.muthoora/Downloads/stuff/KAVISH MUTHOORA.docx, preserved under docs/ with SHA-256 E1346E0DCD050409B91B7A551B7E7593ED941C533E006E0B7DBCAA5B2B81735D. It adds one DOCX to the original ten design texts; it does not replace or modify them. Check its fingerprint alongside the ten text fingerprints above. DEC-015 records use permission; paragraph locators and field provenance belong in [data](areas/data.md#src-11-resume-provenance-and-remaining-detail). Original external source and repository copy have identical bytes.
 
-GRAPH.mmd passed static checks for its flowchart subset: three balanced subgraphs, declared references and 48 edges. Official Mermaid parsing, rendered layout and external-link availability were not verified. No Mermaid parser/CLI is installed; no dependencies were installed. Application tests are not applicable because no application was implemented. This snapshot describes this audit, not future freshness; use the maintenance procedure after changes.
+## Phase 4 handoff
 
-## Current implementation verification
+DEC-016 delivered the internal two-chapter prototype; Phase 3 work is preserved. DEC-017 accepts this milestone, authorizes its local commit and advances to Phase 5. Commissioning and deployment remain unauthorized. The user selected Chrome on average-spec hardware; exact GPU/network and final budgets remain Q-007.
 
-Phase 1, 2026-10-17: npm installation succeeded with 118 installed packages and zero audit findings at install time; npm ls reported compatible top-level dependencies. npm run check passed ESLint, strict TypeScript, client/SSR builds, static HTML rendering and all three Node smoke tests (development startup, readable production HTML and production JS/CSS serving). Test servers were closed.
+Final verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 58 tests (33 domain, four routes, 12 world/movement/travel/URL, three HTTP, four portfolio, two explorer-build). Nine static pages remain readable without WebGL. npm ls --depth=0 passed; installation reported zero audit findings. Three.js/Fiber/type declarations and lockfile were updated under DEC-016.
 
-The Sites install helper could not resolve npm correctly on this Windows host; npm.cmd install succeeded using the same pinned manifest. Browser rendering, client hydration, visual/accessibility QA and official Mermaid rendering remain unverified; no browser tooling was installed. No deployment occurred. Source-hash and context-link checks are recorded in the phase handoff.
+Installed Chrome 155.0.8059.84 passed isolated headless software-WebGL checks for hydration, lazy activation, introduction skip, movement key events, project focus/Escape, travel/history, reduced motion, context loss/retry, phone layout and blocked-renderer fallback. Test-owned browsers, servers and temporary profiles were closed/removed. One chapter screenshot was inspected.
 
-## Organization verification
+The renderer is about 244 kB gzip, within the provisional 350 KiB budget. Vite warns about its approximately 918 kB uncompressed chunk; it is deliberately loaded on demand and not preloaded by the home page. Real GPU/network benchmarks, exhaustive visual/assistive-technology QA and official Mermaid rendering remain unverified. See the prototype's [review procedure](areas/exploration.md#validation-and-review) and [provisional targets](areas/exploration.md#provisional-performance-targets).
 
-DEC-010, 2026-10-17: npm run check passed lint, strict types, client/static-render builds and all three existing smoke tests. The rendered React markup exactly matches the pre-extraction fingerprint. A static CSS comparison preserved all 29 original rules and 106 declaration values after resolving shared tokens, including responsive and forced-colors rules. package.json/package-lock.json are unchanged; no packages were installed. Browser visuals/hydration and official Mermaid rendering remain unverified. The user subsequently approved this milestone; wait for a separate instruction before Phase 2.
-
-## Phase 2 verification
-
-DEC-012, 2026-10-17: the final npm run check passed lint, strict TypeScript, 32 domain tests, client/static-render builds and all three foundation smoke tests. Tests cover unknown-input diagnostics, IDs/references, explicit order and overlapping labels, independent tags/presentation, publication review, safe links, add/remove/reorder behavior and immutable queries. The home markup, dependency versions and package-lock.json are unchanged. No packages, production data, UI workflow, database or remote service were added. Browser hydration/visual QA and official Mermaid rendering remain unverified. The user subsequently approved Phase 2 and requested its commit and Phase 3 (DEC-013). All ten source fingerprints were rechecked unchanged before commit; Phase 3 UI work awaits its content prerequisite.
+Context audit: all eleven source fingerprints match; local links/anchors and stable IDs resolve; production imports contain no synthetic fixtures; module imports are acyclic; Mermaid passed static structure/edge checks. AGENTS.md remains below 200 words. Historical milestone implementation details remain in ARCHITECTURE.md/DECISIONS.md and Git history; this index records the current handoff to stay compact.

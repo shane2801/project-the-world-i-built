@@ -1,5 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
+import { resolveRoute, routeTitle } from './app/routes';
+import { portfolio } from './content/portfolio';
 import App from './app/App';
 import './styles/global.css';
 
@@ -9,9 +11,9 @@ if (!container) {
   throw new Error('The application root is missing.');
 }
 
-const application = <StrictMode><App /></StrictMode>;
-
-// Production contains build-time HTML; development starts with an empty root.
+// The browser and build resolve the same pathname; query/hash never select pages.
+document.title = routeTitle(resolveRoute(window.location.pathname, portfolio), portfolio);
+const application = <StrictMode><App pathname={window.location.pathname} /></StrictMode>;
 if (container.childElementCount > 0) {
   hydrateRoot(container, application);
 } else {

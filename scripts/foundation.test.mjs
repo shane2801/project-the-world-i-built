@@ -65,6 +65,15 @@ test('production preview serves the static page and its JS/CSS assets', async ()
     assert.equal(response.status, 200);
     const html = await response.text();
     assert.match(html, /Every chapter leaves something behind/);
+
+    for (const [path, heading] of [
+      ['/resume/', 'Résumé'], ['/projects/', 'Projects'],
+      ['/explore/', 'Explore the world'], ['/404.html', 'Page not found'],
+    ]) {
+      const page = await fetch(new URL(path, origin));
+      assert.equal(page.status, 200);
+      assert.ok((await page.text()).includes(`<h1>${heading}</h1>`), path);
+    }
     const assetPaths = [...html.matchAll(/(?:src|href)="([^"]+\.(?:js|css))"/g)];
     assert.ok(assetPaths.length >= 2, 'Production page must reference JS and CSS.');
     for (const [, assetPath] of assetPaths) {

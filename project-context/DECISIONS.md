@@ -96,6 +96,48 @@ The Phase 3 prerequisite remains verified publishable content (Q-001/Q-002). No 
 
 Scope after that prerequisite is resolved: shared static/browser routes, accessible resume and project catalogue/details, renderer-independent HTML and direct-URL checks. Preserve the approved feature boundaries and styling; stop for manual review after verification. Existing Phase 2 check results are recorded in INDEX.md; this acceptance does not imply browser verification.
 
+## DEC-014 — Draft accessible portfolio before real content
+
+**Accepted, 2026-10-17.** The user instructed “build drafts first then we will replace with actual content later.” This explicitly permits Phase 3 UI implementation before Q-001/Q-002 are resolved, superseding the verified-content prerequisite for draft page construction only.
+
+Use clearly labeled draft pages with empty states, no invented career facts and no synthetic fixture imports in application/build entries. An absent content dataset is null; supplied content must pass the existing publication validation guard. Draft static pages carry noindex,nofollow metadata; this is a crawler request, not access control.
+
+Implement the approved ordinary-link/static-route strategy, resume, project catalogue and project detail components. Generate only known project URLs; with no data, there are no placeholder project entities. Explore is a status page until its later phase. Keep plain CSS, existing dependencies and static delivery. Contact stays pending, without a form or fabricated address. URL-safe project IDs are checked at static-route generation.
+
+Replace the null dataset with reviewed content only after facts and disclosure permissions are supplied. No deployment, new service or later phase is authorized. Verify this phase and wait for manual review; leave it uncommitted.
+
+## DEC-015 — Use the owner-supplied résumé
+
+**Accepted, 2026-10-17.** The user supplied the DOCX location, asked to use it to fill content, and confirmed “these are my details you can use anything.” This authorizes the supplied career facts, employer/client names and contact details. It does not authorize deployment or newly invented project facts.
+
+Preserve an unchanged DOCX copy as SRC-11 under docs/ for reproducible provenance. It governs supplied biographical facts; SRC-10 continues to govern compatible design requirements. Paragraph locators, fingerprint, normalization and inferred associations are recorded in areas/data.md and INDEX.md.
+
+Use direct email, telephone, LinkedIn and portfolio links; add no contact form or service. Telephone URLs extend the existing contact boundary with number validation and focused tests. Omit the contradictory 39/23 platform count (Q-017). Missing project/early-career details remain visibly pending. EV/Java-game chapter assignments are explicitly provisional; the France chapter represents banking work while Mauritius remains the supplied base.
+
+The dataset's approved marker records this owner permission, not independent fact checking. Keep presentation contentIsDraft true and noindex metadata until manual review and remaining content work. Do not treat this approval as review of the resulting Phase 3 UI; stop after verification.
+
+## DEC-016 — Phase 4 internal 3D prototype
+
+**Accepted, 2026-10-17.** After the Phase 3 handoff, the user instructed “ok begin phase 4.” This accepts advancing past Phase 3; it does not establish that previously unperformed browser checks passed. The user selected Chrome on average-spec hardware for review.
+
+Implement the approved two-connected-chapter prototype: pure descriptors, bounded movement/collisions, project selection, wormhole travel with readiness/cancellation/recovery, reduced motion and independent HTML access. Select current/previous chapters by authored order (currently France/Abu Dhabi). Use procedural geometry and a proxy character before commissioned GLB/likeness assets.
+
+Install pinned Three.js 0.186.1, React Three Fiber 9.8.2 and matching @types/three 0.186.0; Fiber's peer range supports existing React 19.3.1. Keep the renderer on demand. No Drei, physics engine, application state library, backend or asset service is added. Official compatibility: [Fiber installation](https://r3f.docs.pmnd.rs/getting-started/installation).
+
+Module ownership, provisional budgets and verification strategy belong in [exploration](areas/exploration.md). Numeric targets are recommendations awaiting real hardware measurements under Q-007, not newly approved release requirements. Installed Chrome may be used for isolated headless behavior tests without downloads.
+
+Preserve all source documents and existing Phase 3 work. Verify, leave changes uncommitted and wait for manual review. No Phase 5, commissioning, remote operation or deployment is authorized.
+
+## DEC-017 — Phase 4 acceptance, local milestone and Phase 5
+
+**Accepted, 2026-10-17.** The user instructed “good commit and being phase 5” after the Phase 4 handoff. Commit the reviewed work locally, including the preserved Phase 3 changes that had not received a separate commit. Do not rewrite the earlier Phase 2 milestone or configure a remote.
+
+Proceed with the approved Phase 5 complete journey: all five authored chapters, chronological connections plus direct chapter choice, and Observatory as the global history/project/skills hub. Reuse validated content, pure descriptors and the existing renderer/controller boundaries. Prove add/reorder/remove behavior without location-specific engine edits.
+
+Continue using clearly identified procedural stand-ins and owner-authorized content. Do not invent missing biography or future employment; future content stays explicitly pending. Licensed final art, GLB likeness/rig, commissioning, production performance sign-off and deployment remain later approvals. No new dependency or infrastructure is required by this step.
+
+Verify Phase 5 and stop for manual review. This authorizes the current Phase 4 milestone commit, not an automatic Phase 5 commit.
+
 ## Change rule
 
 Never silently replace a decision. Add rationale/provenance and a replacement ID when superseding one; update affected requirements, architecture, questions and graph together. Conversation provenance above is summarized because no chat transcript file exists in this repository.

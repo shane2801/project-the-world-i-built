@@ -1,0 +1,10 @@
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  gap: var(--space-md);
+}
+.project-card { padding: var(--space-md); border: 1px solid var(--color-atmosphere); border-radius: var(--radius-panel); }
+.project-card h2 { margin-top: var(--space-xs); }
+figure { margin: var(--space-lg) 0; }
+figure img, figure video { display: block; max-width: 100%; height: auto; }
+figcaption { margin-top: var(--space-xs); color: var(--color-text-muted); }

@@ -87,7 +87,7 @@ export function readUrl(
   value: unknown,
   path: string,
   issues: ValidationIssue[],
-  allowMail = false,
+  allowContact = false,
 ): string {
   const href = readText(value, path, issues);
   const local = href.startsWith('/') && !href.startsWith('//');
@@ -103,14 +103,15 @@ export function readUrl(
       try {
         const url = new URL(href);
         allowed = ['https:', 'http:'].includes(url.protocol)
-          || (allowMail && url.protocol === 'mailto:' && url.pathname.length > 0);
+          || (allowContact && url.protocol === 'mailto:' && url.pathname.length > 0)
+          || (allowContact && url.protocol === 'tel:' && /^\+?[0-9][0-9().-]*$/.test(url.pathname));
       } catch {
         // Invalid or relative URLs must not be silently rewritten against a host.
       }
     }
   }
   if (!allowed) {
-    issues.push({ path, code: 'invalid-value', message: 'Use an HTTP(S) URL, safe root-relative path, or permitted contact link.' });
+    issues.push({ path, code: 'invalid-value', message: 'Use an HTTP(S) URL, safe root-relative path, or permitted email/telephone link.' });
   }
   return href;
 }

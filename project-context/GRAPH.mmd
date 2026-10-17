@@ -11,7 +11,7 @@ flowchart TD
         INDEX --> DOMAIN["areas/domain.md / CON IDs"]
         INDEX --> DATA["areas/data.md"]
         INDEX --> FLOW["areas/workflows.md"]
-        INDEX -->|inventories and fingerprints| SRC["docs/ / SRC-01 through SRC-10"]
+        INDEX -->|inventories and fingerprints| SRC["docs/ / SRC-01 through SRC-11"]
         INDEX --> GRAPH["GRAPH.mmd"]
         SUMMARY -->|derived from| SRC
         DOMAIN -->|derived from| SRC
@@ -40,7 +40,7 @@ flowchart TD
         CON_008 -->|offers skill constellation| CON_009
     end
 
-    subgraph Application["Approved target / DEC-007 and DEC-008 / later phases remain unimplemented"]
+    subgraph Application["Approved full-release target / DEC-007 and DEC-008"]
         CONTENT["Authored career content"] --> VALIDATOR["Build validator"]
         VALIDATOR --> MODEL["Validated shared model"]
         MODEL --> HTML["Static resume and project pages"]
@@ -69,13 +69,13 @@ flowchart TD
         VITE["Vite / TypeScript / React plugin"] --> CLIENT
         VITE --> BUILDENTRY
         BUILDENTRY --> PRERENDER["scripts/prerender.mjs"]
-        PRERENDER --> DIST["dist/index.html and browser assets"]
+        PRERENDER --> DIST["dist/ / static pages and browser assets"]
         CLIENT -->|compiled into| DIST
         DIST --> SMOKE["Node HTTP and static-HTML smoke tests"]
         LINT["ESLint and strict TypeScript checks"] -->|validate| APP
     end
 
-    subgraph Career["Phase 2 domain / DEC-012 / no UI integration"]
+    subgraph Career["Phase 2 domain / DEC-012 / shared by Phases 3 and 4"]
         TYPES["domain/career/types.ts"] --> PARSE["validate.ts / unknown input boundary"]
         FIELDS["validation/fields.ts and entities.ts"] --> PARSE
         REFS["validation/references.ts"] --> PARSE
@@ -87,10 +87,56 @@ flowchart TD
         DATA -->|owns contract documentation| TYPES
     end
 
+
+    subgraph Accessible["Phase 3 draft information UI / DEC-014 and DEC-015"]
+        RESUME_SOURCE["SRC-11 owner résumé"] --> AUTHORED
+        SRC -->|inventories| RESUME_SOURCE
+        AUTHORED["content/portfolio.ts / owner-authorized SRC-11"] --> LOAD["loadPortfolio / publication validation"]
+        LOAD -->|validated owner content| PARSE
+        AUTHORED -->|owner-approved data| APP
+        ROUTES["app/routes.ts / shared pathname resolution"] --> APP
+        ROUTES --> BUILDENTRY
+        APP --> RESUME["features/resume / page and timeline"]
+        APP --> PROJECTS["features/projects / catalogue and details"]
+        APP --> STATUS["app/StatusPage / exploration status and not found"]
+        LAYOUT --> NOTICE["Draft notice and ordinary-link navigation"]
+        ROUTES --> ROUTETEST["Node route and content-loader tests"]
+        BUILDENTRY --> SSRTEST["Node static-page and component-render tests"]
+        FIXTURES -->|test-only injection| SSRTEST
+        DIST --> SSRTEST
+        QUERIES --> RESUME
+        QUERIES --> APP
+    end
+
+
+    subgraph Prototype["Phase 4 internal prototype / DEC-016"]
+        APP --> EXP_PAGE["features/explore/pages/ExplorePage.tsx"]
+        PARSED --> EXP_WORLD["world/buildWorld.ts / pure descriptors"]
+        EXP_WORLD --> EXP_UI["PrototypeExplorer / HTML controls and chapter content"]
+        EXP_PAGE --> EXP_UI
+        EXP_UI --> EXP_STATE["useExplorer / pure experience reducer"]
+        EXP_URL["state/selection.ts / query ownership and history"] --> EXP_STATE
+        EXP_STATE --> EXP_GATE["ExplorerViewport / lazy import and error boundary"]
+        EXP_GATE --> EXP_SCENE["scene/PrototypeScene.tsx / Canvas"]
+        EXP_SCENE -->|readiness and intent| EXP_STATE
+        R3F["Pinned Three.js / React Three Fiber"] --> EXP_SCENE
+        EXP_SCENE --> EXP_PROXY["ChapterScene / PlanetOverview / Character proxy"]
+        EXP_MOVE["world/movement.ts / bounds and collisions"] --> EXP_PROXY
+        EXP_UI --> EXP_PANEL["ProjectPanel / focus, Escape and full detail link"]
+        EXP_PROXY -->|selection| EXP_PANEL
+        EXP_STATE --> EXP_TEST["Node descriptor, movement, travel and URL tests"]
+        EXP_WORLD --> EXP_TEST
+        EXP_MOVE --> EXP_TEST
+        EXP_SCENE --> EXP_BROWSER["Installed Chrome / isolated software-WebGL behavior QA"]
+        DIST --> EXP_BROWSER
+        INDEX --> EXP_DOC["areas/exploration.md / prototype contract"]
+        EXP_DOC -->|documents| EXP_STATE
+    end
+
     DOMAIN -->|defines| CON_001
     ARCH -->|specifies target| BUILDER
     DATA -->|defines career contract for target| MODEL
     FLOW -->|defines planned behavior| CONTROL
     ARCH -->|records current implementation| APP
-    SRC -->|preserved in| GIT["Local Git milestones / DEC-011 and DEC-013"]
+    SRC -->|preserved in| GIT["Local Git milestones / DEC-011, DEC-013 and DEC-017"]
     APP -->|versioned in| GIT

@@ -22,6 +22,8 @@
   --space-3xl: 80px;
   --space-4xl: 96px;
 
+  --radius-panel: 6px;
+  --reading-max-width: 1120px;
   --content-max-width: 1440px;
   --page-gutter: clamp(var(--space-md), 5vw, var(--space-3xl));
 }

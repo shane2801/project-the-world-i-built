@@ -1,0 +1,53 @@
+/* Shared reading patterns, not feature-specific layouts. */
+a { color: var(--color-accent); text-underline-offset: .2em; }
+a:hover { text-decoration-thickness: 2px; }
+.content-page {
+  width: 100%;
+  max-width: var(--reading-max-width);
+  margin: auto;
+  padding: var(--space-2xl) var(--page-gutter) var(--space-3xl);
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.page-heading { margin-bottom: var(--space-xl); }
+.page-heading h1 {
+  margin-block: var(--space-xs) var(--space-sm);
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -.035em;
+}
+.content-page h2, .content-page h3 { line-height: 1.3; }
+.content-page h2 { font-family: var(--font-display); font-weight: 400; font-size: 1.7rem; }
+.content-page section + section { margin-top: var(--space-xl); }
+.eyebrow { color: var(--color-accent); font-size: var(--text-eyebrow); letter-spacing: .12em; text-transform: uppercase; }
+.muted, .page-heading > p:not(.eyebrow) { color: var(--color-text-muted); }
+.empty-state {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-atmosphere);
+  border-radius: var(--radius-panel);
+}
+.empty-state h2 { margin-top: 0; }
+.empty-state p { margin-bottom: 0; color: var(--color-text-muted); }
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  padding: 0;
+  list-style: none;
+  color: var(--color-text-muted);
+}
+.tag-list li { border: 1px solid var(--color-atmosphere); padding: .15em .65em; border-radius: var(--radius-panel); }
+.primary-link { display: inline-block; padding: var(--space-xs) var(--space-sm); border: 1px solid var(--color-accent); border-radius: var(--radius-panel); }
+.home-actions { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-md); margin-top: var(--space-lg); }
+@media (forced-colors: active) {
+  .empty-state, .project-card, .tag-list li, .primary-link { border-color: CanvasText; }
+}
+@media print {
+  body { color: #000; background: #fff; }
+  .masthead nav, .skip-link, .site-footer, .planet-study { display: none; }
+  .content-page { max-width: none; padding: 0; }
+  a, .muted, .eyebrow, .status-label, .tag-list, .page-heading > p:not(.eyebrow) { color: inherit; }
+  .career-timeline, .project-card, .tag-list li { border-color: currentColor; }
+}

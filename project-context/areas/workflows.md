@@ -52,7 +52,7 @@ Accepted under DEC-009/DEC-010.
 6. Run relevant lint/type/build/tests; distinguish executed results from manual/browser checks still needed.
 7. Update context/graph for material approved changes, leave a usable state, and stop for manual review before the next phase.
 
-Current step: commit the approved Phase 2 milestone and prepare Phase 3 under DEC-013. Resolve verified content/publication permissions (Q-001/Q-002), or obtain explicit approval for labeled draft pages, before UI edits. Implement only Phase 3, verify, and stop for manual review.
+Current step: Phase 2 is committed (cec5ae0). DEC-014 approves Phase 3 draft pages/empty states; DEC-015 supplies owner-authorized résumé facts and direct contacts. Q-001/Q-017 track remaining detail. Phase 3 was accepted for advancement via DEC-016. Implement only Phase 4, verify and stop for manual review; no automatic commit or Phase 5.
 
 ## Content maintenance
 

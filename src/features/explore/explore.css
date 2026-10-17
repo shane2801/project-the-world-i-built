@@ -1,0 +1,36 @@
+.explore-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-sm); }
+.explore-actions label { display: inline-flex; align-items: center; gap: .5em; }
+.content-page button {
+  font: inherit; color: var(--color-text); background: var(--color-atmosphere);
+  border: 1px solid var(--color-text-muted); border-radius: var(--radius-panel);
+  padding: .5em .9em; cursor: pointer;
+}
+.content-page button:hover:not(:disabled) { border-color: var(--color-accent); color: var(--color-accent); }
+.content-page button:disabled { opacity: .5; cursor: default; }
+.content-page button[aria-pressed="true"] { border-color: var(--color-accent); }
+.explore-chapters, .explore-project-list { padding: 0; list-style: none; }
+.explore-chapters li, .explore-project-list li {
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+  gap: var(--space-xs); padding-block: var(--space-xs); border-bottom: 1px solid var(--color-atmosphere);
+}
+.explore-stage { position: relative; margin-block: var(--space-md); }
+.explore-canvas { height: clamp(320px, 55vw, 560px); border: 1px solid var(--color-atmosphere); border-radius: var(--radius-panel); overflow: hidden; }
+.explore-canvas:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 4px; }
+.wormhole-overlay {
+  position: absolute; inset: 0; pointer-events: none; border-radius: var(--radius-panel);
+  background: radial-gradient(ellipse, transparent 10%, #10252acc 55%, #69dfd0aa);
+  animation: wormhole-pulse .45s ease-out both;
+}
+@keyframes wormhole-pulse { from { opacity: .2; transform: scale(.95); } to { opacity: 1; transform: scale(1); } }
+.wormhole-overlay.reduced { animation: none; background: var(--color-background); }
+.explore-project-panel, .explore-error {
+  padding: var(--space-md); margin-block: var(--space-md);
+  border: 1px solid var(--color-accent); border-radius: var(--radius-panel);
+}
+.explore-project-panel { scroll-margin-top: var(--space-md); }
+.explore-performance { margin-top: var(--space-xl); color: var(--color-text-muted); }
+.explore-performance summary { cursor: pointer; }
+@media (prefers-reduced-motion: reduce) { .wormhole-overlay { animation: none; } }
+@media (forced-colors: active) {
+  .explore-canvas, .explore-chapters li, .explore-project-list li, .explore-project-panel, .explore-error { border-color: CanvasText; }
+}

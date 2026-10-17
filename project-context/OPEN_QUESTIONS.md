@@ -4,13 +4,13 @@ Entries are **open** unless explicitly marked resolved by an accepted decision. 
 
 ## Q-001 — Verified content
 
-**Blocks publication.** Obtain the actual resume, project catalogue, dates, contributions, outcomes, skills and contact links. Verify whether France remains current.
+**Partially resolved under DEC-015.** DEC-014 permitted draft pages first; the owner has now authorized supplied résumé facts. Missing facts must remain explicitly pending. SRC-11 now supplies the owner-authorized résumé, roles, selected projects, skills and contacts (DEC-015). Still needed: early Mauritius dates/education, fuller project architecture/contributions/outcomes/media and confirmation of provisional project chapter mappings. France denotes the current banking-work chapter; the résumé lists Mauritius as the owner's base. See Q-017 for the conflicting platform count.
 
 Examples are not evidence: [SRC-01, Phase Example, 41–65](../docs/theworldibuild-01.txt); [SRC-08, Discovery Example/Information Density Example, 25–37 and 207–222](../docs/theworldibuild-08.txt); [SRC-07, Project Scaling Examples, 230–243](../docs/theworldibuild-07.txt). Sample dates, counts and the 40% metric must not be published without verification.
 
 ## Q-002 — Publication permissions
 
-**Blocks publishing affected content.** Which employers, clients, names, screenshots, systems diagrams and results may be public? Use approved descriptions/evidence only; do not assume source examples authorize disclosure.
+**Resolved for the supplied résumé under DEC-015:** the owner explicitly permitted using all supplied details, including names/contact links. New screenshots, diagrams, media and facts not supplied remain subject to approval. This permission does not authorize deployment.
 
 ## Q-003 — Art production
 
@@ -26,11 +26,11 @@ Examples are not evidence: [SRC-01, Phase Example, 41–65](../docs/theworldibui
 
 ## Q-006 — Contact behavior
 
-Direct email/social links or a form? Recommend direct links initially. A form requires an additional service/backend and separate data-handling decisions.
+**Resolved for Phase 3 under DEC-015:** use the supplied email, telephone, LinkedIn and portfolio links directly. No form/service is added; any future form remains a separate decision.
 
 ## Q-007 — Performance baseline
 
-**Blocks final performance sign-off.** Select representative desktop/device and network conditions. Record measurable load/frame/memory budgets during the prototype before commissioning final assets. No source establishes numeric budgets.
+**Blocks final performance sign-off.** Select representative desktop/device and network conditions. Record measurable load/frame/memory budgets during the prototype before commissioning final assets. No source establishes numeric budgets. The user selected Chrome on average-spec hardware for Phase 4 (DEC-016); exact device/GPU/network are still unspecified. Provisional targets and diagnostic counters belong in [exploration](areas/exploration.md#provisional-performance-targets), not final release requirements.
 
 ## Q-008 — Architecture acceptance
 
@@ -56,3 +56,7 @@ Direct email/social links or a form? Recommend direct links initially. A form re
 | Q-016 | Sequential station diagram and direct-jump example: [SRC-04, 19–37 and 133–144](../docs/theworldibuild-04.txt) | Chronological connections with direct chapter choice |
 
 Q-011 through Q-016 are resolved by DEC-008. They include tensions and terminology ambiguity, not only logical contradictions. Keep their evidence for traceability; do not reopen without new conflicting information. Authority is settled by DEC-001.
+
+## Q-017 — Conflicting banking-platform scope
+
+**Open.** SRC-11 P007 says 39 banking entities; P013 says 23. They might represent different scopes, but no distinction is supplied. Neither count is rendered. Ask the owner to clarify before adding a figure. No external research can settle what scope the résumé intended.

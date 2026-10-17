@@ -180,3 +180,16 @@ test('IDs resembling object prototype keys remain normal IDs', () => {
     projects: [{ ...fixture.projects[0], skillIds: ['__proto__'] }],
   }).ok);
 });
+
+test('telephone contact links accept numbers and reject malformed schemes and media use', () => {
+  const input = createPortfolioFixture();
+  const contact = { ...input, contacts: [{ label: 'Phone', href: 'tel:+23058189945' }] };
+  assert.ok(validatePortfolio(contact).ok);
+  for (const href of ['tel:', 'tel:abc', 'tel:+123;ext=4', 'tel://example.invalid/123']) {
+    assert.equal(validatePortfolio({ ...input, contacts: [{ label: 'Phone', href }] }).ok, false);
+  }
+  const project = input.projects[0];
+  assert.equal(validatePortfolio({
+    ...input, projects: [{ ...project, media: [{ kind: 'image', src: 'tel:+23058189945', alt: 'Invalid image' }] }],
+  }).ok, false);
+});

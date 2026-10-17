@@ -15,19 +15,27 @@
     "build": "npm run typecheck && vite build && vite build --ssr src/entry-server.tsx --outDir .prerender && node scripts/prerender.mjs",
     "preview": "vite preview",
     "test:smoke": "node --test scripts/foundation.test.mjs",
-    "test": "npm run test:domain && npm run build && npm run test:smoke",
+    "test": "npm run test:domain && npm run test:routes && npm run test:explore && npm run build && npm run test:smoke && npm run test:portfolio && npm run test:explore-build",
     "check": "npm run lint && npm test",
-    "test:domain": "node --test src/domain/career/validate.test.ts src/domain/career/queries.test.ts"
+    "test:domain": "node --test src/domain/career/validate.test.ts src/domain/career/queries.test.ts",
+    "test:routes": "node --test src/app/routes.test.ts",
+    "test:portfolio": "node --test scripts/portfolio.test.mjs",
+    "test:explore": "node --test src/features/explore/world/world.test.ts src/features/explore/state/experience.test.ts",
+    "test:explore-build": "node --test scripts/explore.test.mjs",
+    "test:browser": "node scripts/browser-smoke.mjs"
   },
   "dependencies": {
+    "@react-three/fiber": "9.8.2",
     "react": "19.3.1",
-    "react-dom": "19.3.1"
+    "react-dom": "19.3.1",
+    "three": "0.186.1"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
     "@vitejs/plugin-react": "6.1.2",
     "eslint": "10.13.0",
     "globals": "17.13.0",

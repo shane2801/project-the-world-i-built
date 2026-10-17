@@ -2,7 +2,7 @@
 
 ## Status and boundaries
 
-**Approved design; Phase 1 foundation is complete. The DEC-010 organization step and Phase 1 milestone are approved by the user; Phase 2 core data/domain is complete under DEC-012 and approved by the user. DEC-013 authorizes its local commit and Phase 3, whose verified-content prerequisite remains unresolved.** Source-backed requirements are owned by [SUMMARY.md](SUMMARY.md). Accepted user choices are in [DECISIONS.md](DECISIONS.md). DEC-007/DEC-008 are accepted. Data-contract details and production inputs not covered by those decisions remain open; see OPEN_QUESTIONS.md.
+**Approved design; Phase 1 foundation is complete. The DEC-010 organization step and Phase 1 milestone are approved by the user; Phase 2 core data/domain is complete under DEC-012 and approved by the user. DEC-013 authorizes its local commit (cec5ae0) and Phase 3. DEC-014 approves draft pages/empty states. DEC-015 authorizes the supplied résumé content, with gaps/provisional mappings labeled. DEC-016 authorizes the internal Phase 4 prototype after Phase 3.** Source-backed requirements are owned by [SUMMARY.md](SUMMARY.md). Accepted user choices are in [DECISIONS.md](DECISIONS.md). DEC-007/DEC-008 are accepted. Data-contract details and production inputs not covered by those decisions remain open; see OPEN_QUESTIONS.md.
 
 At discovery the repository had only ten original design documents. Phase 1 adds the React/Vite shell, build-time HTML rendering, configuration, smoke checks and setup instructions. See [README.md](../README.md) for commands and [DEC-009](DECISIONS.md#dec-009--incremental-implementation-and-review-gate) for authorization. A local Git repository is initialized under DEC-011; no remote, push or deployment is authorized.
 
@@ -67,7 +67,7 @@ Public interfaces include stable URLs for resume, project details and selected c
 
 Internal interfaces: validate content, build world descriptors, select phase/project, travel, return to overview, change presentation, skip intro. They operate in process; no HTTP API is required.
 
-Entity relationships and validation belong in [data.md](areas/data.md). Keep stable IDs independent of ordering and explicitly name the current phase. Phase 2 implements the career schema and pure queries; no runtime content API is introduced. Verified authored portfolio content is still missing.
+Entity relationships and validation belong in [data.md](areas/data.md). Keep stable IDs independent of ordering and explicitly name the current phase. Phase 2 implements the career schema and pure queries; no runtime content API is introduced. Phase 3 information pages now consume the boundary; owner-authorized résumé content is supplied under DEC-015; unresolved detail is tracked in Q-001/Q-017.
 
 ## Rendering, accessibility and failure behavior
 
@@ -83,14 +83,14 @@ Risks: asset production effort, long initial loads, cinematic friction, renderin
 
 ## Staged implementation and acceptance criteria
 
-The context-system and Phase 1 foundation stages are complete. DEC-010's behavior-preserving organization step is complete and approved. DEC-011 completed the local Phase 1 Git milestone. Phase 2 is approved; DEC-013 authorizes its commit and Phase 3 subject to the documented content prerequisite. The current implementation roadmap below refines the original delivery stages without changing the five-chapter public-launch requirement.
+The context-system and Phase 1 foundation stages are complete. DEC-010's behavior-preserving organization step is complete and approved. DEC-011 completed the local Phase 1 Git milestone. Phase 2 is approved and committed; Phase 3 uses owner-authorized résumé content under DEC-015. DEC-016 authorizes Phase 4; unresolved facts remain labeled. The current implementation roadmap below refines the original delivery stages without changing the five-chapter public-launch requirement.
 
 | Phase | Dependency | Deliverable and acceptance |
 |---|---|---|
 | 1. Foundation | DEC-007 accepted | React/Vite startup, strict types, lint, static production build and HTTP smoke checks pass |
 | 1a. Organization | DEC-010 accepted | Preserve markup/styles, hydration and static rendering; extract focused modules; existing checks pass, then manual review |
 | 2. Core data/domain | Phase 1 and organization reviews | Content contracts/validation and meaningful ID/reference/order tests; examples never published as verified facts |
-| 3. Accessible portfolio | Phase 2; verified publishable content | Resume, catalogue/details, direct URLs, keyboard/phone access and HTML independent of 3D |
+| 3. Accessible portfolio | Phase 2; draft approach accepted by DEC-014 | Resume, catalogue/details, direct URLs, keyboard/phone access and HTML independent of 3D; empty states until content is verified |
 | 4. Internal 3D prototype | Phase 3; DEC-008 accepted | Two connected chapters with walking, selection, travel, reduced motion, loading recovery and recorded performance budgets |
 | 5. Complete journey | Phase 4 review | All five chapters and Observatory; data-driven add/reorder/remove without location-specific engine edits |
 | 6. Quality/assets | Phase 5; approved art and benchmark targets | Approved licensed artwork; accessibility, browser, recovery and performance checks pass |
@@ -106,10 +106,10 @@ The two-chapter prototype is internal; public launch still includes all five cha
 - `src/styles/tokens.css` and `global.css` own shared visual values and base/accessibility styles. Layout and home styles stay beside their owners.
 - `src/main.tsx` mounts during development and hydrates production HTML.
 - `src/entry-server.tsx` is compiled only for the static build, into ignored `.prerender/`.
-- `scripts/prerender.mjs` injects rendered content into `dist/index.html`; deployable output is only `dist/`.
+- `scripts/prerender.mjs` now generates all information routes and a 404 fallback; deployable output is only `dist/`.
 - The Vite configuration binds to loopback and denies serving original documents/context files. No runtime backend is introduced.
 - Tool versions are pinned in package.json/package-lock.json. TypeScript 6.0.3 stays within typescript-eslint's supported range; npm reported TypeScript 7 as latest but unsupported by the selected linter.
-- Three.js/React Three Fiber, verified career content, navigation workflows and art remain unimplemented. Phase 1 passed npm run check (lint, strict types, static build and three HTTP/static-content smoke tests); browser hydration and visual QA remain unverified. Phase 2 domain work is now approved; Phase 3 authorization and prerequisites are recorded in DEC-013.
+- Phase 4 now installs Three.js/React Three Fiber and prototypes geometry; commissioned art remains unimplemented. Phase 3 supplies résumé content under DEC-015. Phase 3 adds information navigation. Phase 1 passed npm run check (lint, strict types, static build and three HTTP/static-content smoke tests); browser hydration and visual QA were unverified at that handoff. Phase 2 domain work is now approved; Phase 3 authorization and prerequisites are recorded in DEC-013.
 
 ## Feature organization and growth
 
@@ -120,22 +120,22 @@ Accepted under DEC-010. App, shared layout, home, shared styles and the Phase 2 
 | src/app | Composition and, later, shared route resolution/navigation |
 | src/components/layout and ui | Shared layout; genuinely reused controls added when needed |
 | src/features/home | Present landing content and decorative illustration |
-| src/content | Future approved authored data, separate from test fixtures |
+| src/content | Owner-authorized résumé content and publication validation, separate from test fixtures |
 | src/domain/career | Implemented pure types, validation, queries and colocated tests; no React/Three.js dependencies |
-| src/features/resume and projects | Future pages and feature-owned components |
-| src/features/explore | Future page, scene, controls, hooks, world generation and travel state |
+| src/features/resume and projects | Accessible pages and feature-owned timeline/card/detail/media components |
+| src/features/explore | Implemented internal prototype: page, lazy scene, controls, hooks, pure descriptors and travel state |
 | public/assets | Future static model/media files |
 | scripts | Existing build-time rendering and HTTP smoke tests |
 
 Use direct imports, not speculative barrel exports. App coordinates features; domain/shared modules do not depend on features. Extract meaningful responsibilities, not trivial one-line wrappers.
 
-Routing strategy: share route definitions between the browser and static build for /, /resume/, /projects/, /projects/<id>/ and /explore/. Ordinary links remain functional without JavaScript; add route modules with the page phase, not during this extraction. No routing package is required initially.
+Routing strategy: implemented shared route definitions between the browser and static build for /, /resume/, /projects/, /projects/<id>/ and /explore/. Ordinary links remain functional without JavaScript. Unknown projects/paths render a useful fallback; hosting must serve generated directories and configure 404.html for unknown URLs. No routing package is required initially.
 
 State strategy: URLs own shareable chapter/project selection; local React state owns local UI; an exploration reducer owns transient loading/travel. Add narrow context only for actual shared exploration consumers. Keep per-frame scene values outside React rendering state.
 
 Styling strategy: plain CSS with shared color/spacing/type/layout tokens, base accessibility styles, and owner-scoped feature/layout styles. Preserve the current visual direction and breakpoints. No new CSS framework.
 
-Testing strategy: preserve Node HTTP/static-build smoke tests. Phase 2 uses the same Node runner for colocated erasable-TypeScript domain tests without installing packages. Vitest and React Testing Library with a DOM environment are the proposed tooling for later React component behavior tests; no test dependencies are added in this step. Browser tests remain necessary for hydration, focus and 3D behavior.
+Testing strategy: preserve Node HTTP/static-build smoke tests. Phase 2 uses the same Node runner for colocated erasable-TypeScript domain tests without installing packages. No test frameworks were added in Phases 3/4. Node tests cover SSR/pure behavior; an optional installed-Chrome smoke script covers browser hydration/focus/graphics recovery. Average-hardware performance and visual/assistive-technology review remain necessary.
 
 ## Phase 2 domain implementation
 
@@ -143,9 +143,31 @@ Implementation contract details are owned by [areas/data.md](areas/data.md). Pur
 
 Dates remain authored labels; phase order is unique and independent of time or array position. Queries preserve IDs, association ownership and input immutability. Tags are independent from presentation kind. No database, network service, asset resolution, world generation or UI integration is added.
 
-All synthetic data lives under domain __fixtures__ and is imported by tests only; no src/content/portfolio.ts exists until verified content is supplied. The home page and its rendered output remain unchanged.
+All synthetic data lives under domain __fixtures__ and is imported by tests only. Phase 3 adds src/content/portfolio.ts, subsequently populated from SRC-11 under DEC-015. The home page and its rendered output remain unchanged.
 
-Node 24 executes erasable TypeScript tests directly. tsconfig allows explicit .ts imports and disallows non-erasable constructs. npm run test:domain runs the unit suite; npm run check also runs lint, strict types, the static build and existing HTTP smoke tests. No dependency versions or lockfile change. Final npm run check passed 32 domain tests, three smoke tests, lint, strict types and both builds. Rendered home markup is unchanged; Phase 3 has not started.
+Node 24 executes erasable TypeScript tests directly. tsconfig allows explicit .ts imports and disallows non-erasable constructs. npm run test:domain runs the unit suite; npm run check also runs lint, strict types, the static build and existing HTTP smoke tests. No dependency versions or lockfile change. Final npm run check passed 32 domain tests, three smoke tests, lint, strict types and both builds. At the Phase 2 handoff, rendered home markup was unchanged; Phase 3 follows below.
+
+
+## Phase 3 draft implementation
+
+Accepted under DEC-014/DEC-015; the user subsequently authorized advancing to Phase 4 (DEC-016). The information pages remain the independent baseline for the Phase 4 prototype.
+
+- App resolves the pathname and composes home, resume, catalogue/details or status pages. Shared layout supplies primary navigation, contact link, skip target and draft notice. Components retain feature ownership.
+- content/portfolio.ts contains owner-authorized SRC-11 content. loadPortfolio still supports null/empty states and rejects malformed/unapproved data. No synthetic career content is shipped; contentIsDraft keeps draft notices and crawler metadata independent of the human content-approval marker.
+- Browser and build share routes; links use full page navigation, so URL/history state needs no client router or data-fetching library. Path matching accepts an optional trailing slash. projects/paths.ts rejects IDs unsafe for static directory output.
+- Build generates home, resume, catalogue, exploration-status and 404 HTML. The four supplied projects generate their own directories. Draft pages request noindex,nofollow, including pages with owner-approved facts. Configure the eventual host to serve directory index files and use 404.html for missing paths; hosting is still Q-005.
+- Resume composes ordered chapters, roles, achievements, skills and contact links. Project catalogue cards link to details containing the approved information fields and media. With no content these pages present clear empty states; the supplied résumé currently generates four project pages. Unknown projects never become fictional entities.
+- Styling extends the existing tokens/plain CSS with shared reading patterns and feature-owned styles. No global state, API client, backend, service or new dependency is introduced.
+- Tests cover routes, content publication gating, directory safety, rendered empty/populated states, ordering, escaping, internal links and HTTP serving. These use the existing Node runner and build-time React renderer. Browser hydration, keyboard focus, responsive visual QA and assistive-technology behavior require manual review.
+
+
+## Phase 4 internal prototype
+
+DEC-016 authorizes two chapters selected by authored order, a procedural overview, character proxy, bounded walking/collisions, project inspection and readiness-controlled travel. Feature module boundaries, URL behavior, provisional Chrome budgets and review limits are owned by [exploration](areas/exploration.md).
+
+Three.js 0.186.1 and React Three Fiber 9.8.2 are dynamically imported on explicit desktop activation; @types/three 0.186.0 is development-only. The existing HTML routes and content contracts remain independent. No asset service, physics engine or application state package is introduced.
+
+This prototype does not complete the five-chapter public release, Observatory, licensed GLB art, likeness, rich cinematics or final performance sign-off. Preserve the manual review gate before Phase 5.
 
 ## Validation strategy
 
@@ -157,4 +179,4 @@ Do not add tests that merely mirror trivial implementation. Select device/networ
 
 ## Open approvals and defaults
 
-Production inputs and remaining interpretations are owned by [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md). The static baseline and DEC-008 interactions are accepted; timeline overlap/order and project tags/presentation semantics are accepted under DEC-012. Verified content, contact mechanism, performance targets and hosting remain open.
+Production inputs and remaining interpretations are owned by [OPEN_QUESTIONS.md](OPEN_QUESTIONS.md). The static baseline and DEC-008 interactions are accepted; timeline overlap/order and project tags/presentation semantics are accepted under DEC-012. Detailed project evidence, disputed figures, performance targets and hosting remain open. SRC-11 supplies owner-authorized facts and direct contact links under DEC-015.

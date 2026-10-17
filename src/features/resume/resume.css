@@ -1,0 +1,16 @@
+.career-timeline {
+  padding-left: var(--space-md);
+  border-left: 1px solid var(--color-atmosphere);
+  list-style: none;
+}
+.career-timeline > li + li { margin-top: var(--space-xl); }
+.experience { margin-top: var(--space-md); }
+.experience h4 { margin-bottom: 0; font-size: var(--text-body); }
+.status-label {
+  display: inline-block;
+  margin-left: var(--space-xs);
+  color: var(--color-accent);
+  font-family: var(--font-body);
+  font-size: var(--text-meta);
+}
+#contact { scroll-margin-top: var(--space-lg); }
