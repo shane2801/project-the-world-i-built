@@ -2,6 +2,8 @@ import { useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import type { World } from '../world/types';
 import { experienceReducer, initialExperience, isTravelling } from '../state/experience';
 import { readSelection, selectionUrl, observatoryUrl } from '../state/selection';
+import { GRAPHICS_DEADLINE_MS } from '../state/loading';
+import { usePageVisible } from './usePageVisible';
 import { loadRenderer } from '../scene/loadRenderer';
 
 function writeUrl(url: string) {
@@ -13,6 +15,7 @@ export function useExplorer(world: World, reducedMotion: boolean) {
   const [state, dispatch] = useReducer(experienceReducer, world, initialExperience);
   const [invalidLink, setInvalidLink] = useState(false);
   const sequence = useRef(0);
+  const visible = usePageVisible();
   useEffect(() => {
     const restore = () => {
       const selection = readSelection(window.location.search, world);
@@ -33,6 +36,16 @@ export function useExplorer(world: World, reducedMotion: boolean) {
     }, reducedMotion ? 0 : 450);
     return () => window.clearTimeout(timer);
   }, [state.status, state.ready, state.pendingId, state.request, reducedMotion]);
+
+  // Readiness can stall after JavaScript loads; hiding the tab pauses this guard.
+  useEffect(() => {
+    if (!visible || !isTravelling(state) || state.ready) return;
+    const timer = window.setTimeout(() => dispatch({
+      type: 'failed', request: state.request,
+      message: 'The destination took too long to render. Your current chapter remains available below.',
+    }), GRAPHICS_DEADLINE_MS);
+    return () => window.clearTimeout(timer);
+  }, [visible, state.status, state.ready, state.request]);
 
   const travel = useCallback(async (phaseId: string) => {
     if (isTravelling(state) || !world.chapters.some((chapter) => chapter.phaseId === phaseId)) return;

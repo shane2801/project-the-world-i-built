@@ -172,3 +172,6 @@ flowchart TD
         ART_RUNTIME --> OBS_PAGE
         ARCH --> ART_MANIFEST
     end
+
+    EXP_STATE --> RECOVERY["state/loading.ts / bounded renderer import and readiness recovery"]
+    RECOVERY -->|cancel preserves current chapter| EXP_STATE

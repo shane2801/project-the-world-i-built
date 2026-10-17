@@ -34,3 +34,5 @@ DEC-007 and DEC-008 are now accepted by explicit user approval. Phase 1 establis
 SRC-11 now supplies owner-authorized career content. Complete project evidence/details, disputed banking figures, assets, budget and deployment details remain pending. Source examples must not be published as facts; see [Q-001](OPEN_QUESTIONS.md#q-001--verified-content).
 
 Phase 5 was accepted and committed as 2fb2705. Phase 6's first review step adds owner-authorized generated home/Observatory illustrations (DEC-018), with [prompts and provenance](../assets/artwork/README.md). Interactive geometry remains procedural; likeness, final art approval and hardware performance remain Q-003/Q-007. This is not release sign-off.
+
+Artwork is accepted as commit 46475a2 (DEC-019). Phase 6 recovery behavior is owned by [exploration](areas/exploration.md#phase-6-stalled-loading-recovery); this quality step awaits manual review before delivery preparation.

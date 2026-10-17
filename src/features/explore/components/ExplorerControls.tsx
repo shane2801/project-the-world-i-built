@@ -6,7 +6,7 @@ import { getPortals } from '../world/navigation';
 interface Props {
   world: World; state: ExperienceState; desktop: boolean; enabled: boolean;
   systemReduced: boolean; reduceMotion: boolean; invalidLink: boolean;
-  onToggle3D: () => void; onOverview: () => void; onObservatory: () => void;
+  onCancel: () => void; onToggle3D: () => void; onOverview: () => void; onObservatory: () => void;
   onTravel: (id: string) => void; onReduceMotion: (value: boolean) => void; onRetry: () => void;
 }
 export function ExplorerControls(props: Props) {
@@ -25,6 +25,7 @@ export function ExplorerControls(props: Props) {
       <label><input type="checkbox" checked={props.systemReduced || props.reduceMotion} disabled={props.systemReduced}
         onChange={(event) => props.onReduceMotion(event.target.checked)} /> Reduce motion{props.systemReduced ? ' (system setting)' : ''}</label>
     </div>
+    {busy && <button type="button" onClick={props.onCancel}>Cancel travel</button>}
     <p className="muted">3D is desktop-only for now. All career information and the <a href="/observatory/">Observatory</a> remain available on phones and without graphics.</p>
     <ul className="explore-chapters">
       {world.chapters.map((chapter) => <li key={chapter.phaseId}>

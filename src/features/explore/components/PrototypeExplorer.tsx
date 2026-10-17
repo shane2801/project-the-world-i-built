@@ -41,7 +41,7 @@ export function PrototypeExplorer({ portfolio, world }: { portfolio: Portfolio; 
     <ExplorerControls world={world} state={state} desktop={desktop} enabled={enabled}
       systemReduced={systemReduced} reduceMotion={reduceMotion} invalidLink={explorer.invalidLink}
       onToggle3D={() => { if (enabled) { explorer.overview(); setEnabled(false); } else setEnabled(true); }}
-      onOverview={explorer.overview} onObservatory={explorer.observatory} onTravel={travel}
+      onCancel={explorer.recover} onOverview={explorer.overview} onObservatory={explorer.observatory} onTravel={travel}
       onReduceMotion={setReduceMotion} onRetry={retry} />
     {enabled && desktop && state.status !== 'failed' && <div className="explore-stage">
       <ExplorerViewport revision={revision} world={world}

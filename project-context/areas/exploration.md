@@ -55,3 +55,11 @@ Existing Node tests cover deterministic layout, project caps, movement/collision
 scripts/browser-smoke.mjs uses an installed Chrome and its DevTools protocol, without browser packages or downloads. It creates an isolated temporary profile, checks UI behavior using software WebGL, then closes the browser/server and removes that profile. CHROME_PATH can select another installed executable. Software rendering is behavior QA, not a performance baseline. See [README](../../README.md) for execution and manual review steps.
 
 All five chapter proxies and the Observatory are now implemented. Hub content/route ownership belongs in [observatory](observatory.md). Still deferred: real GLB/character rig, licensed art, rich memory tunnel/cinematics, final audio and production performance/accessibility sign-off. All five chapters remain required at public launch (DEC-002); Phase 5 is accepted and committed as 2fb2705. Phase 6 generated decorative art is separately recorded in ARCHITECTURE.md; interactive scenes remain unchanged.
+
+## Phase 6 stalled-loading recovery
+
+DEC-019 accepts the generated artwork and advances remaining quality work. state/loading.ts bounds each renderer import at 20 seconds, including first activation through React.lazy. This is a recovery ceiling, not a load-performance target. Settled imports clear their timers; late resolutions/rejections are handled. Dynamic imports are not aborted and a rejected module may still require the existing full-page reload link.
+
+The controller also bounds destination readiness at 20 seconds while the page is visible. Hiding the page clears that readiness timer; returning starts a fresh window. Cancel travel restores the logical current view/chapter, clears pending travel and increments its request generation. It leaves URL/history unchanged. Late destination preparation/arrival/failure callbacks cannot commit canceled travel. Existing chapter/project information and retry/reload remain available on failure. No package, service or content-model changes are introduced.
+
+The browser suite now intercepts the actual renderer request to exercise cancellation, late completion, deadline fallback and retry; pure tests cover deadline settlement and cancellation after destination staging. Human review and real-device performance remain separate.

@@ -20,7 +20,7 @@
     "test:domain": "node --test src/domain/career/validate.test.ts src/domain/career/queries.test.ts",
     "test:routes": "node --test src/app/routes.test.ts",
     "test:portfolio": "node --test scripts/portfolio.test.mjs",
-    "test:explore": "node --test src/features/explore/world/world.test.ts src/features/explore/state/experience.test.ts",
+    "test:explore": "node --test src/features/explore/world/world.test.ts src/features/explore/state/experience.test.ts src/features/explore/state/loading.test.ts",
     "test:explore-build": "node --test scripts/explore.test.mjs scripts/observatory.test.mjs",
     "test:browser": "node scripts/browser-smoke.mjs"
   },

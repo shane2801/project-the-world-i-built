@@ -107,3 +107,19 @@ test('hub URLs exclude career claims and reject conflicting or unknown view para
   }
   assert.equal(readSelection('?phase=mauritius', world).invalid, false);
 });
+
+
+test('canceling a staged destination retains the current view and rejects late arrival', () => {
+  const current = reduce(initialExperience(world), { type: 'restore', phaseId: 'france', projectId: null, view: 'chapter' });
+  const request = current.request + 1;
+  const loading = reduce(current, { type: 'request', phaseId: 'abu-dhabi', request });
+  const staged = reduce(loading, { type: 'prepared', request });
+  const canceled = reduce(staged, { type: 'restore', phaseId: staged.activeId, projectId: null, view: staged.view });
+  assert.equal(canceled.activeId, 'france');
+  assert.equal(canceled.view, 'chapter');
+  assert.equal(canceled.pendingId, null);
+  assert.equal(canceled.status, 'idle');
+  assert.equal(reduce(canceled, { type: 'rendered', phaseId: 'abu-dhabi' }), canceled);
+  assert.equal(reduce(canceled, { type: 'arrived', request }), canceled);
+  assert.equal(reduce(canceled, { type: 'failed', request, message: 'late timeout' }), canceled);
+});

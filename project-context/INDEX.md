@@ -1,6 +1,6 @@
 # Context index
 
-Load only the task-relevant destinations below. All ten design texts and the supplied résumé were reviewed on 2026-10-17; verify fingerprints before trusting freshness. Phase 4 is committed as 606cdb3. DEC-018 records Phase 5 acceptance and authorizes Phase 6 quality/assets. Authority and content permissions remain DEC-001/DEC-015.
+Load only the task-relevant destinations below. All ten design texts and the supplied résumé were reviewed on 2026-10-17; verify fingerprints before trusting freshness. Phase 5 is committed as 2fb2705; approved artwork as 46475a2. DEC-019 advances Phase 6 recovery/quality. Authority and content permissions remain DEC-001/DEC-015.
 
 | Task | Load |
 |---|---|
@@ -60,12 +60,12 @@ Baseline reconciliation: during creation, SRC-01 gained a leading CRLF outside t
 
 SRC-11 is an unchanged copy of the user-selected C:/Users/kavish.muthoora/Downloads/stuff/KAVISH MUTHOORA.docx, preserved under docs/ with SHA-256 E1346E0DCD050409B91B7A551B7E7593ED941C533E006E0B7DBCAA5B2B81735D. It adds one DOCX to the original ten design texts; it does not replace or modify them. Check its fingerprint alongside the ten text fingerprints above. DEC-015 records use permission; paragraph locators and field provenance belong in [data](areas/data.md#src-11-resume-provenance-and-remaining-detail). Original external source and repository copy have identical bytes.
 
-## Current handoff ? Phase 6 artwork review
+## Current handoff - Phase 6 recovery review
 
-Phase 5 is committed as 2fb2705. DEC-018 authorizes Phase 6 quality/assets and generated theme artwork. The first review step adds decorative home/Observatory illustrations with responsive variants; [asset provenance](../assets/artwork/README.md) owns the full prompts and preserved originals. Interactive scenes remain procedural. Artwork is accepted for a local milestone commit under DEC-019; the next step is remaining Phase 6 recovery/quality. No deployment is authorized.
+Artwork is accepted and committed as 46475a2 under DEC-019; Phase 5 is 2fb2705. The next Phase 6 quality step bounds renderer import and destination readiness, and adds explicit travel cancellation. [Exploration recovery](areas/exploration.md#phase-6-stalled-loading-recovery) owns the behavior. Changes remain uncommitted for manual review.
 
-Verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 67 tests; ten static pages generated. npm run test:browser passed installed-Chrome software-WebGL checks for all five chapters, history, focus/Escape, reduced motion, phone layout, renderer failure and hub/chapter context-loss recovery. Added browser checks passed generated-image loading, decorative semantics, responsive layout and blocked-image fallback, including a repaired failure-before-hydration case. Desktop home and phone Observatory screenshots were visually reviewed. Runtime images are 32?210 kB; originals stay outside public/. No packages were added; dependency lockfile and all eleven source fingerprints remain unchanged.
+Verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 71 tests (33 domain, four routes, 20 exploration/recovery, four HTTP/assets, four portfolio, six explorer/Observatory build). Ten static pages generated. Installed-Chrome software-WebGL checks passed the existing artwork, all-chapter, history, focus, reduced-motion, phone and failure scenarios, plus actual stalled-request cancellation, late completion, 20-second timeout fallback and retry. Final lint was rerun after browser/reducer test edits.
 
-Context audit validates local links/anchors, 56 stable requirement/decision/question/concept IDs, acyclic imports and no test fixtures in production. Mermaid passes static subset checks (nine groups, 139 edges); official rendering remains unverified. AGENTS.md stays under 200 words. Real GPU/network benchmarks, exhaustive assistive-technology QA, likeness/GLB art and public-release art approval remain open (Q-003/Q-007); known content gaps remain Q-001/Q-017.
+No dependencies, source documents, artwork or career facts changed in this quality step. Real GPU/network performance, exhaustive assistive-technology QA and likeness/GLB remain Q-003/Q-007. Known content gaps remain Q-001/Q-017. The existing lazy renderer remains about 244 kB gzip with a Vite uncompressed-chunk warning.
 
-Run npm run dev and review home and /observatory/ before further Phase 6 quality work. This is an asset review checkpoint, not final Phase 6 acceptance.
+Source/hash, context link/ID, import-cycle and static Mermaid audits are recorded at this checkpoint. Official Mermaid rendering remains unperformed. Run npm run dev and use the [recovery review](../README.md#phase-6-recovery-review). Delivery documentation follows this manual review; no deployment is authorized.

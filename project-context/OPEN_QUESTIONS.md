@@ -14,7 +14,7 @@ Examples are not evidence: [SRC-01, Phase Example, 41–65](../docs/theworldibui
 
 ## Q-003 — Art production
 
-**Partially resolved under DEC-018.** The owner authorized theme-matched imagegen artwork. Two generated decorative illustrations now have preserved originals, prompts and responsive derivatives; see [asset provenance](../assets/artwork/README.md). These are awaiting manual visual approval and do not provide GLB models, character likeness or a rig. External commissioning still needs likeness references, budget, pipeline ownership and asset licenses. Public-release suitability and final interactive art remain open. DEC-004 establishes prototype before commission.
+**Partially resolved under DEC-018.** The owner authorized theme-matched imagegen artwork. Two generated decorative illustrations now have preserved originals, prompts and responsive derivatives; see [asset provenance](../assets/artwork/README.md). The owner approved these illustrations for the current build under DEC-019; they do not provide GLB models, character likeness or a rig. External commissioning still needs likeness references, budget, pipeline ownership and asset licenses. Public-release suitability and final interactive art remain open. DEC-004 establishes prototype before commission.
 
 ## Q-004 — Schedule and ownership
 

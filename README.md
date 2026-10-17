@@ -110,3 +110,9 @@ Phase 4 is committed as 606cdb3. Phase 5 is left uncommitted for your manual rev
 Run npm run dev and review the home illustration and Observatory banner on desktop and phone widths. Confirm the symbolic imagery fits the theme. In DevTools, block /assets/artwork/* and reload: the home CSS planet remains; all information links and Observatory rooms remain readable. Artwork has no essential text, is hidden from assistive technologies, and is hidden in forced-colors/print modes. Exact prompts, preserved originals, variants and maintenance instructions are in [asset provenance](assets/artwork/README.md).
 
 Phase 5 is committed as 2fb2705. This is the first Phase 6 review step; interactive art/likeness, further quality work, real-device performance and release review remain pending. No deployment is included.
+
+## Phase 6 recovery review
+
+Generated artwork is accepted and committed as 46475a2. To review the next quality step, open /explore/ in desktop Chrome, enable 3D and change chapter. Cancel travel should retain the current chapter and URL. If a renderer request or destination readiness stalls, a 20-second recovery limit exposes retry/reload and keeps the information below accessible. Canceling does not abort the network download; late travel callbacks are ignored. Background tabs pause the destination-readiness guard. The existing Reload explorer link remains available if the browser caches a failed module import.
+
+Run npm run check and npm run test:browser. The browser suite holds the real renderer response to verify stalled loading, cancellation, late completion and retry. This uses software WebGL for behavior checks; it does not certify average-hardware performance. Delivery documentation is the following phase after manual review; likeness/GLB and final performance remain open.

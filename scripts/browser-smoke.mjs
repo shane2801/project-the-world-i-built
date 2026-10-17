@@ -24,6 +24,7 @@ let socket;
 let nextId = 0;
 const pending = new Map();
 const errors = [];
+const pausedRequests = [];
 const delay = (ms) => new Promise((done) => setTimeout(done, ms));
 async function retry(operation, label, timeout = 20000) {
   const start = Date.now();
@@ -70,7 +71,8 @@ try {
         clearTimeout(entry.timer); pending.delete(message.id);
         if (message.error) entry.fail(new Error(message.error.message)); else entry.done(message.result);
       }
-    } else if (message.method === 'Runtime.exceptionThrown') errors.push(message.params.exceptionDetails);
+    } else if (message.method === 'Fetch.requestPaused') pausedRequests.push(message.params.requestId);
+    else if (message.method === 'Runtime.exceptionThrown') errors.push(message.params.exceptionDetails);
     else if (message.method === 'Runtime.consoleAPICalled' && message.params.type === 'error') {
       errors.push(message.params.args.map((argument) => argument.value ?? argument.description).join(' '));
     }
@@ -196,6 +198,33 @@ try {
   assert.ok(await evaluate("!!document.querySelector('.explore-project-list a')"));
   await command('Network.setBlockedURLs', { urls: [] });
   console.log('PASS Chrome: phone layout and renderer network-failure fallback');
+
+  // Hold the real renderer response instead of simulating an immediate network error.
+  await command('Fetch.enable', { patterns: [{ urlPattern: '*PrototypeScene-*', requestStage: 'Request' }] });
+  await command('Page.navigate', { url: origin + '/explore/' });
+  await waitFor("!![...document.querySelectorAll('button')].find(b => b.textContent === 'Enable 3D prototype' && !b.disabled)", 'stalled explorer startup');
+  await click('Enable 3D prototype');
+  await retry(() => pausedRequests.length > 0, 'intercepted renderer request');
+  await evaluate("document.querySelector('[data-phase-id=\"abu-dhabi\"]').click()");
+  await waitFor("!![...document.querySelectorAll('button')].find(b => b.textContent === 'Cancel travel')", 'cancel available during stalled travel');
+  await click('Cancel travel');
+  assert.ok(await evaluate("location.search === '' && !document.querySelector('.explore-error') && document.querySelector('#active-chapter-title').textContent.includes('France')"));
+  for (const requestId of pausedRequests.splice(0)) await command('Fetch.continueRequest', { requestId });
+  await waitFor("!!document.querySelector('canvas')", 'late renderer result');
+  assert.ok(await evaluate("location.search === '' && ![...document.querySelectorAll('button')].some(b => b.textContent === 'Cancel travel') && !document.querySelector('.explore-error')"));
+
+  await command('Page.navigate', { url: origin + '/explore/' });
+  await waitFor("!![...document.querySelectorAll('button')].find(b => b.textContent === 'Enable 3D prototype' && !b.disabled)", 'deadline explorer startup');
+  await click('Enable 3D prototype');
+  await retry(() => pausedRequests.length > 0, 'stalled first activation');
+  await retry(() => evaluate("!!document.querySelector('.explore-error') && !document.querySelector('canvas')"), 'bounded renderer deadline', 30000);
+  assert.ok(await evaluate("!!document.querySelector('.explore-project-list a') && !![...document.querySelectorAll('button')].find(b => b.textContent === 'Retry 3D')"));
+  for (const requestId of pausedRequests.splice(0)) await command('Fetch.continueRequest', { requestId });
+  await command('Fetch.disable');
+  await click('Retry 3D');
+  await waitFor("!!document.querySelector('canvas') && !document.querySelector('.explore-error')", 'retry after stalled response');
+  console.log('PASS Chrome: stalled-request cancellation, late completion, loading deadline and retry');
+
 } catch (error) {
   console.error(JSON.stringify(errors, null, 2));
   if (socket?.readyState === WebSocket.OPEN) console.error(await evaluate("document.body.innerText.slice(0, 1800)").catch(() => 'Browser diagnostic unavailable'));

@@ -150,6 +150,12 @@ The user subsequently requested the imagegen skill for theme-matched assets. Thi
 
 Advance through the remaining Phase 6 recovery/quality work before delivery preparation. Keep the established architecture and dependencies, verify changes and stop for manual review. Phase 6 performance and final interactive-art limitations remain explicit; no release sign-off is implied.
 
+## DEC-020 - Recovery acceptance and Phase 7 delivery preparation
+
+**Accepted, 2026-10-17.** After the recovery handoff the user instructed "good commit and start next phase". Commit the reviewed Phase 6 recovery work locally and begin Phase 7 documentation/delivery preparation: current setup instructions, reproducible build verification, static-host requirements and release/rollback guidance.
+
+This accepts the recovery milestone, not a claim that unresolved final-art, hardware, content or accessibility evidence has been supplied. Keep these limitations visible in the delivery handoff. Preserve application behavior, dependencies and original sources; no hosting vendor, remote, push, deployment or automatic Phase 7 commit is authorized. Verify and stop for manual review.
+
 ## Change rule
 
 Never silently replace a decision. Add rationale/provenance and a replacement ID when superseding one; update affected requirements, architecture, questions and graph together. Conversation provenance above is summarized because no chat transcript file exists in this repository.

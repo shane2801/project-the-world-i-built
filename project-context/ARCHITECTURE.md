@@ -196,3 +196,7 @@ Production inputs and remaining interpretations are owned by [OPEN_QUESTIONS.md]
 DEC-018 authorizes Phase 6 and theme-matched generated art. The home PlanetIllustration and standalone Observatory page consume responsive JPEG illustrations under public/assets/artwork. Their source PNGs and exact prompts live outside the public build in [assets/artwork](../assets/artwork/README.md). This adds no dependency, API or 3D texture. Images have empty alternative text, explicit dimensions, responsive source selection and failure handling; the home CSS planet remains as a fallback. Generated imagery is symbolic, not career evidence or character likeness.
 
 This is the first Phase 6 review step, not final quality sign-off. Interactive scenes remain procedural. Q-003 covers remaining likeness/GLB/release-art review and Q-007 covers real hardware/network measurement. No deployment or Phase 7 is authorized.
+
+## Phase 6 recovery quality step
+
+DEC-019 accepts the decorative artwork, committed as 46475a2, and advances quality work. The existing import/controller boundaries now bound stalled graphics and expose travel cancellation. [Exploration](areas/exploration.md#phase-6-stalled-loading-recovery) owns timing, visibility, cancellation and retry semantics. No dependency, application architecture or career data changes. Delivery preparation follows this review step; final art/likeness, hardware measurements and deployment approvals remain open.
