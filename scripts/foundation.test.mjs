@@ -24,7 +24,7 @@ test('production HTML contains readable content without running JavaScript', asy
   const html = await readFile(new URL('dist/index.html', root), 'utf8');
   assert.match(html, /<html lang="en">/);
   assert.match(html, /<main[^>]+id="main"/);
-  assert.match(html, /<h1>Every chapter leaves something behind\.<\/h1>/);
+  assert.match(html, /<h1[^>]*>Kavish Muthoora<\/h1>/);
   assert.ok(!html.includes('<!--app-html-->'));
   assert.match(html, /href="#main"/);
   const entries = await readdir(new URL('dist/', root));
@@ -64,10 +64,10 @@ test('production preview serves the static page and its JS/CSS assets', async ()
     const response = await fetch(origin);
     assert.equal(response.status, 200);
     const html = await response.text();
-    assert.match(html, /Every chapter leaves something behind/);
+    assert.match(html, /Kavish Muthoora/);
 
     for (const [path, heading] of [
-      ['/resume/', 'Résumé'], ['/projects/', 'Projects'],
+      ['/resume/', 'Kavish Muthoora'], ['/projects/', 'Projects'],
       ['/explore/', 'Explore the world'], ['/observatory/', 'The Observatory'], ['/404.html', 'Page not found'],
     ]) {
       const page = await fetch(new URL(path, origin));

@@ -1,5 +1,4 @@
 import type { ReactNode } from 'react';
-import { DraftNotice } from './DraftNotice';
 import './SiteLayout.css';
 
 interface SiteLayoutProps {
@@ -11,14 +10,14 @@ interface SiteLayoutProps {
 }
 
 const navigation = [
-  { href: '/resume/', label: 'Résumé', page: 'resume' },
+  { href: '/', label: 'Résumé', page: 'resume' },
   { href: '/projects/', label: 'Projects', page: 'projects' },
   { href: '/observatory/', label: 'Observatory', page: 'observatory' },
   { href: '/explore/', label: 'Explore', page: 'explore' },
 ] as const;
 
 // Ordinary links preserve navigation, reloads and browser history without JS.
-export function SiteLayout({ children, mainClassName, activePage, draft = false, hasContent = false }: SiteLayoutProps) {
+export function SiteLayout({ children, mainClassName, activePage }: SiteLayoutProps) {
   return (
     <>
       <a className="skip-link" href="#main">Skip to content</a>
@@ -35,7 +34,6 @@ export function SiteLayout({ children, mainClassName, activePage, draft = false,
           <li><a href="/resume/#contact">Contact</a></li>
         </ul></nav>
       </header>
-      {draft && <DraftNotice hasContent={hasContent} />}
       <main className={mainClassName} id="main" tabIndex={-1}>{children}</main>
       <footer className="site-footer">
         <p>Read the story at your own pace.</p>

@@ -2,7 +2,6 @@ import type { Portfolio } from '../domain/career/types';
 import { portfolio as authoredPortfolio, contentIsDraft } from '../content/portfolio';
 import { getProjectById } from '../domain/career/queries';
 import { SiteLayout } from '../components/layout/SiteLayout';
-import { HomePage } from '../features/home/pages/HomePage';
 import { ResumePage } from '../features/resume/pages/ResumePage';
 import { ProjectsPage } from '../features/projects/pages/ProjectsPage';
 import { ProjectPage } from '../features/projects/pages/ProjectPage';
@@ -21,7 +20,6 @@ export default function App({ pathname, portfolio = authoredPortfolio, draft = c
   const route = resolveRoute(pathname, portfolio);
   let page;
   switch (route.kind) {
-    case 'home': page = <HomePage portfolio={portfolio} />; break;
     case 'resume': page = <ResumePage portfolio={portfolio} />; break;
     case 'observatory': page = <ObservatoryPage portfolio={portfolio} />; break;
     case 'explore': page = <ExplorePage portfolio={portfolio} />; break;
@@ -34,7 +32,7 @@ export default function App({ pathname, portfolio = authoredPortfolio, draft = c
     }
     default: page = <StatusPage kind={route.kind} />;
   }
-  return <SiteLayout mainClassName={route.kind === 'home' ? 'introduction' : 'content-page'}
+  return <SiteLayout mainClassName={route.kind === 'resume' ? 'content-page resume-page interactive-resume-page' : 'content-page'}
     activePage={route.kind} draft={draft} hasContent={portfolio !== null}>
     {page}
   </SiteLayout>;

@@ -1,34 +1,12 @@
 import type { Portfolio } from '../../../domain/career/types';
-import { getOrderedPhases, getPhaseContent } from '../../../domain/career/queries';
-import { LinkList } from '../../../components/ui/LinkList';
+import { getOrderedPhases } from '../../../domain/career/queries';
+import { ChapterEntry } from './ChapterEntry';
 
-export function CareerTimeline({ portfolio }: { portfolio: Portfolio }) {
-  return (
-    <ol className="career-timeline">
-      {getOrderedPhases(portfolio).map((phase) => {
-        const content = getPhaseContent(portfolio, phase.id);
-        return <li key={phase.id}>
-          <section id={`phase-${phase.id}`}>
-            <p className="eyebrow">{phase.location} · {phase.period}</p>
-            <h3>{phase.title}{portfolio.currentPhaseId === phase.id && <span className="status-label">Current</span>}</h3>
-            <p>{phase.description}</p>
-            {content?.experiences.map((experience) => <article className="experience" key={experience.id}>
-              <h4>{experience.role} · {experience.organization}</h4>
-              <p className="muted">{experience.period}</p>
-              <ul>{experience.responsibilities.map((text, index) => <li key={index}>{text}</li>)}</ul>
-            </article>)}
-            {content && content.achievements.length > 0 && <ul>
-              {content.achievements.map((achievement) => <li key={achievement.id}>
-                <strong>{achievement.title}</strong> — {achievement.description}
-                <LinkList links={achievement.links} label={`Evidence for ${achievement.title}`} />
-              </li>)}
-            </ul>}
-            {content && content.skills.length > 0 && <p className="muted">
-              Skills: {content.skills.map((skill) => skill.name).join(', ')}
-            </p>}
-          </section>
-        </li>;
-      })}
-    </ol>
-  );
+export function CareerTimeline({ portfolio, newestFirst = false }: { portfolio: Portfolio; newestFirst?: boolean }) {
+  // Reverse display order only: overlapping periods and world portal order are untouched.
+  const phases = getOrderedPhases(portfolio);
+  const ordered = newestFirst ? [...phases].reverse() : phases;
+  return <ol className="career-timeline">
+    {ordered.map((phase) => <ChapterEntry key={phase.id} phase={phase} portfolio={portfolio} />)}
+  </ol>;
 }

@@ -101,7 +101,7 @@ test('movement normalizes diagonals, caps long frames and ignores invalid deltas
 test('movement respects bounds and collisions while permitting sliding', () => {
   const chapter = {
     ...buildWorld(createPortfolioFixture()).chapters[0],
-    landmarks: [{ projectId: 'obstacle', position: { x: 0, z: 0 }, size: 2, height: 2, color: '#fff' }],
+    landmarks: [{ projectId: 'obstacle', title: 'Test obstacle', position: { x: 0, z: 0 }, size: 2, height: 2, color: '#fff' }],
   };
   const position = { x: -1.5, z: 0 };
   const next = stepPosition(position, new Set(['d', 's']), .05, chapter);

@@ -5,6 +5,8 @@
   --color-background: #10252a;
   --color-atmosphere: #24464a;
   --color-accent: #dfbb75;
+  --color-surface: #152f34;
+  --color-border: #365356;
 
   --font-body: "Segoe UI", system-ui, sans-serif;
   --font-display: Georgia, serif;
@@ -22,7 +24,7 @@
   --space-3xl: 80px;
   --space-4xl: 96px;
 
-  --radius-panel: 6px;
+  --radius-panel: 12px;
   --reading-max-width: 1120px;
   --content-max-width: 1440px;
   --page-gutter: clamp(var(--space-md), 5vw, var(--space-3xl));

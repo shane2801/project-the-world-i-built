@@ -60,3 +60,9 @@ Q-011 through Q-016 are resolved by DEC-008. They include tensions and terminolo
 ## Q-017 — Conflicting banking-platform scope
 
 **Open.** SRC-11 P007 says 39 banking entities; P013 says 23. They might represent different scopes, but no distinction is supplied. Neither count is rendered. Ask the owner to clarify before adding a figure. No external research can settle what scope the résumé intended.
+
+## Q-018 ? Current interface and asset verification
+
+**Open, 2026-10-20.** DEC-023 is a saved development checkpoint. The owner requested no tests during documentation/commit. Previous targeted TypeScript passes do not establish current browser, regression, build or release quality. Existing test/browser assertions may describe the older chapter resume or SRC-11 identity and need reconciliation against the current accepted interface before a full run.
+
+Pending: manual desktop/phone and keyboard/reduced-motion review, eye/mandala/poster opacity and hover combinations, floating controls, multilingual rendering and chat simulation clarity; then authorize the deferred lint/build/test/browser checks. Resolve any proximity-hint regression in the unfinished world. Review publication suitability/rights, large runtime PNGs, the oversized poster, draft project previews and archived poster metadata. No deployment is approved.

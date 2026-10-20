@@ -34,3 +34,20 @@
 @media (forced-colors: active) {
   .explore-canvas, .explore-chapters li, .explore-project-list li, .explore-project-panel, .explore-error { border-color: CanvasText; }
 }
+
+.explore-controls { padding: var(--space-md); border: 1px solid var(--color-border); border-radius: var(--radius-panel); background: var(--color-surface); }
+.explore-controls h2 { margin-top: 0; }
+.explore-controls > p { font-size: var(--text-meta); }
+.explore-chapters { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr)); gap: var(--space-xs); margin-block: var(--space-md); }
+.explore-chapters li { display: flex; flex-direction: column; align-items: stretch; gap: var(--space-xs); border: 1px solid var(--color-border); border-radius: var(--radius-panel); padding: var(--space-xs); background: #10252a66; font-size: var(--text-meta); }
+.explore-chapters a { color: var(--color-text); text-decoration: none; }
+.explore-chapters button { margin-top: auto; font-size: var(--text-meta); }
+.content-page button { border-color: var(--color-border); background: #24464a88; }
+.content-page button[aria-pressed='true'] { background: #dfbb7522; color: var(--color-accent); }
+.explore-canvas { position: relative; height: clamp(400px, 52vw, 640px); border-color: var(--color-border); background: #0b1c27; }
+.world-hud { position: absolute; z-index: 1; inset: var(--space-sm) var(--space-sm) auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-xs); pointer-events: none; font-size: var(--text-meta); color: #f1eee4; }
+.world-hud span { padding: 6px 12px; border: 1px solid #365356; border-radius: 999px; background: #10252ae8; }
+.world-interaction { position: absolute; z-index: 1; bottom: var(--space-sm); left: 50%; transform: translateX(-50%); width: max-content; max-width: calc(100% - 40px); margin: 0; padding: 8px 16px; border: 1px solid var(--color-border); border-radius: var(--radius-panel); background: #10252af0; color: var(--color-text); font-size: var(--text-meta); text-align: center; pointer-events: none; }
+.world-interaction kbd { display: inline-block; padding: 0 7px; margin-right: 6px; border: 1px solid var(--color-accent); border-radius: 4px; color: var(--color-accent); font: inherit; }
+.explore-chapter { padding: var(--space-lg); border-left: 2px solid var(--color-accent); background: linear-gradient(100deg, var(--color-surface), transparent); }
+@media print { .explore-stage, .explore-controls { display: none; } }

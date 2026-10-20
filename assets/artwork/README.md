@@ -25,3 +25,24 @@ Preserve originals and prompts; create versioned siblings for replacements. Revi
 
 - observatory-v1.png: d96cad0935b04413358941e1f91dc58f55d4705be7a287a3ae659a7c74ef9f25
 - planet-v1.png: ed090cb4ae10060aa03cbd0e2de1deaa4576f7dad3281dbf7749dcef7f354330
+
+DEC-022 disconnects the home page: ASSET-001 and its original/derivatives stay preserved, but are no longer displayed on a public route. The Observatory illustration remains active. No image bytes changed.
+
+## Resume interface artwork
+
+DEC-023 records authorization for the local decorative UI assets under public/images. These are a development checkpoint, not final publication/licensing or transfer-budget approval. No new asset service/dependency is used.
+
+| Group | Runtime location | Provenance / status |
+|---|---|---|
+| Owner portrait and pixel variants | public/images/profile | Owner's Downloads/shanelogo.jpg; generated pixel/dissolve and bald-smile variants; [pixel prompt](profile-pixel-portrait.prompt.txt), [coarse variant](profile-pixel-portrait-v2.prompt.txt), [bald/smile prompt](profile-bald-smile.prompt.txt) |
+| Institutional badges | public/images/badges | Accenture and Birmingham marks; RCC original supplied as Downloads/rcclogo.jpg with owner-directed modernized artwork; decorative identification, not external links |
+| Project previews | public/images/project-previews | Provisional invented interface illustrations for later replacement; not screenshots or verified delivered UI |
+| Skill icons | public/images/skills | Local Devicon and custom concept marks; [sources](skill-icons.sources.txt), license retained with icons |
+| Interest background | public/images/backgrounds | Arsenal, Emirates, Red Bull monochrome tile; [source files and provenance](background-logo-sources/); earlier draft tiles preserved |
+| Banner mascots | public/images/mascots | Sid/Diego artwork generated from owner-provided Downloads/sid.jpg and diego.jpg; [prompt](sid-diego-tag.prompt.txt). Earlier unused cowboy/explorer asset retained |
+| Posters | public/images/movie-posters | 100 downloaded third-party film posters; [sources](movie-posters.sources.txt); per-film URLs and archived rank metadata in src/content/movie-posters.json. Ranked snapshot 2022-11-03, not verified current IMDb chart |
+| Tattoo ornament and eye variants | public/images/mandala | Built-in imagegen; [eye prompts](mandala-eye.prompts.json), [ornament prompt](mandala-pattern.prompt.txt), [purple-master prompt](mandala-purple.prompt.txt). Colored master is displayed grayscale; no purple hover remains |
+
+All runtime assets are served locally. Third-party logos/posters/character references are not owned by the project; saved source URLs and generated transformations do not establish publication rights. Original source documents and user download files are unchanged. Multiple large PNGs and an oversized poster remain optimization/review work (Q-018); earlier JPEG safeguards do not describe these new files.
+
+Keep prompts and source records with replacements; preserve versions until the owner selects final assets. Review real project media, institutional artwork, poster snapshot freshness, transfer sizes, hover/focus/reduced-motion and narrow-screen presentation before release. Tests were not run for the 2026-10-20 checkpoint at the owner's request.

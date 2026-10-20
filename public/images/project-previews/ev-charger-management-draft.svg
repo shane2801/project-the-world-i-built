@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="240" viewBox="0 0 480 240" fill="none">
+ <title>Charging overview - illustrative draft, not a product screenshot</title>
+ <rect width="480" height="240" rx="12" fill="#edf1ef"/>
+ <rect x="28" y="18" width="424" height="204" rx="9" fill="#fff" stroke="#dce4df"/>
+ <path d="M28 44H452" stroke="#e4eae6"/>
+ <circle cx="42" cy="31" r="3" fill="#d6ddd8"/><circle cx="53" cy="31" r="3" fill="#d6ddd8"/><circle cx="64" cy="31" r="3" fill="#d6ddd8"/>
+ <text x="86" y="34" fill="#66776e" font-family="Arial,sans-serif" font-size="9">Charging overview</text>
+ <rect x="29" y="45" width="62" height="176" fill="#f6f8f6"/>
+ <rect x="39" y="61" width="41" height="7" rx="3" fill="#507f67" opacity=".65"/>
+ <g fill="#dce5df"><rect x="39" y="82" width="33" height="5" rx="2"/><rect x="39" y="100" width="39" height="5" rx="2"/><rect x="39" y="118" width="27" height="5" rx="2"/></g>
+
+ <rect x="105" y="59" width="205" height="146" rx="6" fill="#eff5ef"/>
+ <path d="M108 97L307 148M135 61L213 203M105 171L305 81M270 61L233 203" stroke="#d3e2d4" stroke-width="10"/>
+ <g fill="#507f67" stroke="#fff" stroke-width="3"><circle cx="174" cy="108" r="8"/><circle cx="254" cy="161" r="8"/><circle cx="273" cy="98" r="8"/></g>
+ <rect x="323" y="59" width="114" height="146" rx="6" fill="#f8faf7" stroke="#e3eae3"/>
+ <text x="334" y="79" fill="#41664e" font-family="Arial,sans-serif" font-size="9">Nearby chargers</text>
+ <g fill="#d7e3d9"><rect x="334" y="94" width="90" height="23" rx="4"/><rect x="334" y="124" width="90" height="23" rx="4"/><rect x="334" y="154" width="90" height="23" rx="4"/></g>
+ </svg>

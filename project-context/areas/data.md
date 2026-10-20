@@ -87,6 +87,23 @@ The unchanged supplied source is [docs/KAVISH MUTHOORA.docx](../../docs/KAVISH%2
 | java-multiplayer-game | P110–P111 | Java/game modes confirmed; Birmingham chapter provisional |
 | consultancy-delivery | P043 | 10+ platforms retained as an owner-supplied claim |
 
-The five chapter IDs/order are approved design structure, not dates supplied by the résumé. Mauritius early-career details are pending. Phase themes, character IDs, project importance and presentation kinds are authored layout choices, not verified career facts.
+The five chapter IDs/order are approved design structure, not dates supplied by the résumé. Secondary-school details were later supplied in owner messages; see the overrides below. Other missing early-career facts remain pending. Phase themes, character IDs, project importance and presentation kinds are authored layout choices, not verified career facts.
 
 The 39 versus 23 banking-entity contradiction is tracked in Q-017; neither count is rendered. France/EV and Birmingham/game mappings remain explicitly provisional. Missing architecture, contribution, impact, evidence links and media stay labeled pending rather than extrapolated. The broad permission covers supplied text, not absent screenshots or diagrams. Q-001 tracks the remaining content work.
+
+## Owner-message content overrides
+
+DEC-023 records explicit owner-provided updates from the resumed session (2026-10-19), taking precedence over SRC-11 for these fields. The DOCX and design sources remain unchanged; messages are the evidence, not external verification.
+
+| Stable field/ID | Current value or scope | Provenance |
+|---|---|---|
+| name; headline; introduction | Shane Muthoora; Accenture/FinTech/AI/consulting identity; owner-supplied biography | Message beginning "concerning info that is missing for the resume Shane Muthoora" |
+| first-class-degree | Birmingham BSc Computer Science, Oct 2018-Jul 2022, First Class Honours/GPA 4.0, dissertation and coursework | Same owner education message |
+| mauritius.period; royal-college-education | Royal College Curepipe, Jan 2011-Jan 2018; A/O-levels, grades and activities | Same owner education message; replaces previously missing secondary-school details |
+| contacts.email | kavish.muthoora@accenture.com | Owner message specifying email/contact links |
+| contacts.whatsapp | UK 07943258425 normalized to +44 7943 258425 / wa.me/447943258425 | Same explicit owner message; replaces prior displayed Mauritius phone |
+| contacts.github | github.com/shane2801 | Same explicit owner message |
+| shane.codes | Intended future domain retained in content; omitted from identity contact strip | Owner later requested removing its tag; deployment is deferred |
+| WorkedAcross | UK, UAE, Mauritius | Explicit owner request for the subtle worked-across flag line |
+
+The visible name animation uses first name Shane and localized display transliterations, not legal-name changes. The current Accenture experience role/title remains as authored from SRC-11; headline prose is not used to silently change that experience record. LinkedIn remains the supplied profile. Project preview illustrations, chat examples, greeting text and decorative artwork are UI material, not career evidence. Provisional project associations and Q-017's 39/23 contradiction remain unresolved.

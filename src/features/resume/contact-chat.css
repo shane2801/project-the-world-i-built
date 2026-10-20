@@ -1,0 +1,105 @@
+/* Scoped contact prototype: no messaging service or delivery is connected. */
+.cv-chat { margin-top: 4px; overflow: hidden; border: 1px solid #dce6df; border-radius: 14px; background: #fff; box-shadow: 0 4px 18px #20383008; }
+.cv-chat-header { display: flex; align-items: center; gap: 13px; padding: 18px 22px; background: #edf5f0; border-bottom: 1px solid #dce6df; }
+.cv-chat-header > img { display: block; flex-shrink: 0; object-fit: cover; object-position: center 34%; border-radius: 50%; }
+.interactive-resume-page .cv-chat-header h3 { margin: 0; color: #264e3e; font: 600 .95rem var(--font-body); }
+.cv-chat-header p { margin: 3px 0 0; color: #617c6e; font-size: .72rem; }
+.cv-chat-preview-badge { margin-left: auto; flex-shrink: 0; padding: 4px 9px; border: 1px solid #cfdfd5; border-radius: 999px; color: #557463; font-size: .62rem; }
+.cv-chat-history { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; height: 330px; overflow-y: auto; overscroll-behavior: contain; padding: 20px 24px; background-color: #f7f7f1; background-image: radial-gradient(#9cac9e24 .7px, transparent .7px); background-size: 15px 15px; scrollbar-width: thin; }
+.cv-chat-divider { align-self: center; margin: 0 0 2px; color: #7a847c; font-size: .63rem; text-align: center; }
+.cv-chat-divider > span { display: inline-block; padding: 4px 10px; border: 1px solid #e4e8df; border-radius: 999px; background: #ffffffe6; }
+.cv-chat-message { max-width: min(80%, 520px); padding: 10px 13px 7px; border: 1px solid #e4e8df; border-radius: 11px; background: #fff; box-shadow: 0 1px 2px #20383005; }
+.cv-chat-message--incoming { border-top-left-radius: 3px; }
+.cv-chat-message--outgoing { align-self: flex-end; border-color: #dbe7d9; border-top-right-radius: 3px; background: #e8f1e3; }
+.cv-chat-sender { display: block; color: #607567; font-size: .61rem; font-weight: 500; }
+.cv-chat-message > p { margin: 4px 0; color: #34493b; font-size: .82rem; line-height: 1.65; white-space: pre-wrap; overflow-wrap: anywhere; }
+.cv-chat-message-meta { display: flex; align-items: center; justify-content: flex-end; gap: 6px; color: #7b877d; font-size: .57rem; }
+.cv-chat-receipt { display: inline-flex; align-items: center; color: #86968a; }
+.cv-chat-receipt.is-read { color: #398da6; }
+.cv-chat-composer { padding: 16px 20px 10px; border-top: 1px solid #e4e8df; }
+.cv-chat-composer > label { display: block; margin-bottom: 8px; color: #556c5d; font-size: .73rem; font-weight: 500; }
+.cv-chat-input-row { display: flex; align-items: flex-end; gap: 10px; }
+.cv-chat-input-row > textarea { display: block; flex: 1; min-width: 0; min-height: 66px; max-height: 180px; resize: vertical; padding: 11px 13px; border: 1px solid #dce4dc; border-radius: 9px; background: #fafcf9; color: #34493b; font: .82rem/1.6 var(--font-body); }
+.cv-chat-input-row > textarea::placeholder { color: #89948c; }
+.interactive-resume-page .cv-chat-input-row > button { display: grid; place-items: center; flex: 0 0 44px; min-width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%; background: #386e55; color: #fff; box-shadow: none; }
+.interactive-resume-page .cv-chat-input-row > button:disabled { background: #e8ede7; color: #a2afa4; cursor: default; }
+.interactive-resume-page .cv-chat-input-row > button:not(:disabled):hover { background: #28583f; }
+.cv-chat-composer-meta { display: flex; justify-content: space-between; gap: 10px; margin-top: 7px; color: #88948b; font-size: .59rem; }
+.cv-chat-note { margin: 0; padding: 2px 20px 14px; color: #758279; font-size: .62rem; }
+.cv-contact > .cv-direct-contact-label { margin: 20px 0 10px; font-size: .75rem; }
+@media (max-width: 600px) {
+  .cv-chat-header { padding: 14px; flex-wrap: wrap; gap: 10px; }
+  .cv-chat-preview-badge { margin-left: 62px; margin-top: -6px; }
+  .cv-chat-history { height: 310px; padding: 16px 12px; }
+  .cv-chat-message { max-width: 90%; }
+  .cv-chat-composer { padding-inline: 12px; }
+  .cv-chat-note { padding-inline: 12px; }
+}
+@media (forced-colors: active) {
+  .cv-chat, .cv-chat-header, .cv-chat-history, .cv-chat-message, .cv-chat-input-row > textarea { background: Canvas; color: CanvasText; border-color: CanvasText; }
+  .cv-chat-message > p, .cv-chat-header h3, .cv-chat-sender { color: CanvasText; }
+  .cv-chat-receipt.is-read { color: LinkText; }
+  .interactive-resume-page .cv-chat-input-row > button { border: 1px solid ButtonText; background: ButtonFace; color: ButtonText; }
+}
+@media print { .cv-chat { display: none; } }
+
+/* Non-modal chat stays available while the visitor continues reading the resume. */
+.cv-floating-contact { position: fixed; right: max(22px, env(safe-area-inset-right)); bottom: max(22px, env(safe-area-inset-bottom)); z-index: 30; }
+.interactive-resume-page .cv-chat-launcher {
+  position: relative; display: grid; place-items: center; width: 66px; height: 66px; padding: 6px;
+  border: 1px solid #b9d0c1; border-radius: 50%; background: #edf5ee;
+  color: #386e55; box-shadow: 0 5px 24px #244f3924;
+}
+.cv-chat-launcher > img { display: block; object-fit: cover; object-position: center 34%; border-radius: 50%; }
+.cv-launcher-symbol { position: absolute; right: -2px; bottom: -1px; }
+.cv-chat-launcher-label { position: absolute; right: calc(100% + 12px); padding: 7px 12px; border: 1px solid #dce6df; border-radius: 999px; background: #fff; color: #42634f; white-space: nowrap; font-size: .73rem; font-weight: 500; box-shadow: 0 2px 10px #20383006; }
+.interactive-resume-page .cv-chat-launcher:hover { border-color: #61866d; background: #e4f0e6; }
+.cv-floating-panel { position: absolute; right: 0; bottom: calc(100% + 14px); width: min(400px, calc(100vw - 36px)); max-height: calc(100dvh - 124px); overflow-y: auto; border: 1px solid #d6e1d8; border-radius: 16px; background: #fff; box-shadow: 0 16px 60px #18382529; }
+.cv-floating-panel[hidden] { display: none; }
+.cv-floating-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 4px 12px 4px 18px; border-bottom: 1px solid #e5ece6; background: #fff; }
+.interactive-resume-page .cv-floating-toolbar h2 { margin: 0; color: #526c5a; font: 500 .73rem var(--font-body); }
+.interactive-resume-page .cv-floating-toolbar > button { display: grid; place-items: center; min-width: 36px; min-height: 36px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: #607c68; box-shadow: none; }
+.interactive-resume-page .cv-floating-toolbar > button:hover { background: #eff4ef; }
+.cv-floating-panel .cv-chat { margin: 0; border: 0; border-radius: 0; box-shadow: none; }
+.cv-floating-panel .cv-chat-header { flex-wrap: wrap; padding: 12px 16px; gap: 9px; }
+.cv-floating-panel .cv-chat-header > img { width: 44px; height: 44px; }
+.cv-floating-panel .cv-chat-header > div { min-width: 0; flex: 1; }
+.cv-floating-panel .cv-chat-header p { font-size: .65rem; }
+.cv-floating-panel .cv-chat-preview-badge { margin: -3px 0 0 53px; }
+.cv-floating-panel .cv-chat-history { height: min(280px, 34dvh); padding: 16px 12px; }
+.cv-floating-panel .cv-chat-message { max-width: 90%; }
+.cv-floating-panel .cv-chat-composer { padding: 12px 14px 8px; }
+.cv-floating-panel .cv-chat-input-row > textarea { min-height: 58px; font-size: 16px; }
+.cv-floating-panel .cv-chat-note { padding-inline: 14px; }
+.interactive-resume-page .cv-open-chat { min-height: 40px; padding: 8px 13px; margin-bottom: 12px; border: 1px solid #d3e2d6; border-radius: 7px; background: #edf5ee; color: #38674c; font-size: .8rem; box-shadow: none; }
+@media (max-width: 600px) {
+  .cv-floating-contact { right: max(16px, env(safe-area-inset-right)); bottom: max(16px, env(safe-area-inset-bottom)); }
+  .interactive-resume-page .cv-chat-launcher { width: 60px; height: 60px; }
+  .cv-chat-launcher-label { display: none; }
+}
+@media (forced-colors: active) {
+  .cv-floating-panel, .cv-chat-launcher-label, .cv-floating-toolbar { background: Canvas; color: CanvasText; border-color: CanvasText; }
+  .interactive-resume-page .cv-chat-launcher, .interactive-resume-page .cv-open-chat { background: ButtonFace; color: ButtonText; border-color: ButtonText; }
+}
+@media print { .cv-floating-contact, .cv-open-chat { display: none; } }
+
+.cv-chat-direct { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 16px; padding: 10px 14px 14px; border-top: 1px solid #edf0eb; }
+.cv-chat-direct > a { color: #597665; font-size: .68rem; text-decoration-color: #c9d8cd; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.cv-chat-direct > a:hover { color: #28583f; }
+
+
+/* Blur only the posters immediately behind the launcher, keeping its face sharp. */
+@media (min-width: 1101px) {
+  .interactive-resume-page .cv-chat-launcher::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    z-index: -1;
+    border-radius: 50%;
+    pointer-events: none;
+    background: #ffffff45;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    mask-image: radial-gradient(circle, #000 48%, transparent 72%);
+  }
+}

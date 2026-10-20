@@ -59,7 +59,7 @@ flowchart TD
     subgraph Foundation["Implemented foundation and organization / DEC-009 and DEC-010"]
         APP["src/app/App.tsx / composition"] --> CLIENT["src/main.tsx / browser hydration"]
         APP --> LAYOUT["components/layout/SiteLayout.tsx"]
-        APP --> HOME["features/home/pages/HomePage.tsx"]
+        HOME["features/home/pages/HomePage.tsx / preserved, disconnected"]
         HOME --> ILLUSTRATION["features/home/components/PlanetIllustration.tsx"]
         TOKENS["styles/tokens.css"] --> GLOBAL["styles/global.css"]
         GLOBAL --> CLIENT
@@ -99,7 +99,7 @@ flowchart TD
         APP --> RESUME["features/resume / page and timeline"]
         APP --> PROJECTS["features/projects / catalogue and details"]
         APP --> STATUS["app/StatusPage / exploration status and not found"]
-        LAYOUT --> NOTICE["Draft notice and ordinary-link navigation"]
+        LAYOUT --> NOTICE["Ordinary-link navigation / draft metadata retained"]
         ROUTES --> ROUTETEST["Node route and content-loader tests"]
         BUILDENTRY --> SSRTEST["Node static-page and component-render tests"]
         FIXTURES -->|test-only injection| SSRTEST
@@ -175,3 +175,40 @@ flowchart TD
 
     EXP_STATE --> RECOVERY["state/loading.ts / bounded renderer import and readiness recovery"]
     RECOVERY -->|cancel preserves current chapter| EXP_STATE
+
+    subgraph PRODUCT_VISUALS["Active development / DEC-021; delivery deferred"]
+        INDEX --> VISUAL_DOC["areas/visual-design.md"]
+        VISUAL_DOC --> ATLAS["Preserved home/CareerAtlas and SelectedWork / disconnected"]
+        EXP_PRESETS --> ATLAS
+        ATLAS -->|reuses| PROJECTS
+        EXP_WORLD --> INTERACTION["world/interaction.ts / nearest project or portal with authored title"]
+        INTERACTION --> PROBE["scene/InteractionProbe / DOM hint updates"]
+        INTERACTION -->|E intent| EXP_SCENE
+        PROBE --> EXP_SCENE
+        EXP_SCENE --> TERRAIN["ChapterTerrain, ChapterEnvironment, ProjectLandmark / authored procedural assets"]
+        VISUAL_DOC --> TERRAIN
+    end
+
+    subgraph RESUME_FIRST["Interactive resume / DEC-022 and DEC-023"]
+        ROUTES -->|root and resume alias| RESUME
+        RESUME --> DISCLOSURES["ResumePage / Experience, Projects, Skills, Education disclosures"]
+        DISCLOSURES --> MARKERS["ProjectMarkers / hover-focus preview and direct star links"]
+        MARKERS --> PROJECTS
+        RESUME --> FRAGMENT["useResumeFragment / reveal chapter and contact anchors"]
+        VISUAL_DOC --> DISCLOSURES
+    end
+
+
+    RESUME --> RESUME_SETTINGS["MotionOptions / page-local preferences"]
+    RESUME_SETTINGS --> GREETINGS["TypewriterName and content/greetings.ts"]
+    RESUME_SETTINGS --> QUOTES["QuoteBanner and content/quotes.json"]
+    RESUME_SETTINGS --> SKILL_ROWS["ResumeSkills / filters and motion"]
+    RESUME_SETTINGS --> SIDE_ART["MoviePosterRail and MandalaRail / scrolling gutters and eye"]
+    POSTER_DATA["content/movie-posters.json / archived ranked snapshot"] --> SIDE_ART
+    RESUME --> CHAT["FloatingContactChat / local simulation and manual contact links"]
+    RESUME --> PORTRAIT["ProfilePortrait / click-cycling generated variants"]
+    ART_MANIFEST --> SIDE_ART
+    ART_MANIFEST --> PORTRAIT
+    AUTHORED -->|owner-message overrides under DEC-023| RESUME
+    VISUAL_DOC --> RESUME_SETTINGS
+    VISUAL_DOC --> CHAT

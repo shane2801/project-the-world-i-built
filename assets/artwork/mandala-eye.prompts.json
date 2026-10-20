@@ -1,0 +1,13 @@
+{
+  "tool": "Built-in image_gen",
+  "prompts": {
+    "brown": "Use case: illustration. Create a high-quality finished tattoo flash illustration for a minimalist white resume website's narrow LEFT side gutter. Tall portrait canvas, approximately 1:3 proportions. One intricately detailed realistic human eye centered EXACTLY at 50% width and 50% height, horizontal almond eye, warm BROWN amber iris with extraordinarily intricate radial fibers, crypts, limbal ring, black pupil and tiny realistic white catchlights. Surround it above and below with a vertically elongated symmetrical fine-line black ink mandala, ornamental lotus petals, geometric lace, elegant stippling and delicate filigree. Thin charcoal lines, generous negative space, refined modern tattoo aesthetic, not a heavy dark slab. The eye is the focal point and fills about 80% of canvas width. Entire ornament fully inside canvas with small margins. White background, no skin, no face, no eyebrow, no text, no border, no UI mockup. Crisp engraving detail, elegant and quietly striking.",
+    "green": "Edit target: the supplied tall mandala tattoo image. Preserve the entire black ink mandala linework, white background, framing, exact dimensions and eye position, eyelids, pupil, shading and catchlights. Change ONLY iris color and intricate iris fibers, keeping the eye seamlessly integrated into the tattoo. No text or new objects. Change brown iris into natural sage and emerald GREEN with fine golden flecks and delicate branching crypts.",
+    "blue": "Edit target: the supplied tall mandala tattoo image. Preserve the entire black ink mandala linework, white background, framing, exact dimensions and eye position, eyelids, pupil, shading and catchlights. Change ONLY iris color and intricate iris fibers, keeping the eye seamlessly integrated into the tattoo. No text or new objects. Change brown iris into natural steel and sapphire BLUE with intricate silver radial fibers and darker blue outer ring."
+  },
+  "sources": {
+    "brown": "C:\\Users\\kavish.muthoora\\.codex\\generated_images\\01a14a29-7b46-7ab0-b23b-33620bbf782f\\exec-f608a63c-1ada-490e-b899-245b0837b728.png",
+    "green": "C:\\Users\\kavish.muthoora\\.codex\\generated_images\\01a14a29-7b46-7ab0-b23b-33620bbf782f\\exec-627d785d-3bc2-45a7-8c92-865e3ec661a2.png",
+    "blue": "C:\\Users\\kavish.muthoora\\.codex\\generated_images\\01a14a29-7b46-7ab0-b23b-33620bbf782f\\exec-b8d765ef-1524-43d9-9f24-3e70b354dfe6.png"
+  }
+}

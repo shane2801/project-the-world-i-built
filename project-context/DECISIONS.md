@@ -156,6 +156,30 @@ Advance through the remaining Phase 6 recovery/quality work before delivery prep
 
 This accepts the recovery milestone, not a claim that unresolved final-art, hardware, content or accessibility evidence has been supplied. Keep these limitations visible in the delivery handoff. Preserve application behavior, dependencies and original sources; no hosting vendor, remote, push, deployment or automatic Phase 7 commit is authorized. Verify and stop for manual review.
 
+## DEC-021 - Continue product development; defer delivery
+
+**Accepted, 2026-10-17.** The user clarified that the project remains in development and should not be delivered, then requested continued world-building, better UI/world interaction and a less generic static portfolio. This supersedes DEC-020's authorization to begin delivery preparation. The reviewed recovery commit remains accepted.
+
+Defer Phase 7 and continue incremental product development under the existing architecture. The next increment improves static visual identity, chapter presentation and world interaction using existing content, artwork and authored procedural geometry. No new package, backend, hosting, remote or deployment is authorized. Do not represent imagery as 3D models or procedural character work as an approved likeness/rig. Keep unfinished art, content and benchmark questions open; verify and stop for manual review.
+
+## DEC-022 - Resume-first entry and concise disclosure timeline
+
+**Accepted, 2026-10-18.** The user requested a simpler site: the home URL should show the resume; preserve but disconnect the designed home page. The resume begins with left-aligned name, title and description, uses collapsible sections/chapters, starts newest-first, keeps independent consulting initially hidden because it is ongoing, and exposes chapter project stars with hover details and direct project links.
+
+Root / and /resume/ now share ResumePage. Preserve features/home without imports from application composition, a route or navigation. Reverse authored order only for the resume; do not parse period labels or change chronological world/Observatory ordering. Default the current non-consulting chapter and career section open; consulting and supplementary sections start closed. Present consulting as an ongoing parallel activity alongside its authored position, without inventing dates or restructuring source data.
+
+Use native details/summary for no-JavaScript and keyboard interaction. Project stars are ordinary links outside chapter summaries, with hover/focus previews and Escape dismissal; they do not toggle chapters. Reveal enclosing disclosures for existing chapter/contact URL fragments. Keep the original source documents and all unfinished 3D work. No dependency, deployment or automatic commit is authorized; verify and stop for manual review.
+
 ## Change rule
 
 Never silently replace a decision. Add rationale/provenance and a replacement ID when superseding one; update affected requirements, architecture, questions and graph together. Conversation provenance above is summarized because no chat transcript file exists in this repository.
+
+## DEC-023 ? Interactive resume and exploratory artwork checkpoint
+
+**Accepted direction, 2026-10-20.** Explicit owner requests throughout the resumed UI session refine DEC-022: use a minimal resume rather than chapters, professional identity tags and supplied updated biography/education/contact details, compact project previews, a floating section dock, simulated chat, configurable motion, multilingual greetings, personal decorative artwork and independently controlled side gutters. Preserve the disconnected home and unfinished procedural world; no application dependency or deployment is added.
+
+[Visual design](areas/visual-design.md#resume-first-static-interface) owns final component/interaction contracts; [data](areas/data.md#owner-message-content-overrides) owns owner-message overrides to SRC-11; [artwork provenance](../assets/artwork/README.md#resume-interface-artwork) owns references, generated prompts and provisional media. Earlier chapter UI descriptions are historical and superseded for the resume, not for world chronology.
+
+Rationale: keep career information immediately accessible while allowing optional personal interactions, without coupling information access to 3D or adding a backend. Chat sending is deferred; quote configuration and poster metadata are local JSON. Side artwork and eye default to zero opacity with hover reveal; the mandala hover remains grayscale.
+
+The owner authorized updating docs and committing the accumulated work, explicitly requesting **no tests** for this checkpoint. This is permission to save development progress, not full manual, automated, accessibility, performance or release sign-off. Previous targeted TypeScript checks passed during UI iteration; no fresh check suite is run for this commit. Q-018 tracks remaining UI/asset verification. DEC-021 delivery deferral remains in force.

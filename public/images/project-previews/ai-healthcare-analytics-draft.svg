@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="240" viewBox="0 0 480 240" fill="none">
+ <title>Patient feedback insights - illustrative draft, not a product screenshot</title>
+ <rect width="480" height="240" rx="12" fill="#edf1ef"/>
+ <rect x="28" y="18" width="424" height="204" rx="9" fill="#fff" stroke="#dce4df"/>
+ <path d="M28 44H452" stroke="#e4eae6"/>
+ <circle cx="42" cy="31" r="3" fill="#d6ddd8"/><circle cx="53" cy="31" r="3" fill="#d6ddd8"/><circle cx="64" cy="31" r="3" fill="#d6ddd8"/>
+ <text x="86" y="34" fill="#66776e" font-family="Arial,sans-serif" font-size="9">Patient feedback insights</text>
+ <rect x="29" y="45" width="62" height="176" fill="#f6f8f6"/>
+ <rect x="39" y="61" width="41" height="7" rx="3" fill="#547f92" opacity=".65"/>
+ <g fill="#dce5df"><rect x="39" y="82" width="33" height="5" rx="2"/><rect x="39" y="100" width="39" height="5" rx="2"/><rect x="39" y="118" width="27" height="5" rx="2"/></g>
+
+ <rect x="105" y="59" width="205" height="87" rx="5" fill="#f0f5f7"/>
+ <path d="M119 128H296M119 107H296M119 86H296" stroke="#e0e9ed"/>
+ <path d="M120 127L145 111L170 117L195 91L220 99L246 79L270 86L295 70" stroke="#668fa2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+ <rect x="323" y="59" width="114" height="146" rx="5" fill="#f7f9fa"/>
+ <text x="334" y="78" fill="#526e7d" font-family="Arial,sans-serif" font-size="9">Feedback themes</text>
+ <g fill="#b4cbd5"><rect x="334" y="92" width="87" height="9" rx="3"/><rect x="334" y="115" width="67" height="9" rx="3"/><rect x="334" y="138" width="77" height="9" rx="3"/><rect x="334" y="161" width="51" height="9" rx="3"/></g>
+ <rect x="105" y="158" width="205" height="47" rx="5" stroke="#e1e9ec"/>
+ <g fill="#d8e3e8"><rect x="117" y="170" width="174" height="5" rx="2"/><rect x="117" y="183" width="142" height="5" rx="2"/></g>
+ </svg>

@@ -1,0 +1,5 @@
+Tool: built-in image_gen
+Source: C:\Users\kavish.muthoora\.codex\generated_images\01a14a29-7b46-7ab0-b23b-33620bbf782f\exec-a24314b2-8ef3-4926-ac61-a77ca0fa95b4.png
+Input: public/images/mandala/ornamental-pattern.png
+
+Use case: precise-object-edit. Edit the supplied mandala tattoo pattern image. Preserve its exact layout, dimensions, every lotus petal, geometric rosette, fine ink line, stippling, white negative space, and seamless vertical composition. Change only the ink color: replace black/gray ink with rich elegant violet-purple ink, varying from deep plum fine outlines to soft lavender stippled shading. Paper and all originally white areas must remain pure WHITE, never purple or tinted. No eyes, no text, no new objects. This is a colored master artwork to be displayed grayscale by CSS and locally revealed in color on hover.

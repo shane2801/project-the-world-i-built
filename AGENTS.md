@@ -9,7 +9,7 @@ Start at [project-context/INDEX.md](project-context/INDEX.md). Load only context
 - Compare source inventory/fingerprints with the index. Review drift before refreshing fingerprints; avoid rereading unchanged unrelated sources.
 - Use focused feature modules and explicit typed boundaries; keep bootstrap/composition small. Reuse existing code; justify dependencies and abstractions.
 - Comment non-obvious intent, invariants and trade-offs for humans; avoid narrating obvious code.
-- Run relevant checks, including `npm run check`; report only executed results and verification limits.
+- Run checks appropriate to the approved review step; respect explicit requests to defer tests. Report only executed results and verification limits.
 - Update affected context, decisions and graph when approved architecture/interfaces/dependencies change.
 - Implement one approved step at a time; leave a coherent testable state and wait for manual review.
-- Authorization: commit approved recovery; prepare Phase 7 documentation/delivery (DEC-020). Preserve release blockers. Stop for manual review; no remote or deployment.
+- Authorization: interactive resume (DEC-023); preserve disconnected home and unfinished world work. Delivery deferred; no new dependencies. Verify and stop for manual review; no deployment.

@@ -1,10 +1,19 @@
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
-  gap: var(--space-md);
-}
-.project-card { padding: var(--space-md); border: 1px solid var(--color-atmosphere); border-radius: var(--radius-panel); }
-.project-card :is(h2, h3) { margin-top: var(--space-xs); }
+.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: var(--space-md); }
+.project-card { --project-accent: #dfbb75; overflow: hidden; border: 1px solid var(--color-border); border-radius: var(--radius-panel); background: var(--color-surface); }
+.project-kind-ai { --project-accent: #69dfd0; }
+.project-kind-client { --project-accent: #acb0ef; }
+.project-kind-open-source { --project-accent: #91cfa3; }
+.project-card-content { padding: var(--space-md); }
+.project-card :is(h2, h3) { margin: var(--space-xs) 0; font-family: var(--font-display); font-size: 1.8rem; line-height: 1.25; font-weight: 400; letter-spacing: -.025em; }
+.project-card :is(h2, h3) a { color: var(--color-text); text-decoration: none; }
+.project-card :is(h2, h3) a:hover { color: var(--project-accent); }
+.project-card-content > p:not(.eyebrow) { color: var(--color-text-muted); line-height: 1.8; }
+.project-emblem { position: relative; display: grid; place-items: center; height: 160px; overflow: hidden; border-bottom: 1px solid var(--color-border); background: radial-gradient(ellipse at 50% 90%, #45636966, transparent 75%); }
+.project-emblem span { position: absolute; width: 70px; height: 70px; border: 1px solid var(--project-accent); border-radius: 12px; transform: rotate(-25deg) skew(12deg); background: #19333b; box-shadow: 15px 20px 0 #071c2444; }
+.project-emblem span:nth-child(2) { transform: translate(30px, -20px) rotate(-25deg) skew(12deg); opacity: .55; }
+.project-emblem span:nth-child(3) { transform: translate(-30px, 20px) rotate(-25deg) skew(12deg); opacity: .35; }
 figure { margin: var(--space-lg) 0; }
 figure img, figure video { display: block; max-width: 100%; height: auto; }
 figcaption { margin-top: var(--space-xs); color: var(--color-text-muted); }
+@media (forced-colors: active) { .project-emblem { display: none; } .project-card { border-color: CanvasText; } }
+@media print { .project-emblem { display: none; } .project-card { background: none; } .project-card :is(h2, h3) a { color: inherit; } }

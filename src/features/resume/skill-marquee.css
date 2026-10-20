@@ -1,0 +1,14 @@
+.cv-skill-marquee { margin-top: 8px; }
+.cv-skill-marquee-viewport { display: grid; gap: 10px; overflow: hidden; padding-block: 3px; mask-image: linear-gradient(90deg, transparent, #000 24px, #000 calc(100% - 24px), transparent); }
+.cv-skill-marquee-viewport:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+.cv-skill-marquee-row { overflow: hidden; min-width: 0; }
+.cv-skill-marquee-track { display: flex; width: max-content; animation: cv-skill-travel var(--skill-loop-duration, 48s) linear infinite; }
+.cv-skill-marquee .cv-skill-marquee-group { display: flex; flex-wrap: nowrap; flex: 0 0 auto; width: max-content; gap: 10px; margin: 0; padding: 0 10px 0 0; }
+.cv-skill-marquee-group li { white-space: nowrap; }
+@keyframes cv-skill-travel { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce), print {
+  .cv-skill-marquee-track { animation: none; width: auto; }
+  .cv-skill-marquee .cv-skill-marquee-group { flex-wrap: wrap; width: auto; }
+  .cv-skill-marquee-group[aria-hidden="true"], .cv-skill-marquee-group li[data-repeat] { display: none; }
+  .cv-skill-marquee-viewport { mask-image: none; overflow: visible; }
+}

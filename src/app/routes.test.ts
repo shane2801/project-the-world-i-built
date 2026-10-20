@@ -38,3 +38,9 @@ test('unsafe static directory names are rejected before writing pages', () => {
   }
   assert.equal(projectPath('project_1-a'), '/projects/project_1-a/');
 });
+
+test('root opens the resume and no legacy home route is exposed', () => {
+  assert.equal(resolveRoute('/', null).kind, 'resume');
+  assert.equal(resolveRoute('/resume/', null).kind, 'resume');
+  assert.equal(resolveRoute('/home/', null).kind, 'not-found');
+});

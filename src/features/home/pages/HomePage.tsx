@@ -1,25 +1,32 @@
 import type { Portfolio } from '../../../domain/career/types';
 import { PlanetIllustration } from '../components/PlanetIllustration';
+import { CareerAtlas } from '../components/CareerAtlas';
+import { SelectedWork } from '../components/SelectedWork';
 import '../home.css';
 
-// SiteLayout supplies the main landmark; this page owns only the home content.
+// Page composition stays independent of the optional renderer.
 export function HomePage({ portfolio }: { portfolio: Portfolio | null }) {
-  return (
-    <>
+  return <>
+    <section className="home-hero" aria-labelledby="home-title">
       <div className="introduction-copy">
-        <p className="eyebrow">Ideas become places</p>
-        <h1>Every chapter leaves something behind.</h1>
+        <p className="eyebrow"><span className="status-dot" aria-hidden="true" /> A career, mapped as a world</p>
+        <h1 id="home-title">Every chapter leaves something behind.</h1>
         <p className="introduction-description">
-          {portfolio ? `${portfolio.name} · ${portfolio.headline}` :
+          {portfolio ? <><strong>{portfolio.name}</strong><br />{portfolio.headline}</> :
             'A world of ideas, projects, and the work that connects them.'}
         </p>
         <div className="home-actions">
-          <a className="primary-link" href="/resume/">Read the résumé</a>
-          <a href="/projects/">Browse projects →</a>
+          <a className="primary-link" href="/explore/">Explore my world <span aria-hidden="true">↗</span></a>
+          <a className="quiet-link" href="/resume/">Read the résumé <span aria-hidden="true">→</span></a>
         </div>
-        <div className="chapter-line" aria-hidden="true"><span /> <span /> <span /> <span /> <span /></div>
+        <p className="home-footnote">Take the scenic route. Or go straight to the work.</p>
       </div>
-      <PlanetIllustration />
-    </>
-  );
+      <div className="home-world">
+        <PlanetIllustration />
+        <p className="world-caption"><span aria-hidden="true">01 / ∞</span> A world still being built</p>
+      </div>
+    </section>
+    {portfolio && <CareerAtlas portfolio={portfolio} />}
+    {portfolio && <SelectedWork portfolio={portfolio} />}
+  </>;
 }

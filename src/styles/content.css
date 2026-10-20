@@ -51,3 +51,18 @@ a:hover { text-decoration-thickness: 2px; }
   a, .muted, .eyebrow, .status-label, .tag-list, .page-heading > p:not(.eyebrow) { color: inherit; }
   .career-timeline, .project-card, .tag-list li { border-color: currentColor; }
 }
+
+/* Shared editorial rhythm carries the atlas identity into reading pages. */
+.page-heading { padding-block: var(--space-sm) var(--space-lg); border-bottom: 1px solid var(--color-border); }
+.page-heading::before { content: ''; display: block; width: 56px; height: 2px; margin-bottom: var(--space-lg); background: var(--color-accent); }
+.page-heading > p:not(.eyebrow) { max-width: 64ch; }
+.primary-link { color: var(--color-background); background: var(--color-accent); text-decoration: none; font-weight: 600; box-shadow: 0 6px 24px #0002; }
+.primary-link:hover { background: #efd49b; }
+.quiet-link { color: var(--color-text); text-decoration: none; border-bottom: 1px solid var(--color-border); padding-bottom: 4px; }
+.quiet-link:hover { color: var(--color-accent); border-color: var(--color-accent); }
+.tag-list { gap: 8px; font-size: var(--text-meta); }
+.tag-list li { border-radius: 999px; border-color: var(--color-border); background: #24464a33; }
+#contact { padding: var(--space-lg); border: 1px solid var(--color-border); border-radius: var(--radius-panel); background: var(--color-surface); }
+#contact h2 { margin-top: 0; }
+@media (forced-colors: active) { .primary-link { background: ButtonFace; color: ButtonText; } #contact { border-color: CanvasText; } }
+@media print { #contact, .tag-list li { background: none; } .primary-link { color: inherit; background: none; } .page-heading::before { display: none; } }

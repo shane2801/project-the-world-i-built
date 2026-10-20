@@ -1,0 +1,11 @@
+Retrieved 2026-10-19. Brand artwork retained as source SVGs.
+
+arsenal: https://raw.githubusercontent.com/JoseArroyave/football-logos/main/logos/england/Arsenal.svg
+emirates: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/emirates.svg
+redbull: https://raw.githubusercontent.com/simple-icons/simple-icons/develop/icons/redbull.svg
+
+Generated tile: public/images/backgrounds/interests-brand-tile.svg
+20px logo boxes, 48px grid, 144px tile. Original spacing, rotation and spotlight retained.
+Monochrome stencil conversion uses an SVG luminance-to-alpha filter. No runtime external requests.
+Arsenal SVG source credits football-logos.cc; distributed by JoseArroyave/football-logos.
+Emirates and Red Bull supplied by Simple Icons; accompanying CC0 license retained.

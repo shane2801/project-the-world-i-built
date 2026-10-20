@@ -1,12 +1,12 @@
 # Workflows
 
-DEC-008 accepts the visitor interaction direction below. Detailed controller mechanics remain implementation guidance for later phases; none of the exploration workflows are implemented in Phase 1.
+DEC-008 accepts the visitor interaction direction below. Current controller and visual implementation contracts are owned by [exploration](exploration.md) and [visual design](visual-design.md); richer cinematic direction remains future work.
 
 ## Entry and information access
 
 Sources: [SRC-10, Opening Experience/Resume Mode](../../docs/theworldibuild-10.txt); [SRC-08, Resume Mode/Accessibility Rule](../../docs/theworldibuild-08.txt).
 
-1. Serve readable identity and immediate Resume, Projects and Contact controls.
+1. Enter through the interactive resume under DEC-023; provide readable identity, section navigation and direct contacts. Current interface contracts belong in visual-design.md.
 2. Offer exploration and load 3D separately from core information.
 3. Run the space-to-current-chapter opening only with an immediately available skip option.
 4. Honor reduced motion; information-only viewing never depends on cinematics.
@@ -52,7 +52,7 @@ Accepted under DEC-009/DEC-010.
 6. Run relevant lint/type/build/tests; distinguish executed results from manual/browser checks still needed.
 7. Update context/graph for material approved changes, leave a usable state, and stop for manual review before the next phase.
 
-Current step: Phase 2 is committed (cec5ae0). DEC-014 approves Phase 3 draft pages/empty states; DEC-015 supplies owner-authorized résumé facts and direct contacts. Q-001/Q-017 track remaining detail. Phase 4 is committed as 606cdb3 under DEC-017. Implement only Phase 5, verify and stop for manual review; no automatic Phase 5 commit or Phase 6.
+Current work and verification are recorded only in [the index handoff](../INDEX.md#current-handoff---resume-first-interface). DEC-021 defers delivery; continue product development and stop for manual review.
 
 ## Content maintenance
 
@@ -76,3 +76,8 @@ This is the context-system operating procedure authorized by DEC-006.
 7. Check relative links, source references, ID definitions and source inventory coverage. Check Mermaid syntax with an already available parser/renderer; if unavailable, perform a static structure/edge review and disclose that rendering was not verified. Confirm graph components and decision statuses agree with the architecture. Never copy complete source documents into summaries.
 
 If drift cannot be checked, disclose that limitation rather than claiming freshness. Split growing topics only when repeated task loading warrants it; link moved material instead of retaining duplicate prose.
+
+
+## Current review and checkpoint procedure
+
+For the DEC-023 UI iteration, the owner prefers focused edits followed by personal visual review. Run full automated checks only when requested/authorized for that verification step; do not claim historical passes as current. At the 2026-10-20 commit, tests are explicitly skipped. Record outcomes and remaining limits in INDEX.md/Q-018. Preserve draft metadata and delivery deferral. After approval, reconcile stale expectations, run the agreed checks, and update context only for material changes.

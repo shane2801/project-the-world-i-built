@@ -2,7 +2,7 @@
 
 ## Status and boundaries
 
-**Approved design; Phase 1 foundation is complete. The DEC-010 organization step and Phase 1 milestone are approved by the user; Phase 2 core data/domain is complete under DEC-012 and approved by the user. DEC-013 authorizes its local commit (cec5ae0) and Phase 3. DEC-014 approves draft pages/empty states. DEC-015 authorizes the supplied résumé content, with gaps/provisional mappings labeled. DEC-016 delivered Phase 4; DEC-017 approves its commit (606cdb3) and the Phase 5 complete journey.** Source-backed requirements are owned by [SUMMARY.md](SUMMARY.md). Accepted user choices are in [DECISIONS.md](DECISIONS.md). DEC-007/DEC-008 are accepted. Data-contract details and production inputs not covered by those decisions remain open; see OPEN_QUESTIONS.md.
+**Active product development under DEC-021; delivery is deferred.** Foundation, domain, information pages, all five procedural chapters, Observatory, decorative artwork and recovery are implemented. Recovery is committed as bc56d6d. DEC-022 makes the resume the entry page and preserves the disconnected home; the world stays in development. [visual design](areas/visual-design.md) owns its boundaries. Final likeness/GLB, cinematic/art depth and hardware/assistive-technology evidence remain incomplete. Requirements are owned by [summary](SUMMARY.md), accepted choices by [decisions](DECISIONS.md), and missing inputs by [open questions](OPEN_QUESTIONS.md).
 
 At discovery the repository had only ten original design documents. Phase 1 adds the React/Vite shell, build-time HTML rendering, configuration, smoke checks and setup instructions. See [README.md](../README.md) for commands and [DEC-009](DECISIONS.md#dec-009--incremental-implementation-and-review-gate) for authorization. A local Git repository is initialized under DEC-011; no remote, push or deployment is authorized.
 
@@ -153,8 +153,8 @@ Node 24 executes erasable TypeScript tests directly. tsconfig allows explicit .t
 
 Accepted under DEC-014/DEC-015; the user subsequently authorized advancing to Phase 4 (DEC-016). The information pages remain the independent baseline for the Phase 4 prototype.
 
-- App resolves the pathname and composes home, resume, catalogue/details or status pages. Shared layout supplies primary navigation, contact link, skip target and draft notice. Components retain feature ownership.
-- content/portfolio.ts contains owner-authorized SRC-11 content. loadPortfolio still supports null/empty states and rejects malformed/unapproved data. No synthetic career content is shipped; contentIsDraft keeps draft notices and crawler metadata independent of the human content-approval marker.
+- App resolves the pathname and composes home, resume, catalogue/details or status pages. Shared layout supplies primary navigation, contact link and skip target; DEC-023 later removes the visible draft notice while retaining draft metadata. Components retain feature ownership.
+- content/portfolio.ts contains owner-authorized SRC-11 content. loadPortfolio still supports null/empty states and rejects malformed/unapproved data. No synthetic career content is shipped; contentIsDraft keeps crawler metadata independent of the human content-approval marker; visible draft notices are subsequently removed under DEC-023.
 - Browser and build share routes; links use full page navigation, so URL/history state needs no client router or data-fetching library. Path matching accepts an optional trailing slash. projects/paths.ts rejects IDs unsafe for static directory output.
 - Build generates home, resume, catalogue, exploration-status and 404 HTML. The four supplied projects generate their own directories. Draft pages request noindex,nofollow, including pages with owner-approved facts. Configure the eventual host to serve directory index files and use 404.html for missing paths; hosting is still Q-005.
 - Resume composes ordered chapters, roles, achievements, skills and contact links. Project catalogue cards link to details containing the approved information fields and media. With no content these pages present clear empty states; the supplied résumé currently generates four project pages. Unknown projects never become fictional entities.
@@ -200,3 +200,19 @@ This is the first Phase 6 review step, not final quality sign-off. Interactive s
 ## Phase 6 recovery quality step
 
 DEC-019 accepts the decorative artwork, committed as 46475a2, and advances quality work. The existing import/controller boundaries now bound stalled graphics and expose travel cancellation. [Exploration](areas/exploration.md#phase-6-stalled-loading-recovery) owns timing, visibility, cancellation and retry semantics. No dependency, application architecture or career data changes. Delivery preparation follows this review step; final art/likeness, hardware measurements and deployment approvals remain open.
+
+## Resumed UI and world development
+
+DEC-021 supersedes the attempted delivery preparation. The paused home composition is completed with a data-driven atlas and shared project cards; shared CSS carries its identity into information pages. Authored procedural terrain/scenery and project landmarks consume existing chapter descriptors. Landmark descriptors additionally carry project titles for pure nearest-target selection, the DOM hint and E-key inspection. Module contracts and validation belong in [visual design](areas/visual-design.md). No new dependency, backend or deployment is added. Stop for manual review; the full production-art target remains unfinished.
+
+## Resume-first entry and timeline
+
+DEC-022 makes / and /resume/ aliases for ResumePage, preserving existing direct links. The original HomePage/atlas/illustration files remain disconnected from routes and application imports. The resume reverses authored chapter order for display, uses native disclosures, keeps consulting initially collapsed with an ongoing parallel-work label, and exposes project-star previews/links independently of chapter toggles. [Visual design](areas/visual-design.md#resume-first-static-interface) owns the component and fragment-reveal contracts. Chronological world/Observatory order, data and dependencies are unchanged. Delivery remains deferred.
+
+## Interactive resume checkpoint
+
+DEC-023 refines DEC-022 without changing the React/Vite/TypeScript, static-route or lazy-3D boundaries. ResumePage composes focused feature modules and owns local preference state. Quotes and archived poster metadata are local JSON (TypeScript resolveJsonModule enabled); all interface images/icons are local files. No API client, router/state library, new dependency, contact delivery integration or persistent settings store is introduced.
+
+[Visual design](areas/visual-design.md#resume-first-static-interface) owns component responsibilities, animation/preferences, fixed controls, document-scrolling gutters and eye/hover semantics. [Data](areas/data.md#owner-message-content-overrides) records explicit owner corrections; [artwork](../assets/artwork/README.md#resume-interface-artwork) records provisional/generated/third-party assets.
+
+The accumulated checkpoint also preserves the procedural terrain, project landmarks, character presentation and shared proximity inspection documented above. These remain unfinished development work. No tests, production build, lint or browser suite are rerun for the 2026-10-20 documentation/commit request; do not infer passing current behavior from historical phase results. Delivery remains deferred under DEC-021.

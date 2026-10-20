@@ -52,3 +52,15 @@
   .masthead { padding-block: var(--space-md); }
   .site-navigation { gap: var(--space-xs) var(--space-sm); }
 }
+
+.wordmark { display: inline-flex; align-items: center; gap: 0; }
+.wordmark::before { content: ''; width: 22px; height: 22px; margin-right: 12px; border: 1px solid var(--color-accent); border-radius: 50%; box-shadow: inset 5px -3px 0 #dfbb7544; }
+.masthead { padding-block: var(--space-lg); }
+.site-navigation { align-items: center; gap: var(--space-md); }
+.site-navigation a { text-decoration: none; font-size: .9rem; }
+.site-navigation a:hover { color: var(--color-text); }
+.site-navigation a[aria-current] { border-bottom: 1px solid var(--color-accent); padding-bottom: 5px; }
+.site-navigation a[href='/explore/'] { display: inline-block; border: 1px solid var(--color-border); border-radius: 999px; padding: 8px 18px; color: var(--color-accent); }
+.draft-notice { border-bottom: 0; border-top-color: var(--color-border); font-size: .72rem; }
+.site-footer { border-color: var(--color-border); font-size: var(--text-meta); }
+@media (max-width: 700px) { .site-navigation { gap: var(--space-xs); } .site-navigation a { font-size: .8rem; } .site-navigation a[href='/explore/'] { padding: 6px 12px; } }

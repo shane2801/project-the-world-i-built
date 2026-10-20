@@ -1,0 +1,46 @@
+/* Anchor to the full document, including its header and footer, rather than the viewport. */
+body:has(.interactive-resume-page) { position: relative; }
+/* Fill only the existing right gutter, with crisp, unfaded poster tiles. */
+.cv-movie-rail {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: max(0px, calc(var(--cv-page-gutter) - 20px));
+  overflow: hidden;
+  pointer-events: auto;
+  background: #fff;
+}
+.cv-movie-tiles {
+  display: grid;
+  /* Fixed poster dimensions; the gutter clips the outermost column when narrower. */
+  width: 160px;
+  margin-left: auto;
+  grid-template-columns: repeat(2, 80px);
+  grid-auto-rows: 120px;
+  gap: 0;
+}
+.cv-movie-tiles img {
+  display: block;
+  width: 80px;
+  height: 120px;
+  object-fit: cover;
+  filter: grayscale(1);
+  opacity: var(--poster-opacity, 0);
+  transition: opacity 180ms ease, filter 180ms ease;
+}
+@media (max-width: 1100px) {
+  .cv-movie-rail { display: none; }
+}
+@media print {
+  .cv-movie-rail { display: none; }
+}
+
+
+/* Reveal only the tile under the pointer; the rest remain quiet background decoration. */
+@media (hover: hover) {
+  .cv-movie-tiles img:hover { opacity: 1; filter: grayscale(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cv-movie-tiles img { transition: none; }
+}

@@ -2,14 +2,14 @@ import type { Portfolio } from '../domain/career/types.ts';
 import { getProjectById } from '../domain/career/queries.ts';
 
 export type Route =
-  | { readonly kind: 'home' | 'resume' | 'projects' | 'explore' | 'observatory' | 'not-found' }
+  | { readonly kind: 'resume' | 'projects' | 'explore' | 'observatory' | 'not-found' }
   | { readonly kind: 'project'; readonly projectId: string };
 
 import { projectPath } from '../features/projects/paths.ts';
 
 export function resolveRoute(pathname: string, portfolio: Portfolio | null): Route {
   const path = pathname.endsWith('/') ? pathname : `${pathname}/`;
-  if (path === '/') return { kind: 'home' };
+  if (path === '/') return { kind: 'resume' };
   if (path === '/resume/') return { kind: 'resume' };
   if (path === '/projects/') return { kind: 'projects' };
   if (path === '/observatory/') return { kind: 'observatory' };
@@ -29,7 +29,6 @@ export function getStaticPaths(portfolio: Portfolio | null): readonly string[] {
 
 export function routeTitle(route: Route, portfolio: Portfolio | null): string {
   switch (route.kind) {
-    case 'home': return 'The World I Built';
     case 'resume': return 'Résumé | The World I Built';
     case 'projects': return 'Projects | The World I Built';
     case 'observatory': return 'Observatory | The World I Built';

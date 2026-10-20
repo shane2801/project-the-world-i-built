@@ -1,11 +1,12 @@
 # Context index
 
-Load only the task-relevant destinations below. All ten design texts and the supplied résumé were reviewed on 2026-10-17; verify fingerprints before trusting freshness. Phase 5 is committed as 2fb2705; approved artwork as 46475a2. DEC-019 advances Phase 6 recovery/quality. Authority and content permissions remain DEC-001/DEC-015.
+Load only the task-relevant destinations below. All ten design texts and the supplied résumé were reviewed on 2026-10-17; verify fingerprints before trusting freshness. Recovery is committed as bc56d6d. DEC-022 makes the resume the root page; DEC-021 keeps delivery deferred. Authority and content permissions remain DEC-001/DEC-015.
 
 | Task | Load |
 |---|---|
 | Run, test and manually review the application | [Setup instructions](../README.md) |
 | Understand goals and requirements | [Summary](SUMMARY.md) |
+| Static visual identity and world interaction | [Visual design](areas/visual-design.md) |
 | Module ownership and growth | [Feature organization](ARCHITECTURE.md#feature-organization-and-growth) |
 | Components, stack, delivery stages | [Architecture](ARCHITECTURE.md) |
 | Concepts and region identities | [Domain](areas/domain.md) |
@@ -60,12 +61,10 @@ Baseline reconciliation: during creation, SRC-01 gained a leading CRLF outside t
 
 SRC-11 is an unchanged copy of the user-selected C:/Users/kavish.muthoora/Downloads/stuff/KAVISH MUTHOORA.docx, preserved under docs/ with SHA-256 E1346E0DCD050409B91B7A551B7E7593ED941C533E006E0B7DBCAA5B2B81735D. It adds one DOCX to the original ten design texts; it does not replace or modify them. Check its fingerprint alongside the ten text fingerprints above. DEC-015 records use permission; paragraph locators and field provenance belong in [data](areas/data.md#src-11-resume-provenance-and-remaining-detail). Original external source and repository copy have identical bytes.
 
-## Current handoff - Phase 6 recovery review
+## Current handoff - Interactive resume development checkpoint
 
-Artwork is accepted and committed as 46475a2 under DEC-019; Phase 5 is 2fb2705. The next Phase 6 quality step bounds renderer import and destination readiness, and adds explicit travel cancellation. [Exploration recovery](areas/exploration.md#phase-6-stalled-loading-recovery) owns the behavior. Changes remain uncommitted for manual review.
+DEC-023 refines the resume-first interface under DEC-022. [Visual design](areas/visual-design.md#resume-first-static-interface) owns current interactions, local preferences, artwork and hover behaviour. [Owner-message content overrides](areas/data.md#owner-message-content-overrides) records updated identity/education/contact evidence; SRC-11 is preserved. [Artwork](../assets/artwork/README.md#resume-interface-artwork) inventories generated, supplied and third-party assets.
 
-Verification, 2026-10-17: npm run check passed lint, strict TypeScript, client/SSR builds and 71 tests (33 domain, four routes, 20 exploration/recovery, four HTTP/assets, four portfolio, six explorer/Observatory build). Ten static pages generated. Installed-Chrome software-WebGL checks passed the existing artwork, all-chapter, history, focus, reduced-motion, phone and failure scenarios, plus actual stalled-request cancellation, late completion, 20-second timeout fallback and retry. Final lint was rerun after browser/reducer test edits.
+2026-10-20: documentation and accumulated implementation are being committed at the owner's request, with **no tests run** for this checkpoint. Earlier targeted TypeScript checks passed during UI edits. Full tests, build, lint, browser/accessibility review and asset optimization remain pending (Q-018); historical phase results are not current sign-off. Inspect uncommitted changes before any continuation. The latest commit is a development checkpoint, not a delivery milestone. DEC-021 still defers delivery; the disconnected home and unfinished world are preserved.
 
-No dependencies, source documents, artwork or career facts changed in this quality step. Real GPU/network performance, exhaustive assistive-technology QA and likeness/GLB remain Q-003/Q-007. Known content gaps remain Q-001/Q-017. The existing lazy renderer remains about 244 kB gzip with a Vite uncompressed-chunk warning.
-
-Source/hash, context link/ID, import-cycle and static Mermaid audits are recorded at this checkpoint. Official Mermaid rendering remains unperformed. Run npm run dev and use the [recovery review](../README.md#phase-6-recovery-review). Delivery documentation follows this manual review; no deployment is authorized.
+Source inventory and all eleven fingerprints were rechecked unchanged on 2026-10-20; no original source or lockfile edits. Q-001/Q-003/Q-007/Q-017/Q-018 remain open.

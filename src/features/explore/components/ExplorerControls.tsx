@@ -13,7 +13,7 @@ export function ExplorerControls(props: Props) {
   const { state, world } = props;
   const busy = isTravelling(state);
   const active = world.chapters.find((chapter) => chapter.phaseId === state.activeId);
-  return <section aria-labelledby="world-controls-title">
+  return <section className="explore-controls" aria-labelledby="world-controls-title">
     <h2 id="world-controls-title">World controls</h2>
     <p>Choose any chapter directly, follow its chronological portals, or visit the Observatory.</p>
     <div className="explore-actions">
@@ -42,7 +42,7 @@ export function ExplorerControls(props: Props) {
     {props.enabled && state.view === 'overview' && !busy &&
       <button type="button" onClick={() => props.onTravel(state.activeId)}>Skip introduction — enter current chapter</button>}
     <p id="movement-instructions">Focus a chapter scene to walk with WASD or arrows. Click a landmark to inspect it.
-      Approach a ring and press E for its previous/next chapter. Chapter buttons allow direct travel. Tab leaves the scene.
+      Approach a project or ring and press E to inspect or travel. Chapter buttons allow direct travel. Tab leaves the scene.
       In the Observatory, click a room marker to focus its information below.</p>
     <p role="status" aria-live="polite" aria-atomic="true">
       {state.status === 'loading' ? 'Loading destination. Your current view remains below.' :

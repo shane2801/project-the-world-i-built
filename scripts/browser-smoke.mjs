@@ -35,6 +35,11 @@ async function retry(operation, label, timeout = 20000) {
   throw new Error('Timed out: ' + label);
 }
 function command(method, params = {}) {
+  // Match physical letter-key events, including Chrome's native key codes.
+  if (method === 'Input.dispatchKeyEvent' && /^Key[A-Z]$/.test(params.code ?? '')) {
+    const keyCode = params.code.charCodeAt(3);
+    params = { ...params, windowsVirtualKeyCode: keyCode, nativeVirtualKeyCode: keyCode };
+  }
   const id = ++nextId;
   return new Promise((done, fail) => {
     const timer = setTimeout(() => { pending.delete(id); fail(new Error('CDP timeout: ' + method)); }, 20000);
@@ -83,27 +88,58 @@ try {
   await command('Network.setCacheDisabled', { cacheDisabled: true });
   await command('Emulation.setDeviceMetricsOverride', { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
   await command('Page.navigate', { url: origin + '/' });
-  await waitFor("document.querySelector('.planet-artwork')?.naturalWidth > 0", 'generated home artwork');
-  assert.ok(await evaluate("document.querySelector('.planet-artwork').alt === '' && document.querySelector('.planet-artwork').closest('[aria-hidden=true]') && document.documentElement.scrollWidth <= innerWidth"));
-  if (process.env.ASSET_SCREENSHOT_BASE) {
-    const shot = await command('Page.captureScreenshot', { format: 'png' });
-    await writeFile(process.env.ASSET_SCREENSHOT_BASE + '-home.png', Buffer.from(shot.data, 'base64'));
-  }
-  await command('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
-  await command('Page.navigate', { url: origin + '/observatory/' });
-  await waitFor("document.querySelector('.observatory-artwork')?.naturalWidth > 0", 'generated Observatory artwork');
-  assert.ok(await evaluate("document.querySelector('.observatory-artwork').alt === '' && document.querySelectorAll('.observatory-hub > section').length === 4 && document.documentElement.scrollWidth <= innerWidth"));
-  if (process.env.ASSET_SCREENSHOT_BASE) {
-    const shot = await command('Page.captureScreenshot', { format: 'png' });
-    await writeFile(process.env.ASSET_SCREENSHOT_BASE + '-observatory.png', Buffer.from(shot.data, 'base64'));
-  }
-  await command('Network.setBlockedURLs', { urls: ['*assets/artwork/*'] });
+  await waitFor("document.querySelector('h1')?.textContent === 'Kavish Muthoora' && document.readyState === 'complete'", 'resume root');
+  assert.ok(await evaluate("Math.abs(document.querySelector('.resume-intro').getBoundingClientRect().left - (document.querySelector('.masthead').getBoundingClientRect().left + parseFloat(getComputedStyle(document.querySelector('.masthead')).paddingLeft))) < 2"), 'Resume aligns to the header left edge');
+  assert.ok(await evaluate("!document.querySelector('.home-hero') && !document.querySelector('.planet-artwork') && document.querySelectorAll('.career-timeline > li').length === 5"));
+  assert.deepEqual(await evaluate("[...document.querySelectorAll('.timeline-chapter')].map(el => el.id)"), ['phase-france', 'phase-abu-dhabi', 'phase-freelance', 'phase-birmingham', 'phase-mauritius']);
+  assert.ok(await evaluate("!document.getElementById('phase-freelance').open && document.getElementById('phase-france').open"));
+  assert.ok(await evaluate("(() => { const summary = document.querySelector('#phase-freelance > summary'); summary.focus(); return document.activeElement === summary; })()"), 'Native summary takes keyboard focus');
+  await command('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13, text: '\r', unmodifiedText: '\r' });
+  await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 });
+  await waitFor("document.getElementById('phase-freelance').open", 'consulting keyboard expansion');
+  await evaluate("document.querySelector('#phase-freelance > summary').click()");
+  await evaluate("document.querySelector('.project-marker > a').scrollIntoView({ block: 'center' })");
+  const star = await evaluate("(() => { const r = document.querySelector('.project-marker > a').getBoundingClientRect(); return { x: r.x + r.width / 2, y: r.y + r.height / 2 }; })()");
+  await command('Input.dispatchMouseEvent', { type: 'mouseMoved', ...star });
+  await waitFor("getComputedStyle(document.querySelector('.project-preview')).display === 'block'", 'project hover preview');
+  await command('Input.dispatchMouseEvent', { type: 'mouseMoved', x: 0, y: 0 });
+  await evaluate("document.querySelector('.project-marker > a').focus()");
+  await waitFor("getComputedStyle(document.querySelector('.project-preview')).display === 'block'", 'project focus preview');
+  await command('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape' });
+  await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape' });
+  await waitFor("getComputedStyle(document.querySelector('.project-preview')).display === 'none'", 'preview Escape dismissal');
+  await command('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13, text: '\r', unmodifiedText: '\r' });
+  await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Enter', code: 'Enter', windowsVirtualKeyCode: 13, nativeVirtualKeyCode: 13 });
+  await waitFor("location.pathname === '/projects/ev-charger-management/' && !!document.querySelector('h1')", 'project star detail navigation');
+  await command('Page.navigate', { url: origin + '/resume/#phase-freelance' });
+  await waitFor("document.getElementById('phase-freelance')?.open && document.getElementById('career').open", 'direct hidden-chapter reveal');
+  await command('Page.navigate', { url: origin + '/#contact' });
+  await waitFor("document.getElementById('contact')?.open", 'direct contact reveal');
   await command('Page.navigate', { url: origin + '/' });
-  await waitFor("document.querySelector('.planet-artwork')?.hidden === true", 'image failure reveals CSS planet');
-  assert.ok(await evaluate("getComputedStyle(document.querySelector('.planet')).display !== 'none' && !!document.querySelector('[href=\"/resume/\"]')"));
-  await command('Network.setBlockedURLs', { urls: [] });
+  await waitFor("document.querySelector('h1')?.textContent === 'Kavish Muthoora' && document.readyState === 'complete'", 'resume review screenshot');
+  if (process.env.ASSET_SCREENSHOT_BASE) {
+    const height = await evaluate('document.documentElement.scrollHeight');
+    const shot = await command('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip: { x: 0, y: 0, width: 1280, height, scale: 1 } });
+    await writeFile(process.env.ASSET_SCREENSHOT_BASE + '-resume.png', Buffer.from(shot.data, 'base64'));
+  }
+  assert.ok(!await evaluate("performance.getEntriesByType('resource').some(item => item.name.includes('PrototypeScene-'))"));
+  for (const path of ['/', '/resume/', '/projects/', '/observatory/']) {
+    await command('Emulation.setDeviceMetricsOverride', { width: 390, height: 844, deviceScaleFactor: 1, mobile: true });
+    await command('Page.navigate', { url: origin + path });
+    await waitFor("!!document.querySelector('h1') && document.readyState === 'complete'", 'responsive static page ' + path);
+    assert.ok(await evaluate("document.documentElement.scrollWidth <= innerWidth"), 'No horizontal overflow: ' + path);
+  }
+  await command('Page.navigate', { url: origin + '/' });
+  await waitFor("document.querySelector('.project-marker > a') && document.readyState === 'complete'", 'mobile resume');
+  if (process.env.ASSET_SCREENSHOT_BASE) {
+    const height = await evaluate('document.documentElement.scrollHeight');
+    const shot = await command('Page.captureScreenshot', { format: 'png', captureBeyondViewport: true, clip: { x: 0, y: 0, width: 390, height, scale: 1 } });
+    await writeFile(process.env.ASSET_SCREENSHOT_BASE + '-phone.png', Buffer.from(shot.data, 'base64'));
+  }
+  await evaluate("document.querySelector('.project-marker > a').click()");
+  await waitFor("location.pathname === '/projects/ev-charger-management/'", 'mobile project star');
   await command('Emulation.setDeviceMetricsOverride', { width: 1280, height: 900, deviceScaleFactor: 1, mobile: false });
-  console.log('PASS Chrome: generated artwork loads, decorative semantics, phone layout and blocked-image fallback');
+  console.log('PASS Chrome: resume root, newest-first disclosures, consulting, previews, star links and fragment reveal');
 
   await command('Page.navigate', { url: origin + '/explore/' });
   await waitFor("document.querySelector('h1')?.textContent === 'Explore the world' && ![...document.querySelectorAll('button')].find(b => b.textContent === 'Enable 3D prototype')?.disabled", 'hydrated desktop explorer');
@@ -131,6 +167,24 @@ try {
   await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape' });
   await waitFor("!document.querySelector('.explore-project-panel')", 'Escape closes project');
   assert.equal(await evaluate("document.activeElement?.textContent"), 'Inspect project');
+  await delay(150);
+  await evaluate("document.querySelector('.explore-canvas').focus()");
+  await command('Input.dispatchKeyEvent', { type: 'keyDown', key: 'a', code: 'KeyA' });
+  await command('Input.dispatchKeyEvent', { type: 'keyDown', key: 'w', code: 'KeyW' });
+  try {
+    await waitFor("document.querySelector('.world-interaction')?.textContent.includes('Inspect')", 'nearby project hint');
+  } finally {
+    await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'a', code: 'KeyA' });
+    await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'w', code: 'KeyW' });
+  }
+  await command('Input.dispatchKeyEvent', { type: 'keyDown', key: 'e', code: 'KeyE' });
+  await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'e', code: 'KeyE' });
+  await waitFor("document.activeElement?.id === 'selected-project-title'", 'keyboard proximity inspection');
+  await command('Input.dispatchKeyEvent', { type: 'keyDown', key: 'Escape', code: 'Escape' });
+  await command('Input.dispatchKeyEvent', { type: 'keyUp', key: 'Escape', code: 'Escape' });
+  await waitFor("!document.querySelector('.explore-project-panel')", 'keyboard inspection closes');
+  assert.ok(await evaluate("document.activeElement?.classList.contains('explore-canvas')"));
+  console.log('PASS Chrome: nearby-project prompt, E inspection and scene focus restoration');
   await evaluate("document.querySelector('[data-phase-id=\"abu-dhabi\"]').click()");
   await waitFor("location.search === '?phase=abu-dhabi' && document.querySelector('[role=status]')?.textContent.includes('Current chapter')", 'Abu Dhabi arrival');
   await evaluate("history.back()");
@@ -142,6 +196,18 @@ try {
   for (const phaseId of ['mauritius', 'birmingham', 'freelance', 'abu-dhabi', 'france']) {
     await evaluate("document.querySelector('[data-phase-id=\"" + phaseId + "\"]').click()");
     await waitFor("location.search === '?phase=" + phaseId + "' && document.querySelector('[role=status]').textContent.includes('Current chapter') && !!document.querySelector('canvas')", phaseId + ' scene');
+    await delay(1200);
+    const counters = await evaluate("document.querySelector('.explore-performance').textContent");
+    const sample = counters.match(/(\d+) calls.*?(\d+) triangles.*?(\d+) geometries/);
+    assert.ok(sample, 'Live counters for ' + phaseId);
+    assert.ok(Number(sample[1]) <= 100 && Number(sample[2]) <= 100000 && Number(sample[3]) <= 100, 'Provisional scene-work budget: ' + phaseId);
+    console.log('SCENE ' + phaseId + ': ' + sample[0]);
+    if (process.env.BROWSER_SCREENSHOT) {
+      await evaluate("document.querySelector('.explore-canvas').scrollIntoView({ block: 'center' })");
+      const capture = await command('Page.captureScreenshot', { format: 'png' });
+      await writeFile(process.env.BROWSER_SCREENSHOT.replace(/\.png$/, '-' + phaseId + '.png'), Buffer.from(capture.data, 'base64'));
+    }
+
   }
   await evaluate("document.querySelector('[data-phase-id=\"mauritius\"]').click()");
   await waitFor("location.search === '?phase=mauritius' && document.querySelector('[role=status]').textContent.includes('Current chapter')", 'first chapter');

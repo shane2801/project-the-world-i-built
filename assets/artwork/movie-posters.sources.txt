@@ -1,0 +1,6 @@
+Movie poster collage draft
+Ranked list: https://gist.githubusercontent.com/pjbelo/c5e28dbb7a8fea6713a2fd74f1cd80ae/raw/
+Snapshot: 2022-11-03. Retrieved: 2026-10-19. Not the current live IMDb chart.
+Posters downloaded unchanged; third-party artwork, no ownership or license claimed.
+Source-image links recorded in src/content/movie-posters.json. Some expired archive image links were replaced with matching film posters from IMDb, Cineville and MutualArt.
+All thumbnails are served locally; no runtime third-party requests.

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="144" height="144" viewBox="0 0 144 144" fill="none">
+  <title>Monochrome football, aviation and racing stencil pattern</title>
+  <defs>
+    <g id="football" stroke="#27362f" stroke-width="1.4" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="9"/>
+      <path d="m12 7 5 4-2 6H9l-2-6 5-4Z" fill="#27362f"/>
+      <path d="m12 3 0 4M3.5 9l4 2M6.5 19l2.5-2M17.5 19 15 17M20.5 9 17 11"/>
+    </g>
+    <g id="flight" fill="#27362f">
+      <path d="m21 3-2-1-7 7-7-2-2 2 6 4-4 5-3-1-1 2 5 3 3-5 4-4 4 6 2-2-2-7 4-7Z"/>
+    </g>
+    <g id="racing" stroke="#27362f" stroke-width="1.4" stroke-linejoin="round">
+      <path d="M3 15h18v4H3ZM6 15l3-6h6l4 6M2 8h5M17 8h5M10 9V6h4v3"/>
+      <path d="M2 12h4v8H2ZM18 12h4v8h-4Z" fill="#27362f"/>
+      <path d="M10 12h4v3h-4Z" fill="#27362f"/>
+    </g>
+  </defs>
+  <use href="#football" transform="translate(14 14) scale(.8333)"/>
+  <use href="#flight" transform="translate(62 14) scale(.8333)"/>
+  <use href="#racing" transform="translate(110 14) scale(.8333)"/>
+  <use href="#racing" transform="translate(14 62) scale(.8333)"/>
+  <use href="#football" transform="translate(62 62) scale(.8333)"/>
+  <use href="#flight" transform="translate(110 62) scale(.8333)"/>
+  <use href="#flight" transform="translate(14 110) scale(.8333)"/>
+  <use href="#racing" transform="translate(62 110) scale(.8333)"/>
+  <use href="#football" transform="translate(110 110) scale(.8333)"/>
+</svg>

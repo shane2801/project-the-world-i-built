@@ -54,7 +54,7 @@ Existing Node tests cover deterministic layout, project caps, movement/collision
 
 scripts/browser-smoke.mjs uses an installed Chrome and its DevTools protocol, without browser packages or downloads. It creates an isolated temporary profile, checks UI behavior using software WebGL, then closes the browser/server and removes that profile. CHROME_PATH can select another installed executable. Software rendering is behavior QA, not a performance baseline. See [README](../../README.md) for execution and manual review steps.
 
-All five chapter proxies and the Observatory are now implemented. Hub content/route ownership belongs in [observatory](observatory.md). Still deferred: real GLB/character rig, licensed art, rich memory tunnel/cinematics, final audio and production performance/accessibility sign-off. All five chapters remain required at public launch (DEC-002); Phase 5 is accepted and committed as 2fb2705. Phase 6 generated decorative art is separately recorded in ARCHITECTURE.md; interactive scenes remain unchanged.
+All five chapter proxies and the Observatory are now implemented. Hub content/route ownership belongs in [observatory](observatory.md). Still deferred: real GLB/character rig, licensed art, rich memory tunnel/cinematics, final audio and production performance/accessibility sign-off. All five chapters remain required at public launch (DEC-002); Phase 5 is accepted and committed as 2fb2705. Decorative artwork is recorded in ARCHITECTURE.md. DEC-021 now continues procedural scenery and proximity interaction; [visual design](visual-design.md) owns those contracts.
 
 ## Phase 6 stalled-loading recovery
 

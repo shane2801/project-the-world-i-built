@@ -16,7 +16,7 @@ export function buildWorld(portfolio: Portfolio): World {
       phaseId: phase.id, title: phase.title, ...getPreset(phase.themeId), bounds: 9,
       projectIds: projects.map((project) => project.id),
       landmarks: projects.slice(0, 8).map((project, index) => ({
-        projectId: project.id,
+        projectId: project.id, title: project.title,
         // Reserve the rear strip for chronological portals, including at the cap.
         position: { x: (index % 4 - 1.5) * 4, z: -1 - Math.floor(index / 4) * 3 },
         size: project.importance === 'major' ? 1.8 : project.importance === 'medium' ? 1.3 : .8,

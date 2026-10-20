@@ -1,23 +1,24 @@
 import { loadPortfolio } from './loadPortfolio.ts';
 
+// Name, biography, education and contact details updated from owner messages, 2026-10-19.
 // SRC-11: docs/KAVISH MUTHOORA.docx; paragraph provenance in areas/data.md.
 // Owner authorized use of résumé details. Missing details stay explicitly pending;
 // chapter mappings for the EV project and Java game are provisional.
 // The 39/23 banking-entity discrepancy is deliberately omitted.
 const authoredPortfolio: unknown = {
   "reviewStatus": "approved",
-  "name": "Kavish Muthoora",
-  "headline": "Software Engineer & Technical Architect",
-  "introduction": "Designing and delivering enterprise financial systems, AI applications and cloud-native web platforms across banking, healthcare and commercial sectors. Based in Mauritius; English and French at native/bilingual level.",
+  "name": "Shane Muthoora",
+  "headline": "Software Engineer at Accenture | FinTech & AI | Freelance Software Consultant",
+  "introduction": "I'm a Software Engineer specializing in custom AI solutions and full-stack development, with a strong background in FinTech systems, intelligent automation, and a growing interest in robotics. At Accenture, I contribute to the development of a SEPA payment platform for major European banks, where I help build scalable, secure backend systems using Java and enterprise technologies.\n\nOn the side, I run my own business delivering end-to-end AI and software solutions for clients across sectors. From predictive analytics and natural language processing to full-featured web platforms, I handle both the technical architecture and client delivery — ensuring every solution is tailored, scalable, and aligned with business needs.\n\nMy experience spans designing responsive frontends (React, HTML/CSS/JS), building robust APIs and backends (Java, Spring, Python, Flask/Django), and implementing intelligent systems powered by machine learning. I've led projects involving transformer-based NLP, data visualization, and automation tools, and I'm particularly passionate about bridging AI with real-world applications — including robotics and smart systems.\n\nDriven by curiosity and practical impact, I bring a cross-functional skill set and entrepreneurial mindset to every project. I thrive in dynamic environments where tech meets business, and I'm always exploring new ways AI and software can solve real-world problems.\n\nLet's connect if you're looking to build AI-powered platforms, explore intelligent automation, or collaborate on full-stack and emerging tech projects.",
   "currentPhaseId": "france",
   "contacts": [
     {
-      "label": "Email",
-      "href": "mailto:kxm874@alumni.bham.ac.uk"
+      "label": "kavish.muthoora@accenture.com",
+      "href": "mailto:kavish.muthoora@accenture.com"
     },
     {
-      "label": "+230 5818 9945",
-      "href": "tel:+23058189945"
+      "label": "WhatsApp: +44 7943 258425",
+      "href": "https://wa.me/447943258425"
     },
     {
       "label": "LinkedIn",
@@ -26,6 +27,10 @@ const authoredPortfolio: unknown = {
     {
       "label": "shane.codes",
       "href": "https://shane.codes"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/shane2801"
     }
   ],
   "phases": [
@@ -33,9 +38,9 @@ const authoredPortfolio: unknown = {
       "id": "mauritius",
       "title": "Mauritius — Foundations",
       "location": "Mauritius",
-      "period": "Dates to be confirmed",
+      "period": "January 2011–January 2018",
       "order": 0,
-      "description": "The foundations chapter is reserved for early education and experience. Details have not yet been supplied.",
+      "description": "Secondary education in Science and Mathematics at Royal College Curepipe, Mauritius, completing the School Certificate (O-Levels) and Higher School Certificate (A-Levels).",
       "skillIds": [],
       "themeId": "theme-mauritius",
       "characterStateId": "character-mauritius"
@@ -451,8 +456,8 @@ const authoredPortfolio: unknown = {
     {
       "id": "first-class-degree",
       "phaseId": "birmingham",
-      "title": "BSc Computer Science — First Class Honours",
-      "description": "University of Birmingham, 2022.",
+      "title": "BSc Computer Science",
+      "description": "University of Birmingham · October 2018–July 2022\nFirst Class Honours · GPA: 4.0\n\nDissertation: Investigating and evaluating NHS services through patient feedback using data science and machine learning (NLP).\n\nCoursework: Mathematical Foundations of Computer Science; Java; Data Structures and Algorithms; Logic and Computation; Artificial Intelligence; Advanced Functional Programming; Mathematical Modelling; Security and Networks; Software Engineering; Game Development; Systems Programming in C/C++; Security of Real World Systems; Neural Computation; Robotics; Mobile and Ubiquitous Computing.",
       "links": []
     },
     {
@@ -468,6 +473,13 @@ const authoredPortfolio: unknown = {
       "phaseId": "france",
       "title": "Second place — 2026 Accenture Hackathon",
       "description": "EV charger management, booking and AI integration. Chapter placement is provisional.",
+      "links": []
+    },
+    {
+      "id": "royal-college-education",
+      "phaseId": "mauritius",
+      "title": "A-Levels & O-Levels",
+      "description": "Royal College Curepipe, Mauritius · January 2011–January 2018\nA-Levels and O-Levels · Science and Mathematics\nMathematics: A · Physics: A · Chemistry: B · French: A · English: B\n\nSeven years at a selective state-funded school, completing the School Certificate (O-Levels) and Higher School Certificate (A-Levels).\n\nActivities: Fundraising for children affected by autism through Autisme Maurice; caring for dogs at MSPCA Mauritius and PDSA Rubery; Alliance Française tests with “très bien” / “very good” honours.",
       "links": []
     }
   ]

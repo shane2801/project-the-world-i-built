@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="240" viewBox="0 0 480 240" fill="none">
+ <title>Property workspace - illustrative draft, not a product screenshot</title>
+ <rect width="480" height="240" rx="12" fill="#edf1ef"/>
+ <rect x="28" y="18" width="424" height="204" rx="9" fill="#fff" stroke="#dce4df"/>
+ <path d="M28 44H452" stroke="#e4eae6"/>
+ <circle cx="42" cy="31" r="3" fill="#d6ddd8"/><circle cx="53" cy="31" r="3" fill="#d6ddd8"/><circle cx="64" cy="31" r="3" fill="#d6ddd8"/>
+ <text x="86" y="34" fill="#66776e" font-family="Arial,sans-serif" font-size="9">Property workspace</text>
+ <rect x="29" y="45" width="62" height="176" fill="#f6f8f6"/>
+ <rect x="39" y="61" width="41" height="7" rx="3" fill="#7b6895" opacity=".65"/>
+ <g fill="#dce5df"><rect x="39" y="82" width="33" height="5" rx="2"/><rect x="39" y="100" width="39" height="5" rx="2"/><rect x="39" y="118" width="27" height="5" rx="2"/></g>
+
+ <g fill="#f0edf5"><rect x="105" y="59" width="102" height="40" rx="5"/><rect x="220" y="59" width="102" height="40" rx="5"/><rect x="335" y="59" width="102" height="40" rx="5"/></g>
+ <g fill="#b9accd"><rect x="115" y="70" width="49" height="5" rx="2"/><rect x="230" y="70" width="49" height="5" rx="2"/><rect x="345" y="70" width="49" height="5" rx="2"/></g>
+ <rect x="105" y="112" width="209" height="93" rx="5" stroke="#e4deec"/>
+ <g stroke="#ece8f1"><path d="M105 136H314M105 159H314M105 182H314M174 112V205M244 112V205"/></g>
+ <g fill="#d5c9e3"><rect x="115" y="119" width="48" height="9" rx="3"/><rect x="185" y="143" width="48" height="9" rx="3"/><rect x="255" y="167" width="48" height="9" rx="3"/></g>
+ <rect x="328" y="112" width="109" height="93" rx="5" fill="#f8f6fa"/>
+ <circle cx="382" cy="158" r="27" stroke="#e7dfef" stroke-width="10"/><path d="M382 131A27 27 0 1 1 356 165" stroke="#8e7ba5" stroke-width="10" stroke-linecap="round"/>
+ </svg>

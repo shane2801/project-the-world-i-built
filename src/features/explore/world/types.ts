@@ -4,6 +4,7 @@ export type ExplorationView = 'overview' | 'chapter' | 'observatory';
 export interface Point { readonly x: number; readonly z: number }
 export interface Landmark {
   readonly projectId: string;
+  readonly title: string;
   readonly position: Point;
   readonly size: number;
   readonly height: number;
